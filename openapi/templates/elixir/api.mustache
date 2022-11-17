@@ -72,6 +72,7 @@ defmodule {{moduleName}}.Api.{{classname}} do
 {{#requiresHttpcWorkaround}}
       |> ensure_body()
 {{/requiresHttpcWorkaround}}
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection

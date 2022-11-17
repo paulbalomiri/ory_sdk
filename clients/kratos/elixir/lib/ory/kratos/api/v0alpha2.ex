@@ -36,6 +36,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> url("/admin/identities")
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -75,6 +76,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> url("/admin/recovery/link")
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -108,6 +110,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       %Tesla.Env{}
       |> method(:delete)
       |> url("/admin/identities/#{id}")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -140,6 +143,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       %Tesla.Env{}
       |> method(:delete)
       |> url("/admin/identities/#{id}/sessions")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -175,6 +179,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:patch)
       |> url("/admin/sessions/#{id}/extend")
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -214,6 +219,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/admin/identities/#{id}")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -253,6 +259,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/admin/identities")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -294,6 +301,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/admin/identities/#{id}/sessions")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -335,6 +343,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> url("/admin/identities/#{id}")
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -374,6 +383,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/logout/browser")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -405,6 +415,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       %Tesla.Env{}
       |> method(:get)
       |> url("/schemas/#{id}")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -438,6 +449,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/errors")
       |> add_param(:query, :id, id)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -478,6 +490,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> url("/self-service/login/flows")
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -519,6 +532,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> url("/self-service/recovery/flows")
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -559,6 +573,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> url("/self-service/registration/flows")
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -602,6 +617,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> url("/self-service/settings/flows")
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -644,6 +660,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> url("/self-service/verification/flows")
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -676,6 +693,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       %Tesla.Env{}
       |> method(:get)
       |> url("/.well-known/ory/webauthn.js")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -715,6 +733,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/login/browser")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -757,6 +776,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/login/api")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -794,6 +814,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/recovery/browser")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -826,6 +847,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       %Tesla.Env{}
       |> method(:get)
       |> url("/self-service/recovery/api")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -863,6 +885,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/registration/browser")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -894,6 +917,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       %Tesla.Env{}
       |> method(:get)
       |> url("/self-service/registration/api")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -931,6 +955,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/settings/browser")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -971,6 +996,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/settings/api")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1008,6 +1034,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/verification/browser")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1039,6 +1066,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       %Tesla.Env{}
       |> method(:get)
       |> url("/self-service/verification/api")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1077,6 +1105,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/schemas")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1119,6 +1148,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/sessions")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1153,6 +1183,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       %Tesla.Env{}
       |> method(:delete)
       |> url("/sessions/#{id}")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1193,6 +1224,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:delete)
       |> url("/sessions")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1238,6 +1270,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_login_flow_body)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1280,6 +1313,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/self-service/logout")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1313,6 +1347,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:delete)
       |> url("/self-service/logout/api")
       |> add_param(:body, :body, submit_self_service_logout_flow_without_browser_body)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1356,6 +1391,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_recovery_flow_body)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1399,6 +1435,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_registration_flow_body)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1445,6 +1482,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_settings_flow_body)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1493,6 +1531,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_verification_flow_body)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -1534,6 +1573,7 @@ defmodule Ory.Kratos.Api.V0alpha2 do
       |> method(:get)
       |> url("/sessions/whoami")
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection

@@ -29,6 +29,7 @@ defmodule Ory.Kratos.Api.Metadata do
       %Tesla.Env{}
       |> method(:get)
       |> url("/version")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -58,6 +59,7 @@ defmodule Ory.Kratos.Api.Metadata do
       %Tesla.Env{}
       |> method(:get)
       |> url("/health/alive")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -88,6 +90,7 @@ defmodule Ory.Kratos.Api.Metadata do
       %Tesla.Env{}
       |> method(:get)
       |> url("/health/ready")
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
