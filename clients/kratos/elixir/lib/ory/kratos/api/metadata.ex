@@ -26,7 +26,7 @@ defmodule Ory.Kratos.Api.Metadata do
   @spec get_version(Tesla.Env.client, keyword()) :: {:ok, Ory.Kratos.Model.GetVersion200Response.t} | {:error, Tesla.Env.t}
   def get_version(connection, _opts \\ []) do
     request =
-      %{}
+      %Tesla.Env{}
       |> method(:get)
       |> url("/version")
       |> Enum.into([])
@@ -55,7 +55,7 @@ defmodule Ory.Kratos.Api.Metadata do
   @spec is_alive(Tesla.Env.client, keyword()) :: {:ok, Ory.Kratos.Model.IsAlive200Response.t} | {:ok, Ory.Kratos.Model.GenericError.t} | {:error, Tesla.Env.t}
   def is_alive(connection, _opts \\ []) do
     request =
-      %{}
+      %Tesla.Env{}
       |> method(:get)
       |> url("/health/alive")
       |> Enum.into([])
@@ -85,7 +85,7 @@ defmodule Ory.Kratos.Api.Metadata do
   @spec is_ready(Tesla.Env.client, keyword()) :: {:ok, Ory.Kratos.Model.IsAlive200Response.t} | {:ok, Ory.Kratos.Model.IsReady503Response.t} | {:error, Tesla.Env.t}
   def is_ready(connection, _opts \\ []) do
     request =
-      %{}
+      %Tesla.Env{}
       |> method(:get)
       |> url("/health/ready")
       |> Enum.into([])
