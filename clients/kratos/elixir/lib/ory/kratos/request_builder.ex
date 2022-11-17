@@ -64,7 +64,7 @@ defmodule Ory.Kratos.RequestBuilder do
     case definitions do
       %{^key => location} ->
         request
-        |> add_param(location, to_string(key), value)
+        |> add_param(location, key, value)
         |> add_optional_params(definitions, tail)
 
       _ ->
@@ -103,7 +103,7 @@ defmodule Ory.Kratos.RequestBuilder do
   end
 
   def add_param(request, :headers, key, value) do
-    Tesla.put_header(request, key, value)
+    Tesla.put_header(request, to_string(key), value)
   end
 
   def add_param(request, :file, name, path) do
