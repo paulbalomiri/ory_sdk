@@ -39,17 +39,18 @@ pub struct GenericError {
     pub status: Option<String>,
 }
 
+
 impl GenericError {
     pub fn new(message: String) -> GenericError {
         GenericError {
-            code: None,
-            debug: None,
-            details: None,
-            id: None,
-            message,
-            reason: None,
-            request: None,
-            status: None,
+                code: None,
+                debug: None,
+                details: None,
+                id: None,
+                message,
+                reason: None,
+                request: None,
+                status: None,
         }
     }
 }

@@ -18,11 +18,17 @@ pub struct UiNodeMeta {
     pub label: Option<Box<crate::models::UiText>>,
 }
 
+impl Default for UiNodeMeta {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl UiNodeMeta {
     /// This might include a label and other information that can optionally be used to render UIs.
     pub fn new() -> UiNodeMeta {
         UiNodeMeta {
-            label: None,
+                label: None,
         }
     }
 }

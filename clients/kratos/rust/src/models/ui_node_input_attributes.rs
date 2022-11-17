@@ -41,19 +41,20 @@ pub struct UiNodeInputAttributes {
     pub value: Option<serde_json::Value>,
 }
 
+
 impl UiNodeInputAttributes {
     /// InputAttributes represents the attributes of an input node
     pub fn new(disabled: bool, name: String, node_type: String, _type: String) -> UiNodeInputAttributes {
         UiNodeInputAttributes {
-            disabled,
-            label: None,
-            name,
-            node_type,
-            onclick: None,
-            pattern: None,
-            required: None,
-            _type,
-            value: None,
+                disabled,
+                label: None,
+                name,
+                node_type,
+                onclick: None,
+                pattern: None,
+                required: None,
+                _type,
+                value: None,
         }
     }
 }

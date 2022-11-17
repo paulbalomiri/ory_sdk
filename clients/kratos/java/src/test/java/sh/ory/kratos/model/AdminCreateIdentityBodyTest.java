@@ -28,9 +28,8 @@ import sh.ory.kratos.model.AdminIdentityImportCredentials;
 import sh.ory.kratos.model.IdentityState;
 import sh.ory.kratos.model.RecoveryAddress;
 import sh.ory.kratos.model.VerifiableIdentityAddress;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

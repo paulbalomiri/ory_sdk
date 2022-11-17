@@ -18,10 +18,16 @@ pub struct Version {
     pub version: Option<String>,
 }
 
+impl Default for Version {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl Version {
     pub fn new() -> Version {
         Version {
-            version: None,
+                version: None,
         }
     }
 }

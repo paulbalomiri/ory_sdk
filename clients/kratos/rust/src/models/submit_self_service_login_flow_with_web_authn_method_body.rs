@@ -27,13 +27,14 @@ pub struct SubmitSelfServiceLoginFlowWithWebAuthnMethodBody {
     pub webauthn_login: Option<String>,
 }
 
+
 impl SubmitSelfServiceLoginFlowWithWebAuthnMethodBody {
     pub fn new(method: String) -> SubmitSelfServiceLoginFlowWithWebAuthnMethodBody {
         SubmitSelfServiceLoginFlowWithWebAuthnMethodBody {
-            csrf_token: None,
-            identifier: None,
-            method,
-            webauthn_login: None,
+                csrf_token: None,
+                identifier: None,
+                method,
+                webauthn_login: None,
         }
     }
 }

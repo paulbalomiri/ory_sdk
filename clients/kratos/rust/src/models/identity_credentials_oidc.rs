@@ -17,10 +17,16 @@ pub struct IdentityCredentialsOidc {
     pub providers: Option<Vec<crate::models::IdentityCredentialsOidcProvider>>,
 }
 
+impl Default for IdentityCredentialsOidc {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl IdentityCredentialsOidc {
     pub fn new() -> IdentityCredentialsOidc {
         IdentityCredentialsOidc {
-            providers: None,
+                providers: None,
         }
     }
 }

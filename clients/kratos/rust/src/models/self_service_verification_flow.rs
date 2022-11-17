@@ -40,19 +40,20 @@ pub struct SelfServiceVerificationFlow {
     pub ui: Box<crate::models::UiContainer>,
 }
 
+
 impl SelfServiceVerificationFlow {
     /// Used to verify an out-of-band communication channel such as an email address or a phone number.  For more information head over to: https://www.ory.sh/docs/kratos/selfservice/flows/verify-email-account-activation
     pub fn new(id: String, state: crate::models::SelfServiceVerificationFlowState, _type: String, ui: crate::models::UiContainer) -> SelfServiceVerificationFlow {
         SelfServiceVerificationFlow {
-            active: None,
-            expires_at: None,
-            id,
-            issued_at: None,
-            request_url: None,
-            return_to: None,
-            state,
-            _type,
-            ui: Box::new(ui),
+                active: None,
+                expires_at: None,
+                id,
+                issued_at: None,
+                request_url: None,
+                return_to: None,
+                state,
+                _type,
+                ui: Box::new(ui),
         }
     }
 }

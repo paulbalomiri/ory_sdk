@@ -20,23 +20,29 @@ pub struct SessionAuthenticationMethod {
     #[serde(rename = "completed_at", skip_serializing_if = "Option::is_none")]
     pub completed_at: Option<String>,
     #[serde(rename = "method", skip_serializing_if = "Option::is_none")]
-    pub method: Option<Method>,
+    pub method: Option<MethodEnum>,
+}
+
+impl Default for SessionAuthenticationMethod {
+    fn default() -> Self {
+        Self::new()
+    }
 }
 
 impl SessionAuthenticationMethod {
     /// A singular authenticator used during authentication / login.
     pub fn new() -> SessionAuthenticationMethod {
         SessionAuthenticationMethod {
-            aal: None,
-            completed_at: None,
-            method: None,
+                aal: None,
+                completed_at: None,
+                method: None,
         }
     }
 }
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Method {
+pub enum MethodEnum {
     #[serde(rename = "link_recovery")]
     LinkRecovery,
     #[serde(rename = "password")]

@@ -4,61 +4,25 @@ All URIs are relative to *https://playground.projects.oryapis.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AdminAcceptOAuth2ConsentRequest**](V0alpha2Api.md#adminacceptoauth2consentrequest) | **PUT** /admin/oauth2/auth/requests/consent/accept | Accept an OAuth 2.0 Consent Request
-[**AdminAcceptOAuth2LoginRequest**](V0alpha2Api.md#adminacceptoauth2loginrequest) | **PUT** /admin/oauth2/auth/requests/login/accept | Accept an OAuth 2.0 Login Request
-[**AdminAcceptOAuth2LogoutRequest**](V0alpha2Api.md#adminacceptoauth2logoutrequest) | **PUT** /admin/oauth2/auth/requests/logout/accept | Accept an OAuth 2.0 Logout Request
 [**AdminCreateIdentity**](V0alpha2Api.md#admincreateidentity) | **POST** /admin/identities | Create an Identity
-[**AdminCreateJsonWebKeySet**](V0alpha2Api.md#admincreatejsonwebkeyset) | **POST** /admin/keys/{set} | Generate a New JSON Web Key
-[**AdminCreateOAuth2Client**](V0alpha2Api.md#admincreateoauth2client) | **POST** /admin/clients | Create an OAuth 2.0 Client
-[**AdminCreateSelfServiceRecoveryCode**](V0alpha2Api.md#admincreateselfservicerecoverycode) | **POST** /admin/recovery/code | Create a Recovery Link
+[**AdminCreateSelfServiceRecoveryCode**](V0alpha2Api.md#admincreateselfservicerecoverycode) | **POST** /admin/recovery/code | Create a Recovery Code
 [**AdminCreateSelfServiceRecoveryLink**](V0alpha2Api.md#admincreateselfservicerecoverylink) | **POST** /admin/recovery/link | Create a Recovery Link
 [**AdminDeleteIdentity**](V0alpha2Api.md#admindeleteidentity) | **DELETE** /admin/identities/{id} | Delete an Identity
-[**AdminDeleteIdentitySessions**](V0alpha2Api.md#admindeleteidentitysessions) | **DELETE** /admin/identities/{id}/sessions | Calling this endpoint irrecoverably and permanently deletes and invalidates all sessions that belong to the given Identity.
-[**AdminDeleteJsonWebKey**](V0alpha2Api.md#admindeletejsonwebkey) | **DELETE** /admin/keys/{set}/{kid} | Delete a JSON Web Key
-[**AdminDeleteJsonWebKeySet**](V0alpha2Api.md#admindeletejsonwebkeyset) | **DELETE** /admin/keys/{set} | Delete a JSON Web Key Set
-[**AdminDeleteOAuth2Client**](V0alpha2Api.md#admindeleteoauth2client) | **DELETE** /admin/clients/{id} | Deletes an OAuth 2.0 Client
-[**AdminDeleteOAuth2Token**](V0alpha2Api.md#admindeleteoauth2token) | **DELETE** /admin/oauth2/tokens | Delete OAuth2 Access Tokens from a Client
-[**AdminDeleteTrustedOAuth2JwtGrantIssuer**](V0alpha2Api.md#admindeletetrustedoauth2jwtgrantissuer) | **DELETE** /admin/trust/grants/jwt-bearer/issuers/{id} | Delete a Trusted OAuth2 JWT Bearer Grant Type Issuer
-[**AdminExtendSession**](V0alpha2Api.md#adminextendsession) | **PATCH** /admin/sessions/{id}/extend | Calling this endpoint extends the given session ID. If &#x60;session.earliest_possible_extend&#x60; is set it will only extend the session after the specified time has passed.
+[**AdminDeleteIdentitySessions**](V0alpha2Api.md#admindeleteidentitysessions) | **DELETE** /admin/identities/{id}/sessions | Delete &amp; Invalidate an Identity&#39;s Sessions
+[**AdminExtendSession**](V0alpha2Api.md#adminextendsession) | **PATCH** /admin/sessions/{id}/extend | Extend a Session
 [**AdminGetIdentity**](V0alpha2Api.md#admingetidentity) | **GET** /admin/identities/{id} | Get an Identity
-[**AdminGetJsonWebKey**](V0alpha2Api.md#admingetjsonwebkey) | **GET** /admin/keys/{set}/{kid} | Fetch a JSON Web Key
-[**AdminGetJsonWebKeySet**](V0alpha2Api.md#admingetjsonwebkeyset) | **GET** /admin/keys/{set} | Retrieve a JSON Web Key Set
-[**AdminGetOAuth2Client**](V0alpha2Api.md#admingetoauth2client) | **GET** /admin/clients/{id} | Get an OAuth 2.0 Client
-[**AdminGetOAuth2ConsentRequest**](V0alpha2Api.md#admingetoauth2consentrequest) | **GET** /admin/oauth2/auth/requests/consent | Get OAuth 2.0 Consent Request Information
-[**AdminGetOAuth2LoginRequest**](V0alpha2Api.md#admingetoauth2loginrequest) | **GET** /admin/oauth2/auth/requests/login | Get an OAuth 2.0 Login Request
-[**AdminGetOAuth2LogoutRequest**](V0alpha2Api.md#admingetoauth2logoutrequest) | **GET** /admin/oauth2/auth/requests/logout | Get an OAuth 2.0 Logout Request
-[**AdminGetTrustedOAuth2JwtGrantIssuer**](V0alpha2Api.md#admingettrustedoauth2jwtgrantissuer) | **GET** /admin/trust/grants/jwt-bearer/issuers/{id} | Get a Trusted OAuth2 JWT Bearer Grant Type Issuer
-[**AdminIntrospectOAuth2Token**](V0alpha2Api.md#adminintrospectoauth2token) | **POST** /admin/oauth2/introspect | Introspect OAuth2 Access or Refresh Tokens
+[**AdminGetSession**](V0alpha2Api.md#admingetsession) | **GET** /admin/sessions/{id} | This endpoint returns the session object with expandables specified.
 [**AdminListCourierMessages**](V0alpha2Api.md#adminlistcouriermessages) | **GET** /admin/courier/messages | List Messages
 [**AdminListIdentities**](V0alpha2Api.md#adminlistidentities) | **GET** /admin/identities | List Identities
-[**AdminListIdentitySessions**](V0alpha2Api.md#adminlistidentitysessions) | **GET** /admin/identities/{id}/sessions | This endpoint returns all sessions that belong to the given Identity.
-[**AdminListOAuth2Clients**](V0alpha2Api.md#adminlistoauth2clients) | **GET** /admin/clients | List OAuth 2.0 Clients
-[**AdminListOAuth2SubjectConsentSessions**](V0alpha2Api.md#adminlistoauth2subjectconsentsessions) | **GET** /admin/oauth2/auth/sessions/consent | List OAuth 2.0 Consent Sessions of a Subject
-[**AdminListTrustedOAuth2JwtGrantIssuers**](V0alpha2Api.md#adminlisttrustedoauth2jwtgrantissuers) | **GET** /admin/trust/grants/jwt-bearer/issuers | List Trusted OAuth2 JWT Bearer Grant Type Issuers
+[**AdminListIdentitySessions**](V0alpha2Api.md#adminlistidentitysessions) | **GET** /admin/identities/{id}/sessions | List an Identity&#39;s Sessions
+[**AdminListSessions**](V0alpha2Api.md#adminlistsessions) | **GET** /admin/sessions | This endpoint returns all sessions that exist.
 [**AdminPatchIdentity**](V0alpha2Api.md#adminpatchidentity) | **PATCH** /admin/identities/{id} | Patch an Identity
-[**AdminPatchOAuth2Client**](V0alpha2Api.md#adminpatchoauth2client) | **PATCH** /admin/clients/{id} | Patch an OAuth 2.0 Client
-[**AdminRejectOAuth2ConsentRequest**](V0alpha2Api.md#adminrejectoauth2consentrequest) | **PUT** /admin/oauth2/auth/requests/consent/reject | Reject an OAuth 2.0 Consent Request
-[**AdminRejectOAuth2LoginRequest**](V0alpha2Api.md#adminrejectoauth2loginrequest) | **PUT** /admin/oauth2/auth/requests/login/reject | Reject an OAuth 2.0 Login Request
-[**AdminRejectOAuth2LogoutRequest**](V0alpha2Api.md#adminrejectoauth2logoutrequest) | **PUT** /admin/oauth2/auth/requests/logout/reject | Reject an OAuth 2.0 Logout Request
-[**AdminRevokeOAuth2ConsentSessions**](V0alpha2Api.md#adminrevokeoauth2consentsessions) | **DELETE** /admin/oauth2/auth/sessions/consent | Revokes OAuth 2.0 Consent Sessions of a Subject for a Specific OAuth 2.0 Client
-[**AdminRevokeOAuth2LoginSessions**](V0alpha2Api.md#adminrevokeoauth2loginsessions) | **DELETE** /admin/oauth2/auth/sessions/login | Invalidates All OAuth 2.0 Login Sessions of a Certain User
-[**AdminTrustOAuth2JwtGrantIssuer**](V0alpha2Api.md#admintrustoauth2jwtgrantissuer) | **POST** /admin/trust/grants/jwt-bearer/issuers | Trust an OAuth2 JWT Bearer Grant Type Issuer
 [**AdminUpdateIdentity**](V0alpha2Api.md#adminupdateidentity) | **PUT** /admin/identities/{id} | Update an Identity
-[**AdminUpdateJsonWebKey**](V0alpha2Api.md#adminupdatejsonwebkey) | **PUT** /admin/keys/{set}/{kid} | Update a JSON Web Key
-[**AdminUpdateJsonWebKeySet**](V0alpha2Api.md#adminupdatejsonwebkeyset) | **PUT** /admin/keys/{set} | Update a JSON Web Key Set
-[**AdminUpdateOAuth2Client**](V0alpha2Api.md#adminupdateoauth2client) | **PUT** /admin/clients/{id} | Update an OAuth 2.0 Client
 [**CreateProject**](V0alpha2Api.md#createproject) | **POST** /projects | Create a Project
 [**CreateProjectApiKey**](V0alpha2Api.md#createprojectapikey) | **POST** /projects/{project}/tokens | Create API Token
 [**CreateSelfServiceLogoutFlowUrlForBrowsers**](V0alpha2Api.md#createselfservicelogoutflowurlforbrowsers) | **GET** /self-service/logout/browser | Create a Logout URL for Browsers
 [**DeleteProjectApiKey**](V0alpha2Api.md#deleteprojectapikey) | **DELETE** /projects/{project}/tokens/{token_id} | Delete API Token
-[**DiscoverJsonWebKeys**](V0alpha2Api.md#discoverjsonwebkeys) | **GET** /.well-known/jwks.json | Discover JSON Web Keys
-[**DiscoverOidcConfiguration**](V0alpha2Api.md#discoveroidcconfiguration) | **GET** /.well-known/openid-configuration | OpenID Connect Discovery
-[**DynamicClientRegistrationCreateOAuth2Client**](V0alpha2Api.md#dynamicclientregistrationcreateoauth2client) | **POST** /oauth2/register | Register an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-[**DynamicClientRegistrationDeleteOAuth2Client**](V0alpha2Api.md#dynamicclientregistrationdeleteoauth2client) | **DELETE** /oauth2/register/{id} | Deletes an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-[**DynamicClientRegistrationGetOAuth2Client**](V0alpha2Api.md#dynamicclientregistrationgetoauth2client) | **GET** /oauth2/register/{id} | Get an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-[**DynamicClientRegistrationUpdateOAuth2Client**](V0alpha2Api.md#dynamicclientregistrationupdateoauth2client) | **PUT** /oauth2/register/{id} | Update an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
 [**GetIdentitySchema**](V0alpha2Api.md#getidentityschema) | **GET** /schemas/{id} | 
-[**GetOidcUserInfo**](V0alpha2Api.md#getoidcuserinfo) | **GET** /userinfo | OpenID Connect Userinfo
 [**GetProject**](V0alpha2Api.md#getproject) | **GET** /projects/{project_id} | Get a Project
 [**GetProjectMembers**](V0alpha2Api.md#getprojectmembers) | **GET** /projects/{project_id}/members | Get all members associated with this project.
 [**GetSelfServiceError**](V0alpha2Api.md#getselfserviceerror) | **GET** /self-service/errors | Get Self-Service Errors
@@ -81,16 +45,12 @@ Method | HTTP request | Description
 [**ListIdentitySchemas**](V0alpha2Api.md#listidentityschemas) | **GET** /schemas | 
 [**ListProjectApiKeys**](V0alpha2Api.md#listprojectapikeys) | **GET** /projects/{project}/tokens | List a Project&#39;s API Tokens
 [**ListProjects**](V0alpha2Api.md#listprojects) | **GET** /projects | List All Projects
-[**ListSessions**](V0alpha2Api.md#listsessions) | **GET** /sessions | This endpoints returns all other active sessions that belong to the logged-in user. The current session can be retrieved by calling the &#x60;/sessions/whoami&#x60; endpoint.
+[**ListSessions**](V0alpha2Api.md#listsessions) | **GET** /sessions | Get Active Sessions
 [**PatchProject**](V0alpha2Api.md#patchproject) | **PATCH** /projects/{project_id} | Patch an Ory Cloud Project Configuration&#x60;
-[**PerformOAuth2AuthorizationFlow**](V0alpha2Api.md#performoauth2authorizationflow) | **GET** /oauth2/auth | The OAuth 2.0 Authorize Endpoint
-[**PerformOAuth2TokenFlow**](V0alpha2Api.md#performoauth2tokenflow) | **POST** /oauth2/token | The OAuth 2.0 Token Endpoint
-[**PerformOidcFrontOrBackChannelLogout**](V0alpha2Api.md#performoidcfrontorbackchannellogout) | **GET** /oauth2/sessions/logout | OpenID Connect Front- or Back-channel Enabled Logout
 [**PurgeProject**](V0alpha2Api.md#purgeproject) | **DELETE** /projects/{project_id} | Irrecoverably Purge a Project
 [**RemoveProjectMember**](V0alpha2Api.md#removeprojectmember) | **DELETE** /projects/{project_id}/members/{member_id} | Remove a member associated with this project. This also sets their invite status to &#x60;REMOVED&#x60;.
-[**RevokeOAuth2Token**](V0alpha2Api.md#revokeoauth2token) | **POST** /oauth2/revoke | Revoke an OAuth2 Access or Refresh Token
-[**RevokeSession**](V0alpha2Api.md#revokesession) | **DELETE** /sessions/{id} | Calling this endpoint invalidates the specified session. The current session cannot be revoked. Session data are not deleted.
-[**RevokeSessions**](V0alpha2Api.md#revokesessions) | **DELETE** /sessions | Calling this endpoint invalidates all except the current session that belong to the logged-in user. Session data are not deleted.
+[**RevokeSession**](V0alpha2Api.md#revokesession) | **DELETE** /sessions/{id} | Invalidate a Session
+[**RevokeSessions**](V0alpha2Api.md#revokesessions) | **DELETE** /sessions | Invalidate all Other Sessions
 [**SubmitSelfServiceLoginFlow**](V0alpha2Api.md#submitselfserviceloginflow) | **POST** /self-service/login | Submit a Login Flow
 [**SubmitSelfServiceLogoutFlow**](V0alpha2Api.md#submitselfservicelogoutflow) | **GET** /self-service/logout | Complete Self-Service Logout
 [**SubmitSelfServiceLogoutFlowWithoutBrowser**](V0alpha2Api.md#submitselfservicelogoutflowwithoutbrowser) | **DELETE** /self-service/logout/api | Perform Logout for APIs, Services, Apps, ...
@@ -101,235 +61,6 @@ Method | HTTP request | Description
 [**ToSession**](V0alpha2Api.md#tosession) | **GET** /sessions/whoami | Check Who the Current HTTP Session Belongs To
 [**UpdateProject**](V0alpha2Api.md#updateproject) | **PUT** /projects/{project_id} | Update an Ory Cloud Project Configuration
 
-
-<a name="adminacceptoauth2consentrequest"></a>
-# **AdminAcceptOAuth2ConsentRequest**
-> ClientSuccessfulOAuth2RequestResponse AdminAcceptOAuth2ConsentRequest (string consentChallenge, ClientAcceptOAuth2ConsentRequest clientAcceptOAuth2ConsentRequest = null)
-
-Accept an OAuth 2.0 Consent Request
-
-When an authorization code, hybrid, or implicit OAuth 2.0 Flow is initiated, ORY Hydra asks the login provider to authenticate the subject and then tell ORY Hydra now about it. If the subject authenticated, he/she must now be asked if the OAuth 2.0 Client which initiated the flow should be allowed to access the resources on the subject's behalf.  The consent provider which handles this request and is a web app implemented and hosted by you. It shows a subject interface which asks the subject to grant or deny the client access to the requested scope (\"Application my-dropbox-app wants write access to all your private files\").  The consent challenge is appended to the consent provider's URL to which the subject's user-agent (browser) is redirected to. The consent provider uses that challenge to fetch information on the OAuth2 request and then tells ORY Hydra if the subject accepted or rejected the request.  This endpoint tells ORY Hydra that the subject has authorized the OAuth 2.0 client to access resources on his/her behalf. The consent provider includes additional information, such as session data for access and ID tokens, and if the consent request should be used as basis for future requests.  The response contains a redirect URL which the consent provider should redirect the user-agent to.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminAcceptOAuth2ConsentRequestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var consentChallenge = "consentChallenge_example";  // string | 
-            var clientAcceptOAuth2ConsentRequest = new ClientAcceptOAuth2ConsentRequest(); // ClientAcceptOAuth2ConsentRequest |  (optional) 
-
-            try
-            {
-                // Accept an OAuth 2.0 Consent Request
-                ClientSuccessfulOAuth2RequestResponse result = apiInstance.AdminAcceptOAuth2ConsentRequest(consentChallenge, clientAcceptOAuth2ConsentRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminAcceptOAuth2ConsentRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **consentChallenge** | **string**|  | 
- **clientAcceptOAuth2ConsentRequest** | [**ClientAcceptOAuth2ConsentRequest**](ClientAcceptOAuth2ConsentRequest.md)|  | [optional] 
-
-### Return type
-
-[**ClientSuccessfulOAuth2RequestResponse**](ClientSuccessfulOAuth2RequestResponse.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successfulOAuth2RequestResponse |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminacceptoauth2loginrequest"></a>
-# **AdminAcceptOAuth2LoginRequest**
-> ClientSuccessfulOAuth2RequestResponse AdminAcceptOAuth2LoginRequest (string loginChallenge, ClientAcceptOAuth2LoginRequest clientAcceptOAuth2LoginRequest = null)
-
-Accept an OAuth 2.0 Login Request
-
-When an authorization code, hybrid, or implicit OAuth 2.0 Flow is initiated, Ory Hydra asks the login provider (sometimes called \"identity provider\") to authenticate the subject and then tell Ory Hydra now about it. The login provider is an web-app you write and host, and it must be able to authenticate (\"show the subject a login screen\") a subject (in OAuth2 the proper name for subject is \"resource owner\").  The authentication challenge is appended to the login provider URL to which the subject's user-agent (browser) is redirected to. The login provider uses that challenge to fetch information on the OAuth2 request and then accept or reject the requested authentication process.  This endpoint tells ORY Hydra that the subject has successfully authenticated and includes additional information such as the subject's ID and if ORY Hydra should remember the subject's subject agent for future authentication attempts by setting a cookie.  The response contains a redirect URL which the login provider should redirect the user-agent to.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminAcceptOAuth2LoginRequestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var loginChallenge = "loginChallenge_example";  // string | 
-            var clientAcceptOAuth2LoginRequest = new ClientAcceptOAuth2LoginRequest(); // ClientAcceptOAuth2LoginRequest |  (optional) 
-
-            try
-            {
-                // Accept an OAuth 2.0 Login Request
-                ClientSuccessfulOAuth2RequestResponse result = apiInstance.AdminAcceptOAuth2LoginRequest(loginChallenge, clientAcceptOAuth2LoginRequest);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminAcceptOAuth2LoginRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loginChallenge** | **string**|  | 
- **clientAcceptOAuth2LoginRequest** | [**ClientAcceptOAuth2LoginRequest**](ClientAcceptOAuth2LoginRequest.md)|  | [optional] 
-
-### Return type
-
-[**ClientSuccessfulOAuth2RequestResponse**](ClientSuccessfulOAuth2RequestResponse.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successfulOAuth2RequestResponse |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminacceptoauth2logoutrequest"></a>
-# **AdminAcceptOAuth2LogoutRequest**
-> ClientSuccessfulOAuth2RequestResponse AdminAcceptOAuth2LogoutRequest (string logoutChallenge)
-
-Accept an OAuth 2.0 Logout Request
-
-When a user or an application requests ORY Hydra to log out a user, this endpoint is used to confirm that logout request.  The response contains a redirect URL which the consent provider should redirect the user-agent to.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminAcceptOAuth2LogoutRequestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var logoutChallenge = "logoutChallenge_example";  // string | 
-
-            try
-            {
-                // Accept an OAuth 2.0 Logout Request
-                ClientSuccessfulOAuth2RequestResponse result = apiInstance.AdminAcceptOAuth2LogoutRequest(logoutChallenge);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminAcceptOAuth2LogoutRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **logoutChallenge** | **string**|  | 
-
-### Return type
-
-[**ClientSuccessfulOAuth2RequestResponse**](ClientSuccessfulOAuth2RequestResponse.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successfulOAuth2RequestResponse |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="admincreateidentity"></a>
 # **AdminCreateIdentity**
@@ -408,163 +139,11 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="admincreatejsonwebkeyset"></a>
-# **AdminCreateJsonWebKeySet**
-> ClientJsonWebKeySet AdminCreateJsonWebKeySet (string set, ClientAdminCreateJsonWebKeySetBody clientAdminCreateJsonWebKeySetBody)
-
-Generate a New JSON Web Key
-
-This endpoint is capable of generating JSON Web Key Sets for you. There a different strategies available, such as symmetric cryptographic keys (HS256, HS512) and asymetric cryptographic keys (RS256, ECDSA). If the specified JSON Web Key Set does not exist, it will be created.  A JSON Web Key (JWK) is a JavaScript Object Notation (JSON) data structure that represents a cryptographic key. A JWK Set is a JSON data structure that represents a set of JWKs. A JSON Web Key is identified by its set and key id. ORY Hydra uses this functionality to store cryptographic keys used for TLS and JSON Web Tokens (such as OpenID Connect ID tokens), and allows storing user-defined keys as well.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminCreateJsonWebKeySetExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var set = "set_example";  // string | The JSON Web Key Set
-            var clientAdminCreateJsonWebKeySetBody = new ClientAdminCreateJsonWebKeySetBody(); // ClientAdminCreateJsonWebKeySetBody | 
-
-            try
-            {
-                // Generate a New JSON Web Key
-                ClientJsonWebKeySet result = apiInstance.AdminCreateJsonWebKeySet(set, clientAdminCreateJsonWebKeySetBody);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminCreateJsonWebKeySet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **set** | **string**| The JSON Web Key Set | 
- **clientAdminCreateJsonWebKeySetBody** | [**ClientAdminCreateJsonWebKeySetBody**](ClientAdminCreateJsonWebKeySetBody.md)|  | 
-
-### Return type
-
-[**ClientJsonWebKeySet**](ClientJsonWebKeySet.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | jsonWebKeySet |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admincreateoauth2client"></a>
-# **AdminCreateOAuth2Client**
-> ClientOAuth2Client AdminCreateOAuth2Client (ClientOAuth2Client clientOAuth2Client)
-
-Create an OAuth 2.0 Client
-
-Create a new OAuth 2.0 client. If you pass `client_secret` the secret is used, otherwise a random secret is generated. The secret is echoed in the response. It is not possible to retrieve it later on.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminCreateOAuth2ClientExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var clientOAuth2Client = new ClientOAuth2Client(); // ClientOAuth2Client | 
-
-            try
-            {
-                // Create an OAuth 2.0 Client
-                ClientOAuth2Client result = apiInstance.AdminCreateOAuth2Client(clientOAuth2Client);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminCreateOAuth2Client: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientOAuth2Client** | [**ClientOAuth2Client**](ClientOAuth2Client.md)|  | 
-
-### Return type
-
-[**ClientOAuth2Client**](ClientOAuth2Client.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | oAuth2Client |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="admincreateselfservicerecoverycode"></a>
 # **AdminCreateSelfServiceRecoveryCode**
 > ClientSelfServiceRecoveryCode AdminCreateSelfServiceRecoveryCode (ClientAdminCreateSelfServiceRecoveryCodeBody clientAdminCreateSelfServiceRecoveryCodeBody = null)
 
-Create a Recovery Link
+Create a Recovery Code
 
 This endpoint creates a recovery code which should be given to the user in order for them to recover (or activate) their account.
 
@@ -592,7 +171,7 @@ namespace Example
 
             try
             {
-                // Create a Recovery Link
+                // Create a Recovery Code
                 ClientSelfServiceRecoveryCode result = apiInstance.AdminCreateSelfServiceRecoveryCode(clientAdminCreateSelfServiceRecoveryCodeBody);
                 Debug.WriteLine(result);
             }
@@ -793,9 +372,9 @@ void (empty response body)
 # **AdminDeleteIdentitySessions**
 > void AdminDeleteIdentitySessions (string id)
 
-Calling this endpoint irrecoverably and permanently deletes and invalidates all sessions that belong to the given Identity.
+Delete & Invalidate an Identity's Sessions
 
-This endpoint is useful for:  To forcefully logout Identity from all devices and sessions
+Calling this endpoint irrecoverably and permanently deletes and invalidates all sessions that belong to the given Identity.  This endpoint is useful for:  To forcefully logout Identity from all devices and sessions
 
 ### Example
 ```csharp
@@ -821,7 +400,7 @@ namespace Example
 
             try
             {
-                // Calling this endpoint irrecoverably and permanently deletes and invalidates all sessions that belong to the given Identity.
+                // Delete & Invalidate an Identity's Sessions
                 apiInstance.AdminDeleteIdentitySessions(id);
             }
             catch (ApiException  e)
@@ -866,385 +445,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="admindeletejsonwebkey"></a>
-# **AdminDeleteJsonWebKey**
-> void AdminDeleteJsonWebKey (string set, string kid)
-
-Delete a JSON Web Key
-
-Use this endpoint to delete a single JSON Web Key.  A JSON Web Key (JWK) is a JavaScript Object Notation (JSON) data structure that represents a cryptographic key. A JWK Set is a JSON data structure that represents a set of JWKs. A JSON Web Key is identified by its set and key id. ORY Hydra uses this functionality to store cryptographic keys used for TLS and JSON Web Tokens (such as OpenID Connect ID tokens), and allows storing user-defined keys as well.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminDeleteJsonWebKeyExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var set = "set_example";  // string | The JSON Web Key Set
-            var kid = "kid_example";  // string | The JSON Web Key ID (kid)
-
-            try
-            {
-                // Delete a JSON Web Key
-                apiInstance.AdminDeleteJsonWebKey(set, kid);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminDeleteJsonWebKey: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **set** | **string**| The JSON Web Key Set | 
- **kid** | **string**| The JSON Web Key ID (kid) | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admindeletejsonwebkeyset"></a>
-# **AdminDeleteJsonWebKeySet**
-> void AdminDeleteJsonWebKeySet (string set)
-
-Delete a JSON Web Key Set
-
-Use this endpoint to delete a complete JSON Web Key Set and all the keys in that set.  A JSON Web Key (JWK) is a JavaScript Object Notation (JSON) data structure that represents a cryptographic key. A JWK Set is a JSON data structure that represents a set of JWKs. A JSON Web Key is identified by its set and key id. ORY Hydra uses this functionality to store cryptographic keys used for TLS and JSON Web Tokens (such as OpenID Connect ID tokens), and allows storing user-defined keys as well.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminDeleteJsonWebKeySetExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var set = "set_example";  // string | The JSON Web Key Set
-
-            try
-            {
-                // Delete a JSON Web Key Set
-                apiInstance.AdminDeleteJsonWebKeySet(set);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminDeleteJsonWebKeySet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **set** | **string**| The JSON Web Key Set | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admindeleteoauth2client"></a>
-# **AdminDeleteOAuth2Client**
-> void AdminDeleteOAuth2Client (string id)
-
-Deletes an OAuth 2.0 Client
-
-Delete an existing OAuth 2.0 Client by its ID.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.  Make sure that this endpoint is well protected and only callable by first-party components.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminDeleteOAuth2ClientExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var id = "id_example";  // string | The id of the OAuth 2.0 Client.
-
-            try
-            {
-                // Deletes an OAuth 2.0 Client
-                apiInstance.AdminDeleteOAuth2Client(id);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminDeleteOAuth2Client: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the OAuth 2.0 Client. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admindeleteoauth2token"></a>
-# **AdminDeleteOAuth2Token**
-> void AdminDeleteOAuth2Token (string clientId)
-
-Delete OAuth2 Access Tokens from a Client
-
-This endpoint deletes OAuth2 access tokens issued for a client from the database
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminDeleteOAuth2TokenExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var clientId = "clientId_example";  // string | 
-
-            try
-            {
-                // Delete OAuth2 Access Tokens from a Client
-                apiInstance.AdminDeleteOAuth2Token(clientId);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminDeleteOAuth2Token: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientId** | **string**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admindeletetrustedoauth2jwtgrantissuer"></a>
-# **AdminDeleteTrustedOAuth2JwtGrantIssuer**
-> void AdminDeleteTrustedOAuth2JwtGrantIssuer (string id)
-
-Delete a Trusted OAuth2 JWT Bearer Grant Type Issuer
-
-Use this endpoint to delete trusted JWT Bearer Grant Type Issuer. The ID is the one returned when you created the trust relationship.  Once deleted, the associated issuer will no longer be able to perform the JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grant.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminDeleteTrustedOAuth2JwtGrantIssuerExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var id = "id_example";  // string | The id of the desired grant
-
-            try
-            {
-                // Delete a Trusted OAuth2 JWT Bearer Grant Type Issuer
-                apiInstance.AdminDeleteTrustedOAuth2JwtGrantIssuer(id);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminDeleteTrustedOAuth2JwtGrantIssuer: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the desired grant | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="adminextendsession"></a>
 # **AdminExtendSession**
 > ClientSession AdminExtendSession (string id)
 
-Calling this endpoint extends the given session ID. If `session.earliest_possible_extend` is set it will only extend the session after the specified time has passed.
+Extend a Session
 
-Retrieve the session ID from the `/sessions/whoami` endpoint / `toSession` SDK method.
+Calling this endpoint extends the given session ID. If `session.earliest_possible_extend` is set it will only extend the session after the specified time has passed.  Retrieve the session ID from the `/sessions/whoami` endpoint / `toSession` SDK method.
 
 ### Example
 ```csharp
@@ -1270,7 +477,7 @@ namespace Example
 
             try
             {
-                // Calling this endpoint extends the given session ID. If `session.earliest_possible_extend` is set it will only extend the session after the specified time has passed.
+                // Extend a Session
                 ClientSession result = apiInstance.AdminExtendSession(id);
                 Debug.WriteLine(result);
             }
@@ -1393,13 +600,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="admingetjsonwebkey"></a>
-# **AdminGetJsonWebKey**
-> ClientJsonWebKeySet AdminGetJsonWebKey (string set, string kid)
+<a name="admingetsession"></a>
+# **AdminGetSession**
+> ClientSession AdminGetSession (string id, List<string> expand = null)
 
-Fetch a JSON Web Key
+This endpoint returns the session object with expandables specified.
 
-This endpoint returns a singular JSON Web Key. It is identified by the set and the specific key ID (kid).
+This endpoint is useful for:  Getting a session object with all specified expandables that exist in an administrative context.
 
 ### Example
 ```csharp
@@ -1411,7 +618,7 @@ using Ory.Client.Model;
 
 namespace Example
 {
-    public class AdminGetJsonWebKeyExample
+    public class AdminGetSessionExample
     {
         public static void Main()
         {
@@ -1421,18 +628,18 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new V0alpha2Api(config);
-            var set = "set_example";  // string | The JSON Web Key Set
-            var kid = "kid_example";  // string | The JSON Web Key ID (kid)
+            var id = "id_example";  // string | ID is the session's ID.
+            var expand = new List<string>(); // List<string> | ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand=Identity&expand=Devices If no value is provided, the expandable properties are skipped. (optional) 
 
             try
             {
-                // Fetch a JSON Web Key
-                ClientJsonWebKeySet result = apiInstance.AdminGetJsonWebKey(set, kid);
+                // This endpoint returns the session object with expandables specified.
+                ClientSession result = apiInstance.AdminGetSession(id, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling V0alpha2Api.AdminGetJsonWebKey: " + e.Message );
+                Debug.Print("Exception when calling V0alpha2Api.AdminGetSession: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1445,12 +652,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **set** | **string**| The JSON Web Key Set | 
- **kid** | **string**| The JSON Web Key ID (kid) | 
+ **id** | **string**| ID is the session&#39;s ID. | 
+ **expand** | [**List&lt;string&gt;**](string.md)| ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. | [optional] 
 
 ### Return type
 
-[**ClientJsonWebKeySet**](ClientJsonWebKeySet.md)
+[**ClientSession**](ClientSession.md)
 
 ### Authorization
 
@@ -1465,538 +672,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | jsonWebKeySet |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admingetjsonwebkeyset"></a>
-# **AdminGetJsonWebKeySet**
-> ClientJsonWebKeySet AdminGetJsonWebKeySet (string set)
-
-Retrieve a JSON Web Key Set
-
-This endpoint can be used to retrieve JWK Sets stored in ORY Hydra.  A JSON Web Key (JWK) is a JavaScript Object Notation (JSON) data structure that represents a cryptographic key. A JWK Set is a JSON data structure that represents a set of JWKs. A JSON Web Key is identified by its set and key id. ORY Hydra uses this functionality to store cryptographic keys used for TLS and JSON Web Tokens (such as OpenID Connect ID tokens), and allows storing user-defined keys as well.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminGetJsonWebKeySetExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var set = "set_example";  // string | The JSON Web Key Set
-
-            try
-            {
-                // Retrieve a JSON Web Key Set
-                ClientJsonWebKeySet result = apiInstance.AdminGetJsonWebKeySet(set);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminGetJsonWebKeySet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **set** | **string**| The JSON Web Key Set | 
-
-### Return type
-
-[**ClientJsonWebKeySet**](ClientJsonWebKeySet.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | jsonWebKeySet |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admingetoauth2client"></a>
-# **AdminGetOAuth2Client**
-> ClientOAuth2Client AdminGetOAuth2Client (string id)
-
-Get an OAuth 2.0 Client
-
-Get an OAuth 2.0 client by its ID. This endpoint never returns the client secret.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminGetOAuth2ClientExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var id = "id_example";  // string | The id of the OAuth 2.0 Client.
-
-            try
-            {
-                // Get an OAuth 2.0 Client
-                ClientOAuth2Client result = apiInstance.AdminGetOAuth2Client(id);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminGetOAuth2Client: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the OAuth 2.0 Client. | 
-
-### Return type
-
-[**ClientOAuth2Client**](ClientOAuth2Client.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oAuth2Client |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admingetoauth2consentrequest"></a>
-# **AdminGetOAuth2ConsentRequest**
-> ClientOAuth2ConsentRequest AdminGetOAuth2ConsentRequest (string consentChallenge)
-
-Get OAuth 2.0 Consent Request Information
-
-When an authorization code, hybrid, or implicit OAuth 2.0 Flow is initiated, ORY Hydra asks the login provider to authenticate the subject and then tell ORY Hydra now about it. If the subject authenticated, he/she must now be asked if the OAuth 2.0 Client which initiated the flow should be allowed to access the resources on the subject's behalf.  The consent provider which handles this request and is a web app implemented and hosted by you. It shows a subject interface which asks the subject to grant or deny the client access to the requested scope (\"Application my-dropbox-app wants write access to all your private files\").  The consent challenge is appended to the consent provider's URL to which the subject's user-agent (browser) is redirected to. The consent provider uses that challenge to fetch information on the OAuth2 request and then tells ORY Hydra if the subject accepted or rejected the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminGetOAuth2ConsentRequestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var consentChallenge = "consentChallenge_example";  // string | 
-
-            try
-            {
-                // Get OAuth 2.0 Consent Request Information
-                ClientOAuth2ConsentRequest result = apiInstance.AdminGetOAuth2ConsentRequest(consentChallenge);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminGetOAuth2ConsentRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **consentChallenge** | **string**|  | 
-
-### Return type
-
-[**ClientOAuth2ConsentRequest**](ClientOAuth2ConsentRequest.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oAuth2ConsentRequest |  -  |
-| **410** | handledOAuth2ConsentRequest |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admingetoauth2loginrequest"></a>
-# **AdminGetOAuth2LoginRequest**
-> ClientOAuth2LoginRequest AdminGetOAuth2LoginRequest (string loginChallenge)
-
-Get an OAuth 2.0 Login Request
-
-When an authorization code, hybrid, or implicit OAuth 2.0 Flow is initiated, ORY Hydra asks the login provider (sometimes called \"identity provider\") to authenticate the subject and then tell ORY Hydra now about it. The login provider is an web-app you write and host, and it must be able to authenticate (\"show the subject a login screen\") a subject (in OAuth2 the proper name for subject is \"resource owner\").  The authentication challenge is appended to the login provider URL to which the subject's user-agent (browser) is redirected to. The login provider uses that challenge to fetch information on the OAuth2 request and then accept or reject the requested authentication process.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminGetOAuth2LoginRequestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var loginChallenge = "loginChallenge_example";  // string | 
-
-            try
-            {
-                // Get an OAuth 2.0 Login Request
-                ClientOAuth2LoginRequest result = apiInstance.AdminGetOAuth2LoginRequest(loginChallenge);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminGetOAuth2LoginRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loginChallenge** | **string**|  | 
-
-### Return type
-
-[**ClientOAuth2LoginRequest**](ClientOAuth2LoginRequest.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oAuth2LoginRequest |  -  |
-| **410** | handledOAuth2LoginRequest |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admingetoauth2logoutrequest"></a>
-# **AdminGetOAuth2LogoutRequest**
-> ClientOAuth2LogoutRequest AdminGetOAuth2LogoutRequest (string logoutChallenge)
-
-Get an OAuth 2.0 Logout Request
-
-Use this endpoint to fetch a logout request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminGetOAuth2LogoutRequestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var logoutChallenge = "logoutChallenge_example";  // string | 
-
-            try
-            {
-                // Get an OAuth 2.0 Logout Request
-                ClientOAuth2LogoutRequest result = apiInstance.AdminGetOAuth2LogoutRequest(logoutChallenge);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminGetOAuth2LogoutRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **logoutChallenge** | **string**|  | 
-
-### Return type
-
-[**ClientOAuth2LogoutRequest**](ClientOAuth2LogoutRequest.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oAuth2LogoutRequest |  -  |
-| **410** | handledOAuth2LogoutRequest |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admingettrustedoauth2jwtgrantissuer"></a>
-# **AdminGetTrustedOAuth2JwtGrantIssuer**
-> ClientTrustedOAuth2JwtGrantIssuer AdminGetTrustedOAuth2JwtGrantIssuer (string id)
-
-Get a Trusted OAuth2 JWT Bearer Grant Type Issuer
-
-Use this endpoint to get a trusted JWT Bearer Grant Type Issuer. The ID is the one returned when you created the trust relationship.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminGetTrustedOAuth2JwtGrantIssuerExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var id = "id_example";  // string | The id of the desired grant
-
-            try
-            {
-                // Get a Trusted OAuth2 JWT Bearer Grant Type Issuer
-                ClientTrustedOAuth2JwtGrantIssuer result = apiInstance.AdminGetTrustedOAuth2JwtGrantIssuer(id);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminGetTrustedOAuth2JwtGrantIssuer: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the desired grant | 
-
-### Return type
-
-[**ClientTrustedOAuth2JwtGrantIssuer**](ClientTrustedOAuth2JwtGrantIssuer.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | trustedOAuth2JwtGrantIssuer |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminintrospectoauth2token"></a>
-# **AdminIntrospectOAuth2Token**
-> ClientIntrospectedOAuth2Token AdminIntrospectOAuth2Token (string token, string scope = null)
-
-Introspect OAuth2 Access or Refresh Tokens
-
-The introspection endpoint allows to check if a token (both refresh and access) is active or not. An active token is neither expired nor revoked. If a token is active, additional information on the token will be included. You can set additional data for a token by setting `accessTokenExtra` during the consent flow.  For more information [read this blog post](https://www.oauth.com/oauth2-servers/token-introspection-endpoint/).
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminIntrospectOAuth2TokenExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var token = "token_example";  // string | The string value of the token. For access tokens, this is the \\\"access_token\\\" value returned from the token endpoint defined in OAuth 2.0. For refresh tokens, this is the \\\"refresh_token\\\" value returned.
-            var scope = "scope_example";  // string | An optional, space separated list of required scopes. If the access token was not granted one of the scopes, the result of active will be false. (optional) 
-
-            try
-            {
-                // Introspect OAuth2 Access or Refresh Tokens
-                ClientIntrospectedOAuth2Token result = apiInstance.AdminIntrospectOAuth2Token(token, scope);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminIntrospectOAuth2Token: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **token** | **string**| The string value of the token. For access tokens, this is the \\\&quot;access_token\\\&quot; value returned from the token endpoint defined in OAuth 2.0. For refresh tokens, this is the \\\&quot;refresh_token\\\&quot; value returned. | 
- **scope** | **string**| An optional, space separated list of required scopes. If the access token was not granted one of the scopes, the result of active will be false. | [optional] 
-
-### Return type
-
-[**ClientIntrospectedOAuth2Token**](ClientIntrospectedOAuth2Token.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | introspectedOAuth2Token |  -  |
-| **0** | oAuth2ApiError |  -  |
+| **200** | session |  -  |
+| **400** | jsonError |  -  |
+| **0** | jsonError |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2163,9 +841,9 @@ Name | Type | Description  | Notes
 # **AdminListIdentitySessions**
 > List&lt;ClientSession&gt; AdminListIdentitySessions (string id, long? perPage = null, long? page = null, bool? active = null)
 
-This endpoint returns all sessions that belong to the given Identity.
+List an Identity's Sessions
 
-This endpoint is useful for:  Listing all sessions that belong to an Identity in an administrative context.
+This endpoint returns all sessions that belong to the given Identity.  This endpoint is useful for:  Listing all sessions that belong to an Identity in an administrative context.
 
 ### Example
 ```csharp
@@ -2194,7 +872,7 @@ namespace Example
 
             try
             {
-                // This endpoint returns all sessions that belong to the given Identity.
+                // List an Identity's Sessions
                 List<ClientSession> result = apiInstance.AdminListIdentitySessions(id, perPage, page, active);
                 Debug.WriteLine(result);
             }
@@ -2243,13 +921,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="adminlistoauth2clients"></a>
-# **AdminListOAuth2Clients**
-> List&lt;ClientOAuth2Client&gt; AdminListOAuth2Clients (long? pageSize = null, string pageToken = null, string clientName = null, string owner = null)
+<a name="adminlistsessions"></a>
+# **AdminListSessions**
+> List&lt;ClientSession&gt; AdminListSessions (long? pageSize = null, string pageToken = null, bool? active = null, List<string> expand = null)
 
-List OAuth 2.0 Clients
+This endpoint returns all sessions that exist.
 
-This endpoint lists all clients in the database, and never returns client secrets. As a default it lists the first 100 clients. The `limit` parameter can be used to retrieve more clients, but it has an upper bound at 500 objects. Pagination should be used to retrieve more than 500 objects.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.  The \"Link\" header is also included in successful responses, which contains one or more links for pagination, formatted like so: '<https://project-slug.projects.oryapis.com/admin/clients?limit={limit}&offset={offset}>; rel=\"{page}\"', where page is one of the following applicable pages: 'first', 'next', 'last', and 'previous'. Multiple links can be included in this header, and will be separated by a comma.
+This endpoint is useful for:  Listing all sessions that exist in an administrative context.
 
 ### Example
 ```csharp
@@ -2261,7 +939,7 @@ using Ory.Client.Model;
 
 namespace Example
 {
-    public class AdminListOAuth2ClientsExample
+    public class AdminListSessionsExample
     {
         public static void Main()
         {
@@ -2271,20 +949,20 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new V0alpha2Api(config);
-            var pageSize = 250L;  // long? | Items per page  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional)  (default to 250)
-            var pageToken = "\"1\"";  // string | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional)  (default to "1")
-            var clientName = "clientName_example";  // string | The name of the clients to filter by. (optional) 
-            var owner = "owner_example";  // string | The owner of the clients to filter by. (optional) 
+            var pageSize = 250L;  // long? | Items per Page  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional)  (default to 250)
+            var pageToken = "pageToken_example";  // string | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) 
+            var active = true;  // bool? | Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional) 
+            var expand = new List<string>(); // List<string> | ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand=Identity&expand=Devices If no value is provided, the expandable properties are skipped. (optional) 
 
             try
             {
-                // List OAuth 2.0 Clients
-                List<ClientOAuth2Client> result = apiInstance.AdminListOAuth2Clients(pageSize, pageToken, clientName, owner);
+                // This endpoint returns all sessions that exist.
+                List<ClientSession> result = apiInstance.AdminListSessions(pageSize, pageToken, active, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling V0alpha2Api.AdminListOAuth2Clients: " + e.Message );
+                Debug.Print("Exception when calling V0alpha2Api.AdminListSessions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2297,14 +975,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **long?**| Items per page  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [optional] [default to 250]
- **pageToken** | **string**| Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [optional] [default to &quot;1&quot;]
- **clientName** | **string**| The name of the clients to filter by. | [optional] 
- **owner** | **string**| The owner of the clients to filter by. | [optional] 
+ **pageSize** | **long?**| Items per Page  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [optional] [default to 250]
+ **pageToken** | **string**| Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [optional] 
+ **active** | **bool?**| Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. | [optional] 
+ **expand** | [**List&lt;string&gt;**](string.md)| ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. | [optional] 
 
 ### Return type
 
-[**List&lt;ClientOAuth2Client&gt;**](ClientOAuth2Client.md)
+[**List&lt;ClientSession&gt;**](ClientSession.md)
 
 ### Authorization
 
@@ -2319,170 +997,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The list of clients and pagination information. |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminlistoauth2subjectconsentsessions"></a>
-# **AdminListOAuth2SubjectConsentSessions**
-> List&lt;ClientPreviousOAuth2ConsentSession&gt; AdminListOAuth2SubjectConsentSessions (string subject, string link = null, string xTotalCount = null)
-
-List OAuth 2.0 Consent Sessions of a Subject
-
-This endpoint lists all subject's granted consent sessions, including client and granted scope. If the subject is unknown or has not granted any consent sessions yet, the endpoint returns an empty JSON array with status code 200 OK.  The \"Link\" header is also included in successful responses, which contains one or more links for pagination, formatted like so: '<https://hydra-url/admin/oauth2/auth/sessions/consent?subject={user}&limit={limit}&offset={offset}>; rel=\"{page}\"', where page is one of the following applicable pages: 'first', 'next', 'last', and 'previous'. Multiple links can be included in this header, and will be separated by a comma.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminListOAuth2SubjectConsentSessionsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var subject = "subject_example";  // string | The subject to list the consent sessions for.
-            var link = "link_example";  // string | The link header contains pagination links.  For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) 
-            var xTotalCount = "xTotalCount_example";  // string | The total number of clients. (optional) 
-
-            try
-            {
-                // List OAuth 2.0 Consent Sessions of a Subject
-                List<ClientPreviousOAuth2ConsentSession> result = apiInstance.AdminListOAuth2SubjectConsentSessions(subject, link, xTotalCount);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminListOAuth2SubjectConsentSessions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subject** | **string**| The subject to list the consent sessions for. | 
- **link** | **string**| The link header contains pagination links.  For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [optional] 
- **xTotalCount** | **string**| The total number of clients. | [optional] 
-
-### Return type
-
-[**List&lt;ClientPreviousOAuth2ConsentSession&gt;**](ClientPreviousOAuth2ConsentSession.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | previousOAuth2ConsentSessions |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminlisttrustedoauth2jwtgrantissuers"></a>
-# **AdminListTrustedOAuth2JwtGrantIssuers**
-> List&lt;ClientTrustedOAuth2JwtGrantIssuer&gt; AdminListTrustedOAuth2JwtGrantIssuers (long? maxItems = null, long? defaultItems = null, string issuer = null, long? limit = null, long? offset = null)
-
-List Trusted OAuth2 JWT Bearer Grant Type Issuers
-
-Use this endpoint to list all trusted JWT Bearer Grant Type Issuers.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminListTrustedOAuth2JwtGrantIssuersExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var maxItems = 789L;  // long? |  (optional) 
-            var defaultItems = 789L;  // long? |  (optional) 
-            var issuer = "issuer_example";  // string | If optional \"issuer\" is supplied, only jwt-bearer grants with this issuer will be returned. (optional) 
-            var limit = 789L;  // long? | The maximum amount of policies returned, upper bound is 500 policies (optional) 
-            var offset = 789L;  // long? | The offset from where to start looking. (optional) 
-
-            try
-            {
-                // List Trusted OAuth2 JWT Bearer Grant Type Issuers
-                List<ClientTrustedOAuth2JwtGrantIssuer> result = apiInstance.AdminListTrustedOAuth2JwtGrantIssuers(maxItems, defaultItems, issuer, limit, offset);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminListTrustedOAuth2JwtGrantIssuers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **maxItems** | **long?**|  | [optional] 
- **defaultItems** | **long?**|  | [optional] 
- **issuer** | **string**| If optional \&quot;issuer\&quot; is supplied, only jwt-bearer grants with this issuer will be returned. | [optional] 
- **limit** | **long?**| The maximum amount of policies returned, upper bound is 500 policies | [optional] 
- **offset** | **long?**| The offset from where to start looking. | [optional] 
-
-### Return type
-
-[**List&lt;ClientTrustedOAuth2JwtGrantIssuer&gt;**](ClientTrustedOAuth2JwtGrantIssuer.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | trustedOAuth2JwtGrantIssuers |  -  |
-| **0** | genericError |  -  |
+| **200** | sessionList |  -  |
+| **400** | jsonError |  -  |
+| **401** | jsonError |  -  |
+| **404** | jsonError |  -  |
+| **500** | jsonError |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2566,540 +1085,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="adminpatchoauth2client"></a>
-# **AdminPatchOAuth2Client**
-> ClientOAuth2Client AdminPatchOAuth2Client (string id, List<ClientJsonPatch> clientJsonPatch)
-
-Patch an OAuth 2.0 Client
-
-Patch an existing OAuth 2.0 Client. If you pass `client_secret` the secret will be updated and returned via the API. This is the only time you will be able to retrieve the client secret, so write it down and keep it safe.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminPatchOAuth2ClientExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var id = "id_example";  // string | The id of the OAuth 2.0 Client.
-            var clientJsonPatch = new List<ClientJsonPatch>(); // List<ClientJsonPatch> | 
-
-            try
-            {
-                // Patch an OAuth 2.0 Client
-                ClientOAuth2Client result = apiInstance.AdminPatchOAuth2Client(id, clientJsonPatch);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminPatchOAuth2Client: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the OAuth 2.0 Client. | 
- **clientJsonPatch** | [**List&lt;ClientJsonPatch&gt;**](ClientJsonPatch.md)|  | 
-
-### Return type
-
-[**ClientOAuth2Client**](ClientOAuth2Client.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oAuth2Client |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminrejectoauth2consentrequest"></a>
-# **AdminRejectOAuth2ConsentRequest**
-> ClientSuccessfulOAuth2RequestResponse AdminRejectOAuth2ConsentRequest (string consentChallenge, ClientRejectOAuth2Request clientRejectOAuth2Request = null)
-
-Reject an OAuth 2.0 Consent Request
-
-When an authorization code, hybrid, or implicit OAuth 2.0 Flow is initiated, ORY Hydra asks the login provider to authenticate the subject and then tell ORY Hydra now about it. If the subject authenticated, he/she must now be asked if the OAuth 2.0 Client which initiated the flow should be allowed to access the resources on the subject's behalf.  The consent provider which handles this request and is a web app implemented and hosted by you. It shows a subject interface which asks the subject to grant or deny the client access to the requested scope (\"Application my-dropbox-app wants write access to all your private files\").  The consent challenge is appended to the consent provider's URL to which the subject's user-agent (browser) is redirected to. The consent provider uses that challenge to fetch information on the OAuth2 request and then tells ORY Hydra if the subject accepted or rejected the request.  This endpoint tells ORY Hydra that the subject has not authorized the OAuth 2.0 client to access resources on his/her behalf. The consent provider must include a reason why the consent was not granted.  The response contains a redirect URL which the consent provider should redirect the user-agent to.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminRejectOAuth2ConsentRequestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var consentChallenge = "consentChallenge_example";  // string | 
-            var clientRejectOAuth2Request = new ClientRejectOAuth2Request(); // ClientRejectOAuth2Request |  (optional) 
-
-            try
-            {
-                // Reject an OAuth 2.0 Consent Request
-                ClientSuccessfulOAuth2RequestResponse result = apiInstance.AdminRejectOAuth2ConsentRequest(consentChallenge, clientRejectOAuth2Request);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminRejectOAuth2ConsentRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **consentChallenge** | **string**|  | 
- **clientRejectOAuth2Request** | [**ClientRejectOAuth2Request**](ClientRejectOAuth2Request.md)|  | [optional] 
-
-### Return type
-
-[**ClientSuccessfulOAuth2RequestResponse**](ClientSuccessfulOAuth2RequestResponse.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successfulOAuth2RequestResponse |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminrejectoauth2loginrequest"></a>
-# **AdminRejectOAuth2LoginRequest**
-> ClientSuccessfulOAuth2RequestResponse AdminRejectOAuth2LoginRequest (string loginChallenge, ClientRejectOAuth2Request clientRejectOAuth2Request = null)
-
-Reject an OAuth 2.0 Login Request
-
-When an authorization code, hybrid, or implicit OAuth 2.0 Flow is initiated, ORY Hydra asks the login provider (sometimes called \"identity provider\") to authenticate the subject and then tell ORY Hydra now about it. The login provider is an web-app you write and host, and it must be able to authenticate (\"show the subject a login screen\") a subject (in OAuth2 the proper name for subject is \"resource owner\").  The authentication challenge is appended to the login provider URL to which the subject's user-agent (browser) is redirected to. The login provider uses that challenge to fetch information on the OAuth2 request and then accept or reject the requested authentication process.  This endpoint tells ORY Hydra that the subject has not authenticated and includes a reason why the authentication was denied.  The response contains a redirect URL which the login provider should redirect the user-agent to.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminRejectOAuth2LoginRequestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var loginChallenge = "loginChallenge_example";  // string | 
-            var clientRejectOAuth2Request = new ClientRejectOAuth2Request(); // ClientRejectOAuth2Request |  (optional) 
-
-            try
-            {
-                // Reject an OAuth 2.0 Login Request
-                ClientSuccessfulOAuth2RequestResponse result = apiInstance.AdminRejectOAuth2LoginRequest(loginChallenge, clientRejectOAuth2Request);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminRejectOAuth2LoginRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loginChallenge** | **string**|  | 
- **clientRejectOAuth2Request** | [**ClientRejectOAuth2Request**](ClientRejectOAuth2Request.md)|  | [optional] 
-
-### Return type
-
-[**ClientSuccessfulOAuth2RequestResponse**](ClientSuccessfulOAuth2RequestResponse.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successfulOAuth2RequestResponse |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminrejectoauth2logoutrequest"></a>
-# **AdminRejectOAuth2LogoutRequest**
-> void AdminRejectOAuth2LogoutRequest (string logoutChallenge, ClientRejectOAuth2Request clientRejectOAuth2Request = null)
-
-Reject an OAuth 2.0 Logout Request
-
-When a user or an application requests ORY Hydra to log out a user, this endpoint is used to deny that logout request. No body is required.  The response is empty as the logout provider has to chose what action to perform next.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminRejectOAuth2LogoutRequestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var logoutChallenge = "logoutChallenge_example";  // string | 
-            var clientRejectOAuth2Request = new ClientRejectOAuth2Request(); // ClientRejectOAuth2Request |  (optional) 
-
-            try
-            {
-                // Reject an OAuth 2.0 Logout Request
-                apiInstance.AdminRejectOAuth2LogoutRequest(logoutChallenge, clientRejectOAuth2Request);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminRejectOAuth2LogoutRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **logoutChallenge** | **string**|  | 
- **clientRejectOAuth2Request** | [**ClientRejectOAuth2Request**](ClientRejectOAuth2Request.md)|  | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/x-www-form-urlencoded
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminrevokeoauth2consentsessions"></a>
-# **AdminRevokeOAuth2ConsentSessions**
-> void AdminRevokeOAuth2ConsentSessions (string subject, string _client = null, bool? all = null)
-
-Revokes OAuth 2.0 Consent Sessions of a Subject for a Specific OAuth 2.0 Client
-
-This endpoint revokes a subject's granted consent sessions for a specific OAuth 2.0 Client and invalidates all associated OAuth 2.0 Access Tokens.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminRevokeOAuth2ConsentSessionsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var subject = "subject_example";  // string | The subject (Subject) whose consent sessions should be deleted.
-            var _client = "_client_example";  // string | If set, deletes only those consent sessions by the Subject that have been granted to the specified OAuth 2.0 Client ID (optional) 
-            var all = true;  // bool? | If set to `true` deletes all consent sessions by the Subject that have been granted. (optional) 
-
-            try
-            {
-                // Revokes OAuth 2.0 Consent Sessions of a Subject for a Specific OAuth 2.0 Client
-                apiInstance.AdminRevokeOAuth2ConsentSessions(subject, _client, all);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminRevokeOAuth2ConsentSessions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subject** | **string**| The subject (Subject) whose consent sessions should be deleted. | 
- **_client** | **string**| If set, deletes only those consent sessions by the Subject that have been granted to the specified OAuth 2.0 Client ID | [optional] 
- **all** | **bool?**| If set to &#x60;true&#x60; deletes all consent sessions by the Subject that have been granted. | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminrevokeoauth2loginsessions"></a>
-# **AdminRevokeOAuth2LoginSessions**
-> void AdminRevokeOAuth2LoginSessions (string subject)
-
-Invalidates All OAuth 2.0 Login Sessions of a Certain User
-
-This endpoint invalidates a subject's authentication session. After revoking the authentication session, the subject has to re-authenticate at ORY Hydra. This endpoint does not invalidate any tokens and does not work with OpenID Connect Front- or Back-channel logout.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminRevokeOAuth2LoginSessionsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var subject = "subject_example";  // string | The subject to revoke authentication sessions for.
-
-            try
-            {
-                // Invalidates All OAuth 2.0 Login Sessions of a Certain User
-                apiInstance.AdminRevokeOAuth2LoginSessions(subject);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminRevokeOAuth2LoginSessions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subject** | **string**| The subject to revoke authentication sessions for. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="admintrustoauth2jwtgrantissuer"></a>
-# **AdminTrustOAuth2JwtGrantIssuer**
-> ClientTrustedOAuth2JwtGrantIssuer AdminTrustOAuth2JwtGrantIssuer (ClientAdminTrustOAuth2JwtGrantIssuerBody clientAdminTrustOAuth2JwtGrantIssuerBody = null)
-
-Trust an OAuth2 JWT Bearer Grant Type Issuer
-
-Use this endpoint to establish a trust relationship for a JWT issuer to perform JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants [RFC7523](https://datatracker.ietf.org/doc/html/rfc7523).
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminTrustOAuth2JwtGrantIssuerExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var clientAdminTrustOAuth2JwtGrantIssuerBody = new ClientAdminTrustOAuth2JwtGrantIssuerBody(); // ClientAdminTrustOAuth2JwtGrantIssuerBody |  (optional) 
-
-            try
-            {
-                // Trust an OAuth2 JWT Bearer Grant Type Issuer
-                ClientTrustedOAuth2JwtGrantIssuer result = apiInstance.AdminTrustOAuth2JwtGrantIssuer(clientAdminTrustOAuth2JwtGrantIssuerBody);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminTrustOAuth2JwtGrantIssuer: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientAdminTrustOAuth2JwtGrantIssuerBody** | [**ClientAdminTrustOAuth2JwtGrantIssuerBody**](ClientAdminTrustOAuth2JwtGrantIssuerBody.md)|  | [optional] 
-
-### Return type
-
-[**ClientTrustedOAuth2JwtGrantIssuer**](ClientTrustedOAuth2JwtGrantIssuer.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | trustedOAuth2JwtGrantIssuer |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="adminupdateidentity"></a>
 # **AdminUpdateIdentity**
 > ClientIdentity AdminUpdateIdentity (string id, ClientAdminUpdateIdentityBody clientAdminUpdateIdentityBody = null)
@@ -3177,239 +1162,6 @@ Name | Type | Description  | Notes
 | **404** | jsonError |  -  |
 | **409** | jsonError |  -  |
 | **500** | jsonError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminupdatejsonwebkey"></a>
-# **AdminUpdateJsonWebKey**
-> ClientJsonWebKey AdminUpdateJsonWebKey (string set, string kid, ClientJsonWebKey clientJsonWebKey = null)
-
-Update a JSON Web Key
-
-Use this method if you do not want to let Hydra generate the JWKs for you, but instead save your own.  A JSON Web Key (JWK) is a JavaScript Object Notation (JSON) data structure that represents a cryptographic key. A JWK Set is a JSON data structure that represents a set of JWKs. A JSON Web Key is identified by its set and key id. ORY Hydra uses this functionality to store cryptographic keys used for TLS and JSON Web Tokens (such as OpenID Connect ID tokens), and allows storing user-defined keys as well.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminUpdateJsonWebKeyExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var set = "set_example";  // string | The JSON Web Key Set
-            var kid = "kid_example";  // string | The JSON Web Key ID (kid)
-            var clientJsonWebKey = new ClientJsonWebKey(); // ClientJsonWebKey |  (optional) 
-
-            try
-            {
-                // Update a JSON Web Key
-                ClientJsonWebKey result = apiInstance.AdminUpdateJsonWebKey(set, kid, clientJsonWebKey);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminUpdateJsonWebKey: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **set** | **string**| The JSON Web Key Set | 
- **kid** | **string**| The JSON Web Key ID (kid) | 
- **clientJsonWebKey** | [**ClientJsonWebKey**](ClientJsonWebKey.md)|  | [optional] 
-
-### Return type
-
-[**ClientJsonWebKey**](ClientJsonWebKey.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | jsonWebKey |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminupdatejsonwebkeyset"></a>
-# **AdminUpdateJsonWebKeySet**
-> ClientJsonWebKeySet AdminUpdateJsonWebKeySet (string set, ClientJsonWebKeySet clientJsonWebKeySet = null)
-
-Update a JSON Web Key Set
-
-Use this method if you do not want to let Hydra generate the JWKs for you, but instead save your own.  A JSON Web Key (JWK) is a JavaScript Object Notation (JSON) data structure that represents a cryptographic key. A JWK Set is a JSON data structure that represents a set of JWKs. A JSON Web Key is identified by its set and key id. ORY Hydra uses this functionality to store cryptographic keys used for TLS and JSON Web Tokens (such as OpenID Connect ID tokens), and allows storing user-defined keys as well.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminUpdateJsonWebKeySetExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var set = "set_example";  // string | The JSON Web Key Set
-            var clientJsonWebKeySet = new ClientJsonWebKeySet(); // ClientJsonWebKeySet |  (optional) 
-
-            try
-            {
-                // Update a JSON Web Key Set
-                ClientJsonWebKeySet result = apiInstance.AdminUpdateJsonWebKeySet(set, clientJsonWebKeySet);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminUpdateJsonWebKeySet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **set** | **string**| The JSON Web Key Set | 
- **clientJsonWebKeySet** | [**ClientJsonWebKeySet**](ClientJsonWebKeySet.md)|  | [optional] 
-
-### Return type
-
-[**ClientJsonWebKeySet**](ClientJsonWebKeySet.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | jsonWebKeySet |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="adminupdateoauth2client"></a>
-# **AdminUpdateOAuth2Client**
-> ClientOAuth2Client AdminUpdateOAuth2Client (string id, ClientOAuth2Client clientOAuth2Client)
-
-Update an OAuth 2.0 Client
-
-Update an existing OAuth 2.0 Client. If you pass `client_secret` the secret is used, otherwise a random secret is generated. The secret is echoed in the response. It is not possible to retrieve it later on.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class AdminUpdateOAuth2ClientExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: oryAccessToken
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var id = "id_example";  // string | The id of the OAuth 2.0 Client.
-            var clientOAuth2Client = new ClientOAuth2Client(); // ClientOAuth2Client | 
-
-            try
-            {
-                // Update an OAuth 2.0 Client
-                ClientOAuth2Client result = apiInstance.AdminUpdateOAuth2Client(id, clientOAuth2Client);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.AdminUpdateOAuth2Client: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the OAuth 2.0 Client. | 
- **clientOAuth2Client** | [**ClientOAuth2Client**](ClientOAuth2Client.md)|  | 
-
-### Return type
-
-[**ClientOAuth2Client**](ClientOAuth2Client.md)
-
-### Authorization
-
-[oryAccessToken](../README.md#oryAccessToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oAuth2Client |  -  |
-| **0** | genericError |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3717,440 +1469,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="discoverjsonwebkeys"></a>
-# **DiscoverJsonWebKeys**
-> ClientJsonWebKeySet DiscoverJsonWebKeys ()
-
-Discover JSON Web Keys
-
-This endpoint returns JSON Web Keys required to verifying OpenID Connect ID Tokens and, if enabled, OAuth 2.0 JWT Access Tokens. This endpoint can be used with client libraries like [node-jwks-rsa](https://github.com/auth0/node-jwks-rsa) among others.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class DiscoverJsonWebKeysExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            var apiInstance = new V0alpha2Api(config);
-
-            try
-            {
-                // Discover JSON Web Keys
-                ClientJsonWebKeySet result = apiInstance.DiscoverJsonWebKeys();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.DiscoverJsonWebKeys: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ClientJsonWebKeySet**](ClientJsonWebKeySet.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | jsonWebKeySet |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="discoveroidcconfiguration"></a>
-# **DiscoverOidcConfiguration**
-> ClientOidcConfiguration DiscoverOidcConfiguration ()
-
-OpenID Connect Discovery
-
-The well known endpoint an be used to retrieve information for OpenID Connect clients. We encourage you to not roll your own OpenID Connect client but to use an OpenID Connect client library instead. You can learn more on this flow at https://openid.net/specs/openid-connect-discovery-1_0.html .  Popular libraries for OpenID Connect clients include oidc-client-js (JavaScript), go-oidc (Golang), and others. For a full list of clients go here: https://openid.net/developers/certified/
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class DiscoverOidcConfigurationExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            var apiInstance = new V0alpha2Api(config);
-
-            try
-            {
-                // OpenID Connect Discovery
-                ClientOidcConfiguration result = apiInstance.DiscoverOidcConfiguration();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.DiscoverOidcConfiguration: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ClientOidcConfiguration**](ClientOidcConfiguration.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oidcConfiguration |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="dynamicclientregistrationcreateoauth2client"></a>
-# **DynamicClientRegistrationCreateOAuth2Client**
-> ClientOAuth2Client DynamicClientRegistrationCreateOAuth2Client (ClientOAuth2Client clientOAuth2Client)
-
-Register an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-
-This endpoint behaves like the administrative counterpart (`createOAuth2Client`) but is capable of facing the public internet directly and can be used in self-service. It implements the OpenID Connect Dynamic Client Registration Protocol. This feature needs to be enabled in the configuration. This endpoint is disabled by default. It can be enabled by an administrator.  Please note that using this endpoint you are not able to choose the `client_secret` nor the `client_id` as those values will be server generated when specifying `token_endpoint_auth_method` as `client_secret_basic` or `client_secret_post`.  The `client_secret` will be returned in the response and you will not be able to retrieve it later on. Write the secret down and keep it somewhere safe.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class DynamicClientRegistrationCreateOAuth2ClientExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            var apiInstance = new V0alpha2Api(config);
-            var clientOAuth2Client = new ClientOAuth2Client(); // ClientOAuth2Client | 
-
-            try
-            {
-                // Register an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-                ClientOAuth2Client result = apiInstance.DynamicClientRegistrationCreateOAuth2Client(clientOAuth2Client);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.DynamicClientRegistrationCreateOAuth2Client: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientOAuth2Client** | [**ClientOAuth2Client**](ClientOAuth2Client.md)|  | 
-
-### Return type
-
-[**ClientOAuth2Client**](ClientOAuth2Client.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | oAuth2Client |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="dynamicclientregistrationdeleteoauth2client"></a>
-# **DynamicClientRegistrationDeleteOAuth2Client**
-> void DynamicClientRegistrationDeleteOAuth2Client (string id)
-
-Deletes an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-
-This endpoint behaves like the administrative counterpart (`deleteOAuth2Client`) but is capable of facing the public internet directly and can be used in self-service. It implements the OpenID Connect Dynamic Client Registration Protocol. This feature needs to be enabled in the configuration. This endpoint is disabled by default. It can be enabled by an administrator.  To use this endpoint, you will need to present the client's authentication credentials. If the OAuth2 Client uses the Token Endpoint Authentication Method `client_secret_post`, you need to present the client secret in the URL query. If it uses `client_secret_basic`, present the Client ID and the Client Secret in the Authorization header.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class DynamicClientRegistrationDeleteOAuth2ClientExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var id = "id_example";  // string | The id of the OAuth 2.0 Client.
-
-            try
-            {
-                // Deletes an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-                apiInstance.DynamicClientRegistrationDeleteOAuth2Client(id);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.DynamicClientRegistrationDeleteOAuth2Client: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the OAuth 2.0 Client. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="dynamicclientregistrationgetoauth2client"></a>
-# **DynamicClientRegistrationGetOAuth2Client**
-> ClientOAuth2Client DynamicClientRegistrationGetOAuth2Client (string id)
-
-Get an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-
-This endpoint behaves like the administrative counterpart (`getOAuth2Client`) but is capable of facing the public internet directly and can be used in self-service. It implements the OpenID Connect Dynamic Client Registration Protocol. This feature needs to be enabled in the configuration. This endpoint is disabled by default. It can be enabled by an administrator.  To use this endpoint, you will need to present the client's authentication credentials. If the OAuth2 Client uses the Token Endpoint Authentication Method `client_secret_post`, you need to present the client secret in the URL query. If it uses `client_secret_basic`, present the Client ID and the Client Secret in the Authorization header.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class DynamicClientRegistrationGetOAuth2ClientExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var id = "id_example";  // string | The id of the OAuth 2.0 Client.
-
-            try
-            {
-                // Get an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-                ClientOAuth2Client result = apiInstance.DynamicClientRegistrationGetOAuth2Client(id);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.DynamicClientRegistrationGetOAuth2Client: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the OAuth 2.0 Client. | 
-
-### Return type
-
-[**ClientOAuth2Client**](ClientOAuth2Client.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oAuth2Client |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="dynamicclientregistrationupdateoauth2client"></a>
-# **DynamicClientRegistrationUpdateOAuth2Client**
-> ClientOAuth2Client DynamicClientRegistrationUpdateOAuth2Client (string id, ClientOAuth2Client clientOAuth2Client)
-
-Update an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-
-This endpoint behaves like the administrative counterpart (`updateOAuth2Client`) but is capable of facing the public internet directly and can be used in self-service. It implements the OpenID Connect Dynamic Client Registration Protocol. This feature needs to be enabled in the configuration. This endpoint is disabled by default. It can be enabled by an administrator.  If you pass `client_secret` the secret is used, otherwise a random secret is generated. The secret is echoed in the response. It is not possible to retrieve it later on.  To use this endpoint, you will need to present the client's authentication credentials. If the OAuth2 Client uses the Token Endpoint Authentication Method `client_secret_post`, you need to present the client secret in the URL query. If it uses `client_secret_basic`, present the Client ID and the Client Secret in the Authorization header.  OAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are generated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class DynamicClientRegistrationUpdateOAuth2ClientExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure Bearer token for authorization: bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var id = "id_example";  // string | The id of the OAuth 2.0 Client.
-            var clientOAuth2Client = new ClientOAuth2Client(); // ClientOAuth2Client | 
-
-            try
-            {
-                // Update an OAuth 2.0 Client using the OpenID / OAuth2 Dynamic Client Registration Management Protocol
-                ClientOAuth2Client result = apiInstance.DynamicClientRegistrationUpdateOAuth2Client(id, clientOAuth2Client);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.DynamicClientRegistrationUpdateOAuth2Client: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the OAuth 2.0 Client. | 
- **clientOAuth2Client** | [**ClientOAuth2Client**](ClientOAuth2Client.md)|  | 
-
-### Return type
-
-[**ClientOAuth2Client**](ClientOAuth2Client.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oAuth2Client |  -  |
-| **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="getidentityschema"></a>
 # **GetIdentitySchema**
 > Object GetIdentitySchema (string id)
@@ -4220,77 +1538,6 @@ No authorization required
 | **200** | identitySchema |  -  |
 | **404** | jsonError |  -  |
 | **500** | jsonError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getoidcuserinfo"></a>
-# **GetOidcUserInfo**
-> ClientOidcUserInfo GetOidcUserInfo ()
-
-OpenID Connect Userinfo
-
-This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 Access Token.  For more information please [refer to the spec](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo).  In the case of authentication error, a WWW-Authenticate header might be set in the response with more information about the error. See [the spec](https://datatracker.ietf.org/doc/html/rfc6750#section-3) for more details about header format.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class GetOidcUserInfoExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-
-            try
-            {
-                // OpenID Connect Userinfo
-                ClientOidcUserInfo result = apiInstance.GetOidcUserInfo();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.GetOidcUserInfo: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ClientOidcUserInfo**](ClientOidcUserInfo.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oidcUserInfo |  -  |
-| **0** | oAuth2ApiError |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4978,11 +2225,11 @@ No authorization required
 
 <a name="initializeselfserviceloginflowforbrowsers"></a>
 # **InitializeSelfServiceLoginFlowForBrowsers**
-> ClientSelfServiceLoginFlow InitializeSelfServiceLoginFlowForBrowsers (bool? refresh = null, string aal = null, string returnTo = null, string cookie = null)
+> ClientSelfServiceLoginFlow InitializeSelfServiceLoginFlowForBrowsers (bool? refresh = null, string aal = null, string returnTo = null, string cookie = null, string loginChallenge = null)
 
 Initialize Login Flow for Browsers
 
-This endpoint initializes a browser-based user login flow. This endpoint will set the appropriate cookies and anti-CSRF measures required for browser-based flows.  If this endpoint is opened as a link in the browser, it will be redirected to `selfservice.flows.login.ui_url` with the flow ID set as the query parameter `?flow=`. If a valid user session exists already, the browser will be redirected to `urls.default_redirect_url` unless the query parameter `?refresh=true` was set.  If this endpoint is called via an AJAX request, the response contains the flow without a redirect. In the case of an error, the `error.id` of the JSON response body can be one of:  `session_already_available`: The user is already signed in. `session_aal1_required`: Multi-factor auth (e.g. 2fa) was requested but the user has no session yet. `security_csrf_violation`: Unable to fetch the flow because a CSRF violation occurred. `security_identity_mismatch`: The requested `?return_to` address is not allowed to be used. Adjust this in the configuration!  This endpoint is NOT INTENDED for clients that do not have a browser (Chrome, Firefox, ...) as cookies are needed.  More information can be found at [Ory Kratos User Login](https://www.ory.sh/docs/kratos/self-service/flows/user-login) and [User Registration Documentation](https://www.ory.sh/docs/kratos/self-service/flows/user-registration).
+This endpoint initializes a browser-based user login flow. This endpoint will set the appropriate cookies and anti-CSRF measures required for browser-based flows.  If this endpoint is opened as a link in the browser, it will be redirected to `selfservice.flows.login.ui_url` with the flow ID set as the query parameter `?flow=`. If a valid user session exists already, the browser will be redirected to `urls.default_redirect_url` unless the query parameter `?refresh=true` was set.  If this endpoint is called via an AJAX request, the response contains the flow without a redirect. In the case of an error, the `error.id` of the JSON response body can be one of:  `session_already_available`: The user is already signed in. `session_aal1_required`: Multi-factor auth (e.g. 2fa) was requested but the user has no session yet. `security_csrf_violation`: Unable to fetch the flow because a CSRF violation occurred. `security_identity_mismatch`: The requested `?return_to` address is not allowed to be used. Adjust this in the configuration!  The optional query parameter login_challenge is set when using Kratos with Hydra in an OAuth2 flow. See the oauth2_provider.url configuration option.  This endpoint is NOT INTENDED for clients that do not have a browser (Chrome, Firefox, ...) as cookies are needed.  More information can be found at [Ory Kratos User Login](https://www.ory.sh/docs/kratos/self-service/flows/user-login) and [User Registration Documentation](https://www.ory.sh/docs/kratos/self-service/flows/user-registration).
 
 ### Example
 ```csharp
@@ -5005,11 +2252,12 @@ namespace Example
             var aal = "aal_example";  // string | Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session's authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \"upgrade\" the session's security by asking the user to perform TOTP / WebAuth/ ... you would set this to \"aal2\". (optional) 
             var returnTo = "returnTo_example";  // string | The URL to return the browser to after the flow was completed. (optional) 
             var cookie = "cookie_example";  // string | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional) 
+            var loginChallenge = "loginChallenge_example";  // string | An optional Hydra login challenge. If present, Kratos will cooperate with Ory Hydra to act as an OAuth2 identity provider.  The value for this parameter comes from `login_challenge` URL Query parameter sent to your application (e.g. `/login?login_challenge=abcde`). (optional) 
 
             try
             {
                 // Initialize Login Flow for Browsers
-                ClientSelfServiceLoginFlow result = apiInstance.InitializeSelfServiceLoginFlowForBrowsers(refresh, aal, returnTo, cookie);
+                ClientSelfServiceLoginFlow result = apiInstance.InitializeSelfServiceLoginFlowForBrowsers(refresh, aal, returnTo, cookie, loginChallenge);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -5031,6 +2279,7 @@ Name | Type | Description  | Notes
  **aal** | **string**| Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session&#39;s authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \&quot;upgrade\&quot; the session&#39;s security by asking the user to perform TOTP / WebAuth/ ... you would set this to \&quot;aal2\&quot;. | [optional] 
  **returnTo** | **string**| The URL to return the browser to after the flow was completed. | [optional] 
  **cookie** | **string**| HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. | [optional] 
+ **loginChallenge** | **string**| An optional Hydra login challenge. If present, Kratos will cooperate with Ory Hydra to act as an OAuth2 identity provider.  The value for this parameter comes from &#x60;login_challenge&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?login_challenge&#x3D;abcde&#x60;). | [optional] 
 
 ### Return type
 
@@ -5278,7 +2527,7 @@ No authorization required
 
 <a name="initializeselfserviceregistrationflowforbrowsers"></a>
 # **InitializeSelfServiceRegistrationFlowForBrowsers**
-> ClientSelfServiceRegistrationFlow InitializeSelfServiceRegistrationFlowForBrowsers (string returnTo = null)
+> ClientSelfServiceRegistrationFlow InitializeSelfServiceRegistrationFlowForBrowsers (string returnTo = null, string loginChallenge = null)
 
 Initialize Registration Flow for Browsers
 
@@ -5302,11 +2551,12 @@ namespace Example
             config.BasePath = "https://playground.projects.oryapis.com";
             var apiInstance = new V0alpha2Api(config);
             var returnTo = "returnTo_example";  // string | The URL to return the browser to after the flow was completed. (optional) 
+            var loginChallenge = "loginChallenge_example";  // string | Ory OAuth 2.0 Login Challenge.  If set will cooperate with Ory OAuth2 and OpenID to act as an OAuth2 server / OpenID Provider.  The value for this parameter comes from `login_challenge` URL Query parameter sent to your application (e.g. `/registration?login_challenge=abcde`).  This feature is compatible with Ory Hydra when not running on the Ory Network. (optional) 
 
             try
             {
                 // Initialize Registration Flow for Browsers
-                ClientSelfServiceRegistrationFlow result = apiInstance.InitializeSelfServiceRegistrationFlowForBrowsers(returnTo);
+                ClientSelfServiceRegistrationFlow result = apiInstance.InitializeSelfServiceRegistrationFlowForBrowsers(returnTo, loginChallenge);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -5325,6 +2575,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **returnTo** | **string**| The URL to return the browser to after the flow was completed. | [optional] 
+ **loginChallenge** | **string**| Ory OAuth 2.0 Login Challenge.  If set will cooperate with Ory OAuth2 and OpenID to act as an OAuth2 server / OpenID Provider.  The value for this parameter comes from &#x60;login_challenge&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?login_challenge&#x3D;abcde&#x60;).  This feature is compatible with Ory Hydra when not running on the Ory Network. | [optional] 
 
 ### Return type
 
@@ -5937,9 +3188,9 @@ This endpoint does not need any parameter.
 # **ListSessions**
 > List&lt;ClientSession&gt; ListSessions (string xSessionToken = null, string cookie = null, long? perPage = null, long? page = null)
 
-This endpoints returns all other active sessions that belong to the logged-in user. The current session can be retrieved by calling the `/sessions/whoami` endpoint.
+Get Active Sessions
 
-This endpoint is useful for:  Displaying all other sessions that belong to the logged-in user
+This endpoints returns all other active sessions that belong to the logged-in user. The current session can be retrieved by calling the `/sessions/whoami` endpoint.  This endpoint is useful for:  Displaying all other sessions that belong to the logged-in user
 
 ### Example
 ```csharp
@@ -5965,7 +3216,7 @@ namespace Example
 
             try
             {
-                // This endpoints returns all other active sessions that belong to the logged-in user. The current session can be retrieved by calling the `/sessions/whoami` endpoint.
+                // Get Active Sessions
                 List<ClientSession> result = apiInstance.ListSessions(xSessionToken, cookie, perPage, page);
                 Debug.WriteLine(result);
             }
@@ -6092,226 +3343,6 @@ Name | Type | Description  | Notes
 | **403** | genericError |  -  |
 | **404** | genericError |  -  |
 | **0** | genericError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="performoauth2authorizationflow"></a>
-# **PerformOAuth2AuthorizationFlow**
-> ClientOAuth2ApiError PerformOAuth2AuthorizationFlow ()
-
-The OAuth 2.0 Authorize Endpoint
-
-This endpoint is not documented here because you should never use your own implementation to perform OAuth2 flows. OAuth2 is a very popular protocol and a library for your programming language will exists.  To learn more about this flow please refer to the specification: https://tools.ietf.org/html/rfc6749
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class PerformOAuth2AuthorizationFlowExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            var apiInstance = new V0alpha2Api(config);
-
-            try
-            {
-                // The OAuth 2.0 Authorize Endpoint
-                ClientOAuth2ApiError result = apiInstance.PerformOAuth2AuthorizationFlow();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.PerformOAuth2AuthorizationFlow: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ClientOAuth2ApiError**](ClientOAuth2ApiError.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **302** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="performoauth2tokenflow"></a>
-# **PerformOAuth2TokenFlow**
-> ClientOAuth2TokenResponse PerformOAuth2TokenFlow (string grantType, string clientId = null, string code = null, string redirectUri = null, string refreshToken = null)
-
-The OAuth 2.0 Token Endpoint
-
-The client makes a request to the token endpoint by sending the following parameters using the \"application/x-www-form-urlencoded\" HTTP request entity-body.  > Do not implement a client for this endpoint yourself. Use a library. There are many libraries > available for any programming language. You can find a list of libraries here: https://oauth.net/code/ > > Do note that Hydra SDK does not implement this endpoint properly. Use one of the libraries listed above
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class PerformOAuth2TokenFlowExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure HTTP basic authorization: basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var grantType = "grantType_example";  // string | 
-            var clientId = "clientId_example";  // string |  (optional) 
-            var code = "code_example";  // string |  (optional) 
-            var redirectUri = "redirectUri_example";  // string |  (optional) 
-            var refreshToken = "refreshToken_example";  // string |  (optional) 
-
-            try
-            {
-                // The OAuth 2.0 Token Endpoint
-                ClientOAuth2TokenResponse result = apiInstance.PerformOAuth2TokenFlow(grantType, clientId, code, redirectUri, refreshToken);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.PerformOAuth2TokenFlow: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **grantType** | **string**|  | 
- **clientId** | **string**|  | [optional] 
- **code** | **string**|  | [optional] 
- **redirectUri** | **string**|  | [optional] 
- **refreshToken** | **string**|  | [optional] 
-
-### Return type
-
-[**ClientOAuth2TokenResponse**](ClientOAuth2TokenResponse.md)
-
-### Authorization
-
-[basic](../README.md#basic), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | oAuth2TokenResponse |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="performoidcfrontorbackchannellogout"></a>
-# **PerformOidcFrontOrBackChannelLogout**
-> void PerformOidcFrontOrBackChannelLogout ()
-
-OpenID Connect Front- or Back-channel Enabled Logout
-
-This endpoint initiates and completes user logout at Ory Hydra and initiates OpenID Connect Front- / Back-channel logout:  https://openid.net/specs/openid-connect-frontchannel-1_0.html https://openid.net/specs/openid-connect-backchannel-1_0.html  Back-channel logout is performed asynchronously and does not affect logout flow.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class PerformOidcFrontOrBackChannelLogoutExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            var apiInstance = new V0alpha2Api(config);
-
-            try
-            {
-                // OpenID Connect Front- or Back-channel Enabled Logout
-                apiInstance.PerformOidcFrontOrBackChannelLogout();
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.PerformOidcFrontOrBackChannelLogout: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **302** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6471,90 +3502,13 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="revokeoauth2token"></a>
-# **RevokeOAuth2Token**
-> void RevokeOAuth2Token (string token)
-
-Revoke an OAuth2 Access or Refresh Token
-
-Revoking a token (both access and refresh) means that the tokens will be invalid. A revoked access token can no longer be used to make access requests, and a revoked refresh token can no longer be used to refresh an access token. Revoking a refresh token also invalidates the access token that was created with it. A token may only be revoked by the client the token was generated for.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Ory.Client.Api;
-using Ory.Client.Client;
-using Ory.Client.Model;
-
-namespace Example
-{
-    public class RevokeOAuth2TokenExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://playground.projects.oryapis.com";
-            // Configure HTTP basic authorization: basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new V0alpha2Api(config);
-            var token = "token_example";  // string | 
-
-            try
-            {
-                // Revoke an OAuth2 Access or Refresh Token
-                apiInstance.RevokeOAuth2Token(token);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling V0alpha2Api.RevokeOAuth2Token: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **token** | **string**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[basic](../README.md#basic), [oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is typically 201. |  -  |
-| **0** | oAuth2ApiError |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="revokesession"></a>
 # **RevokeSession**
 > void RevokeSession (string id)
 
-Calling this endpoint invalidates the specified session. The current session cannot be revoked. Session data are not deleted.
+Invalidate a Session
 
-This endpoint is useful for:  To forcefully logout the current user from another device or session
+Calling this endpoint invalidates the specified session. The current session cannot be revoked. Session data are not deleted.  This endpoint is useful for:  To forcefully logout the current user from another device or session
 
 ### Example
 ```csharp
@@ -6577,7 +3531,7 @@ namespace Example
 
             try
             {
-                // Calling this endpoint invalidates the specified session. The current session cannot be revoked. Session data are not deleted.
+                // Invalidate a Session
                 apiInstance.RevokeSession(id);
             }
             catch (ApiException  e)
@@ -6625,9 +3579,9 @@ No authorization required
 # **RevokeSessions**
 > ClientRevokedSessions RevokeSessions (string xSessionToken = null, string cookie = null)
 
-Calling this endpoint invalidates all except the current session that belong to the logged-in user. Session data are not deleted.
+Invalidate all Other Sessions
 
-This endpoint is useful for:  To forcefully logout the current user from all other devices and sessions
+Calling this endpoint invalidates all except the current session that belong to the logged-in user. Session data are not deleted.  This endpoint is useful for:  To forcefully logout the current user from all other devices and sessions
 
 ### Example
 ```csharp
@@ -6651,7 +3605,7 @@ namespace Example
 
             try
             {
-                // Calling this endpoint invalidates all except the current session that belong to the logged-in user. Session data are not deleted.
+                // Invalidate all Other Sessions
                 ClientRevokedSessions result = apiInstance.RevokeSessions(xSessionToken, cookie);
                 Debug.WriteLine(result);
             }

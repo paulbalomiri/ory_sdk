@@ -11,11 +11,11 @@ part 'admin_create_self_service_recovery_link_body.g.dart';
 /// AdminCreateSelfServiceRecoveryLinkBody
 ///
 /// Properties:
-/// * [expiresIn] - Link Expires In  The recovery link will expire at that point in time. Defaults to the configuration value of `selfservice.flows.recovery.request_lifespan`.
+/// * [expiresIn] - Link Expires In  The recovery link will expire after that amount of time has passed. Defaults to the configuration value of `selfservice.methods.code.config.lifespan`.
 /// * [identityId] - Identity to Recover  The identity's ID you wish to recover.
 @BuiltValue()
 abstract class AdminCreateSelfServiceRecoveryLinkBody implements Built<AdminCreateSelfServiceRecoveryLinkBody, AdminCreateSelfServiceRecoveryLinkBodyBuilder> {
-  /// Link Expires In  The recovery link will expire at that point in time. Defaults to the configuration value of `selfservice.flows.recovery.request_lifespan`.
+  /// Link Expires In  The recovery link will expire after that amount of time has passed. Defaults to the configuration value of `selfservice.methods.code.config.lifespan`.
   @BuiltValueField(wireName: r'expires_in')
   String? get expiresIn;
 

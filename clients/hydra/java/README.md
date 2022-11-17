@@ -2,7 +2,7 @@
 
 Ory Hydra API
 - API version: v2.0.2
-  - Build date: 2022-11-10T17:15:30.879216533Z[Etc/UTC]
+  - Build date: 2022-11-17T15:41:33.537063700Z[Etc/UTC]
 
 Documentation for all of Ory Hydra's APIs.
 

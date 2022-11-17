@@ -31,15 +31,16 @@ pub struct SubmitSelfServiceSettingsFlowWithOidcMethodBody {
     pub unlink: Option<String>,
 }
 
+
 impl SubmitSelfServiceSettingsFlowWithOidcMethodBody {
     /// nolint:deadcode,unused
     pub fn new(method: String) -> SubmitSelfServiceSettingsFlowWithOidcMethodBody {
         SubmitSelfServiceSettingsFlowWithOidcMethodBody {
-            flow: None,
-            link: None,
-            method,
-            traits: None,
-            unlink: None,
+                flow: None,
+                link: None,
+                method,
+                traits: None,
+                unlink: None,
         }
     }
 }

@@ -9,12 +9,16 @@ import 'package:ory_client/src/auth/api_key_auth.dart';
 import 'package:ory_client/src/auth/basic_auth.dart';
 import 'package:ory_client/src/auth/bearer_auth.dart';
 import 'package:ory_client/src/auth/oauth.dart';
-import 'package:ory_client/src/api/admin_api.dart';
+import 'package:ory_client/src/api/identity_api.dart';
+import 'package:ory_client/src/api/jwk_api.dart';
 import 'package:ory_client/src/api/metadata_api.dart';
 import 'package:ory_client/src/api/namespaces_api.dart';
+import 'package:ory_client/src/api/o_auth2_api.dart';
+import 'package:ory_client/src/api/oidc_api.dart';
 import 'package:ory_client/src/api/read_api.dart';
 import 'package:ory_client/src/api/syntax_api.dart';
 import 'package:ory_client/src/api/v0alpha2_api.dart';
+import 'package:ory_client/src/api/wellknown_api.dart';
 import 'package:ory_client/src/api/write_api.dart';
 
 class OryClient {
@@ -71,10 +75,16 @@ class OryClient {
     }
   }
 
-  /// Get AdminApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get IdentityApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  AdminApi getAdminApi() {
-    return AdminApi(dio, serializers);
+  IdentityApi getIdentityApi() {
+    return IdentityApi(dio, serializers);
+  }
+
+  /// Get JwkApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  JwkApi getJwkApi() {
+    return JwkApi(dio, serializers);
   }
 
   /// Get MetadataApi instance, base route and serializer can be overridden by a given but be careful,
@@ -87,6 +97,18 @@ class OryClient {
   /// by doing that all interceptors will not be executed
   NamespacesApi getNamespacesApi() {
     return NamespacesApi(dio, serializers);
+  }
+
+  /// Get OAuth2Api instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  OAuth2Api getOAuth2Api() {
+    return OAuth2Api(dio, serializers);
+  }
+
+  /// Get OidcApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  OidcApi getOidcApi() {
+    return OidcApi(dio, serializers);
   }
 
   /// Get ReadApi instance, base route and serializer can be overridden by a given but be careful,
@@ -105,6 +127,12 @@ class OryClient {
   /// by doing that all interceptors will not be executed
   V0alpha2Api getV0alpha2Api() {
     return V0alpha2Api(dio, serializers);
+  }
+
+  /// Get WellknownApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  WellknownApi getWellknownApi() {
+    return WellknownApi(dio, serializers);
   }
 
   /// Get WriteApi instance, base route and serializer can be overridden by a given but be careful,

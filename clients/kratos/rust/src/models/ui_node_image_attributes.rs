@@ -30,14 +30,15 @@ pub struct UiNodeImageAttributes {
     pub width: i64,
 }
 
+
 impl UiNodeImageAttributes {
     pub fn new(height: i64, id: String, node_type: String, src: String, width: i64) -> UiNodeImageAttributes {
         UiNodeImageAttributes {
-            height,
-            id,
-            node_type,
-            src,
-            width,
+                height,
+                id,
+                node_type,
+                src,
+                width,
         }
     }
 }

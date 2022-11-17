@@ -25,13 +25,14 @@ pub struct UiText {
     pub _type: String,
 }
 
+
 impl UiText {
     pub fn new(id: i64, text: String, _type: String) -> UiText {
         UiText {
-            context: None,
-            id,
-            text,
-            _type,
+                context: None,
+                id,
+                text,
+                _type,
         }
     }
 }

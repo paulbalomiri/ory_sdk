@@ -32,16 +32,22 @@ pub struct IdentityCredentials {
     pub version: Option<i64>,
 }
 
+impl Default for IdentityCredentials {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl IdentityCredentials {
     /// Credentials represents a specific credential type
     pub fn new() -> IdentityCredentials {
         IdentityCredentials {
-            config: None,
-            created_at: None,
-            identifiers: None,
-            _type: None,
-            updated_at: None,
-            version: None,
+                config: None,
+                created_at: None,
+                identifiers: None,
+                _type: None,
+                updated_at: None,
+                version: None,
         }
     }
 }

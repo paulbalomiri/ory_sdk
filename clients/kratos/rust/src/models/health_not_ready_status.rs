@@ -18,10 +18,16 @@ pub struct HealthNotReadyStatus {
     pub errors: Option<::std::collections::HashMap<String, String>>,
 }
 
+impl Default for HealthNotReadyStatus {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl HealthNotReadyStatus {
     pub fn new() -> HealthNotReadyStatus {
         HealthNotReadyStatus {
-            errors: None,
+                errors: None,
         }
     }
 }

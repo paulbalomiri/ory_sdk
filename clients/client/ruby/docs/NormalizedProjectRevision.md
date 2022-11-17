@@ -75,6 +75,8 @@
 | **kratos_courier_templates_verification_valid_email_body_plaintext** | **String** | Configures the Ory Kratos Valid Verification Email Body Plaintext Template  This governs the \&quot;courier.smtp.templates.recovery.valid.email.body.plaintext\&quot; setting. | [optional] |
 | **kratos_courier_templates_verification_valid_email_subject** | **String** | Configures the Ory Kratos Valid Verification Email Subject Template  This governs the \&quot;courier.smtp.templates.verification.valid.email.subject\&quot; setting. | [optional] |
 | **kratos_identity_schemas** | [**Array&lt;NormalizedProjectRevisionIdentitySchema&gt;**](NormalizedProjectRevisionIdentitySchema.md) |  | [optional] |
+| **kratos_oauth2_provider_headers** | **Object** | NullJSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger and is NULLable- | [optional] |
+| **kratos_oauth2_provider_url** | **String** | The Revisions&#39; OAuth2 Provider Integration URL  This governs the \&quot;oauth2_provider.url\&quot; setting. | [optional] |
 | **kratos_secrets_cipher** | **Array&lt;String&gt;** |  | [optional] |
 | **kratos_secrets_cookie** | **Array&lt;String&gt;** |  | [optional] |
 | **kratos_secrets_default** | **Array&lt;String&gt;** |  | [optional] |
@@ -222,6 +224,8 @@ instance = OryClient::NormalizedProjectRevision.new(
   kratos_courier_templates_verification_valid_email_body_plaintext: null,
   kratos_courier_templates_verification_valid_email_subject: null,
   kratos_identity_schemas: null,
+  kratos_oauth2_provider_headers: null,
+  kratos_oauth2_provider_url: null,
   kratos_secrets_cipher: null,
   kratos_secrets_cookie: null,
   kratos_secrets_default: null,

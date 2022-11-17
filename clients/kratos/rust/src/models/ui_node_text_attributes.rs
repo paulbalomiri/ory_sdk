@@ -23,12 +23,13 @@ pub struct UiNodeTextAttributes {
     pub text: Box<crate::models::UiText>,
 }
 
+
 impl UiNodeTextAttributes {
     pub fn new(id: String, node_type: String, text: crate::models::UiText) -> UiNodeTextAttributes {
         UiNodeTextAttributes {
-            id,
-            node_type,
-            text: Box::new(text),
+                id,
+                node_type,
+                text: Box::new(text),
         }
     }
 }

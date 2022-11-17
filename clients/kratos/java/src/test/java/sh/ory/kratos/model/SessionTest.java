@@ -24,13 +24,11 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import sh.ory.kratos.model.AuthenticatorAssuranceLevel;
 import sh.ory.kratos.model.Identity;
 import sh.ory.kratos.model.SessionAuthenticationMethod;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

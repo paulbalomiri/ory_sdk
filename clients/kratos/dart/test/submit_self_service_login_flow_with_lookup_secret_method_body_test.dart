@@ -1,12 +1,5 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.7
-
-// ignore_for_file: unused_import
-
-import 'package:ory_kratos_client/model/submit_self_service_login_flow_with_lookup_secret_method_body.dart';
 import 'package:test/test.dart';
+import 'package:ory_kratos_client/ory_kratos_client.dart';
 
 // tests for SubmitSelfServiceLoginFlowWithLookupSecretMethodBody
 void main() {
@@ -32,7 +25,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

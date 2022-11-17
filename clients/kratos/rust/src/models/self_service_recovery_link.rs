@@ -21,11 +21,12 @@ pub struct SelfServiceRecoveryLink {
     pub recovery_link: String,
 }
 
+
 impl SelfServiceRecoveryLink {
     pub fn new(recovery_link: String) -> SelfServiceRecoveryLink {
         SelfServiceRecoveryLink {
-            expires_at: None,
-            recovery_link,
+                expires_at: None,
+                recovery_link,
         }
     }
 }

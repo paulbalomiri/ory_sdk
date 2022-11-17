@@ -17,12 +17,15 @@ pub enum SubmitSelfServiceRecoveryFlowBody {
     SubmitSelfServiceRecoveryFlowWithLinkMethodBody {
         /// Sending the anti-csrf token is only required for browser login flows.
         #[serde(rename = "csrf_token", skip_serializing_if = "Option::is_none")]
+        // false, false, , String, false
         csrf_token: Option<String>,
         /// Email to Recover  Needs to be set when initiating the flow. If the email is a registered recovery email, a recovery link will be sent. If the email is not known, a email with details on what happened will be sent instead.  format: email
         #[serde(rename = "email")]
+        // true, false, , String, false
         email: String,
     },
 }
+
 
 
 

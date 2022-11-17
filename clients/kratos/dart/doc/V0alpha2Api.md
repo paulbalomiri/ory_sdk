@@ -66,13 +66,13 @@ import 'package:ory_kratos_client/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
 
-var api_instance = new V0alpha2Api();
-var adminCreateIdentityBody = new AdminCreateIdentityBody(); // AdminCreateIdentityBody | 
+final api = OryKratosClient().getV0alpha2Api();
+final AdminCreateIdentityBody adminCreateIdentityBody = ; // AdminCreateIdentityBody | 
 
 try {
-    var result = api_instance.adminCreateIdentity(adminCreateIdentityBody);
-    print(result);
-} catch (e) {
+    final response = api.adminCreateIdentity(adminCreateIdentityBody);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->adminCreateIdentity: $e\n');
 }
 ```
@@ -109,13 +109,13 @@ This endpoint creates a recovery link which should be given to the user in order
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var adminCreateSelfServiceRecoveryLinkBody = new AdminCreateSelfServiceRecoveryLinkBody(); // AdminCreateSelfServiceRecoveryLinkBody | 
+final api = OryKratosClient().getV0alpha2Api();
+final AdminCreateSelfServiceRecoveryLinkBody adminCreateSelfServiceRecoveryLinkBody = ; // AdminCreateSelfServiceRecoveryLinkBody | 
 
 try {
-    var result = api_instance.adminCreateSelfServiceRecoveryLink(adminCreateSelfServiceRecoveryLinkBody);
-    print(result);
-} catch (e) {
+    final response = api.adminCreateSelfServiceRecoveryLink(adminCreateSelfServiceRecoveryLinkBody);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->adminCreateSelfServiceRecoveryLink: $e\n');
 }
 ```
@@ -156,12 +156,12 @@ import 'package:ory_kratos_client/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | ID is the identity's ID.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | ID is the identity's ID.
 
 try {
-    api_instance.adminDeleteIdentity(id);
-} catch (e) {
+    api.adminDeleteIdentity(id);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->adminDeleteIdentity: $e\n');
 }
 ```
@@ -202,12 +202,12 @@ import 'package:ory_kratos_client/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | ID is the identity's ID.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | ID is the identity's ID.
 
 try {
-    api_instance.adminDeleteIdentitySessions(id);
-} catch (e) {
+    api.adminDeleteIdentitySessions(id);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->adminDeleteIdentitySessions: $e\n');
 }
 ```
@@ -248,13 +248,13 @@ import 'package:ory_kratos_client/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | ID is the session's ID.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | ID is the session's ID.
 
 try {
-    var result = api_instance.adminExtendSession(id);
-    print(result);
-} catch (e) {
+    final response = api.adminExtendSession(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->adminExtendSession: $e\n');
 }
 ```
@@ -295,14 +295,14 @@ import 'package:ory_kratos_client/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | ID must be set to the ID of identity you want to get
-var includeCredential = []; // BuiltList<String> | DeclassifyCredentials will declassify one or more identity's credentials  Currently, only `oidc` is supported. This will return the initial OAuth 2.0 Access, Refresh and (optionally) OpenID Connect ID Token.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | ID must be set to the ID of identity you want to get
+final BuiltList<String> includeCredential = ; // BuiltList<String> | DeclassifyCredentials will declassify one or more identity's credentials  Currently, only `oidc` is supported. This will return the initial OAuth 2.0 Access, Refresh and (optionally) OpenID Connect ID Token.
 
 try {
-    var result = api_instance.adminGetIdentity(id, includeCredential);
-    print(result);
-} catch (e) {
+    final response = api.adminGetIdentity(id, includeCredential);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->adminGetIdentity: $e\n');
 }
 ```
@@ -312,7 +312,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID must be set to the ID of identity you want to get | 
- **includeCredential** | [**BuiltList<String>**](String.md)| DeclassifyCredentials will declassify one or more identity's credentials  Currently, only `oidc` is supported. This will return the initial OAuth 2.0 Access, Refresh and (optionally) OpenID Connect ID Token. | [optional] 
+ **includeCredential** | [**BuiltList&lt;String&gt;**](String.md)| DeclassifyCredentials will declassify one or more identity's credentials  Currently, only `oidc` is supported. This will return the initial OAuth 2.0 Access, Refresh and (optionally) OpenID Connect ID Token. | [optional] 
 
 ### Return type
 
@@ -344,14 +344,14 @@ import 'package:ory_kratos_client/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
 
-var api_instance = new V0alpha2Api();
-var perPage = 789; // int | Items per Page  This is the number of items per page.
-var page = 789; // int | Pagination Page
+final api = OryKratosClient().getV0alpha2Api();
+final int perPage = 789; // int | Items per Page  This is the number of items per page.
+final int page = 789; // int | Pagination Page
 
 try {
-    var result = api_instance.adminListIdentities(perPage, page);
-    print(result);
-} catch (e) {
+    final response = api.adminListIdentities(perPage, page);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->adminListIdentities: $e\n');
 }
 ```
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<Identity>**](Identity.md)
+[**BuiltList&lt;Identity&gt;**](Identity.md)
 
 ### Authorization
 
@@ -393,16 +393,16 @@ import 'package:ory_kratos_client/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | ID is the identity's ID.
-var perPage = 789; // int | Items per Page  This is the number of items per page.
-var page = 789; // int | Pagination Page
-var active = true; // bool | Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | ID is the identity's ID.
+final int perPage = 789; // int | Items per Page  This is the number of items per page.
+final int page = 789; // int | Pagination Page
+final bool active = true; // bool | Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned.
 
 try {
-    var result = api_instance.adminListIdentitySessions(id, perPage, page, active);
-    print(result);
-} catch (e) {
+    final response = api.adminListIdentitySessions(id, perPage, page, active);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->adminListIdentitySessions: $e\n');
 }
 ```
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<Session>**](Session.md)
+[**BuiltList&lt;Session&gt;**](Session.md)
 
 ### Authorization
 
@@ -446,14 +446,14 @@ import 'package:ory_kratos_client/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('oryAccessToken').apiKeyPrefix = 'Bearer';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | ID must be set to the ID of identity you want to update
-var adminUpdateIdentityBody = new AdminUpdateIdentityBody(); // AdminUpdateIdentityBody | 
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | ID must be set to the ID of identity you want to update
+final AdminUpdateIdentityBody adminUpdateIdentityBody = ; // AdminUpdateIdentityBody | 
 
 try {
-    var result = api_instance.adminUpdateIdentity(id, adminUpdateIdentityBody);
-    print(result);
-} catch (e) {
+    final response = api.adminUpdateIdentity(id, adminUpdateIdentityBody);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->adminUpdateIdentity: $e\n');
 }
 ```
@@ -491,13 +491,13 @@ This endpoint initializes a browser-based user logout flow and a URL which can b
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var cookie = cookie_example; // String | HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request.
+final api = OryKratosClient().getV0alpha2Api();
+final String cookie = cookie_example; // String | HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request.
 
 try {
-    var result = api_instance.createSelfServiceLogoutFlowUrlForBrowsers(cookie);
-    print(result);
-} catch (e) {
+    final response = api.createSelfServiceLogoutFlowUrlForBrowsers(cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->createSelfServiceLogoutFlowUrlForBrowsers: $e\n');
 }
 ```
@@ -534,13 +534,13 @@ Get a JSON Schema
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | ID must be set to the ID of schema you want to get
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | ID must be set to the ID of schema you want to get
 
 try {
-    var result = api_instance.getJsonSchema(id);
-    print(result);
-} catch (e) {
+    final response = api.getJsonSchema(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->getJsonSchema: $e\n');
 }
 ```
@@ -577,13 +577,13 @@ This endpoint returns the error associated with a user-facing self service error
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | Error is the error's ID
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | Error is the error's ID
 
 try {
-    var result = api_instance.getSelfServiceError(id);
-    print(result);
-} catch (e) {
+    final response = api.getSelfServiceError(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->getSelfServiceError: $e\n');
 }
 ```
@@ -620,14 +620,14 @@ This endpoint returns a login flow's context with, for example, error details an
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | The Login Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/login?flow=abcde`).
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | The Login Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/login?flow=abcde`).
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
 
 try {
-    var result = api_instance.getSelfServiceLoginFlow(id, cookie);
-    print(result);
-} catch (e) {
+    final response = api.getSelfServiceLoginFlow(id, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->getSelfServiceLoginFlow: $e\n');
 }
 ```
@@ -665,14 +665,14 @@ This endpoint returns a recovery flow's context with, for example, error details
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | The Flow ID  The value for this parameter comes from `request` URL Query parameter sent to your application (e.g. `/recovery?flow=abcde`).
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | The Flow ID  The value for this parameter comes from `request` URL Query parameter sent to your application (e.g. `/recovery?flow=abcde`).
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
 
 try {
-    var result = api_instance.getSelfServiceRecoveryFlow(id, cookie);
-    print(result);
-} catch (e) {
+    final response = api.getSelfServiceRecoveryFlow(id, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->getSelfServiceRecoveryFlow: $e\n');
 }
 ```
@@ -710,14 +710,14 @@ This endpoint returns a registration flow's context with, for example, error det
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | The Registration Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/registration?flow=abcde`).
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | The Registration Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/registration?flow=abcde`).
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
 
 try {
-    var result = api_instance.getSelfServiceRegistrationFlow(id, cookie);
-    print(result);
-} catch (e) {
+    final response = api.getSelfServiceRegistrationFlow(id, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->getSelfServiceRegistrationFlow: $e\n');
 }
 ```
@@ -755,15 +755,15 @@ When accessing this endpoint through Ory Kratos' Public API you must ensure that
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | ID is the Settings Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/settings?flow=abcde`).
-var xSessionToken = xSessionToken_example; // String | The Session Token  When using the SDK in an app without a browser, please include the session token here.
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | ID is the Settings Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/settings?flow=abcde`).
+final String xSessionToken = xSessionToken_example; // String | The Session Token  When using the SDK in an app without a browser, please include the session token here.
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
 
 try {
-    var result = api_instance.getSelfServiceSettingsFlow(id, xSessionToken, cookie);
-    print(result);
-} catch (e) {
+    final response = api.getSelfServiceSettingsFlow(id, xSessionToken, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->getSelfServiceSettingsFlow: $e\n');
 }
 ```
@@ -802,14 +802,14 @@ This endpoint returns a verification flow's context with, for example, error det
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | The Flow ID  The value for this parameter comes from `request` URL Query parameter sent to your application (e.g. `/verification?flow=abcde`).
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | The Flow ID  The value for this parameter comes from `request` URL Query parameter sent to your application (e.g. `/verification?flow=abcde`).
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here.
 
 try {
-    var result = api_instance.getSelfServiceVerificationFlow(id, cookie);
-    print(result);
-} catch (e) {
+    final response = api.getSelfServiceVerificationFlow(id, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->getSelfServiceVerificationFlow: $e\n');
 }
 ```
@@ -847,12 +847,12 @@ This endpoint provides JavaScript which is needed in order to perform WebAuthn l
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
+final api = OryKratosClient().getV0alpha2Api();
 
 try {
-    var result = api_instance.getWebAuthnJavaScript();
-    print(result);
-} catch (e) {
+    final response = api.getWebAuthnJavaScript();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->getWebAuthnJavaScript: $e\n');
 }
 ```
@@ -886,15 +886,15 @@ This endpoint initializes a browser-based user login flow. This endpoint will se
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var refresh = true; // bool | Refresh a login session  If set to true, this will refresh an existing login session by asking the user to sign in again. This will reset the authenticated_at time of the session.
-var aal = aal_example; // String | Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session's authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \"upgrade\" the session's security by asking the user to perform TOTP / WebAuth/ ... you would set this to \"aal2\".
-var returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
+final api = OryKratosClient().getV0alpha2Api();
+final bool refresh = true; // bool | Refresh a login session  If set to true, this will refresh an existing login session by asking the user to sign in again. This will reset the authenticated_at time of the session.
+final String aal = aal_example; // String | Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session's authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \"upgrade\" the session's security by asking the user to perform TOTP / WebAuth/ ... you would set this to \"aal2\".
+final String returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
 
 try {
-    var result = api_instance.initializeSelfServiceLoginFlowForBrowsers(refresh, aal, returnTo);
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceLoginFlowForBrowsers(refresh, aal, returnTo);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceLoginFlowForBrowsers: $e\n');
 }
 ```
@@ -933,15 +933,15 @@ This endpoint initiates a login flow for API clients that do not use a browser, 
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var refresh = true; // bool | Refresh a login session  If set to true, this will refresh an existing login session by asking the user to sign in again. This will reset the authenticated_at time of the session.
-var aal = aal_example; // String | Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session's authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \"upgrade\" the session's security by asking the user to perform TOTP / WebAuth/ ... you would set this to \"aal2\".
-var xSessionToken = xSessionToken_example; // String | The Session Token of the Identity performing the settings flow.
+final api = OryKratosClient().getV0alpha2Api();
+final bool refresh = true; // bool | Refresh a login session  If set to true, this will refresh an existing login session by asking the user to sign in again. This will reset the authenticated_at time of the session.
+final String aal = aal_example; // String | Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session's authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \"upgrade\" the session's security by asking the user to perform TOTP / WebAuth/ ... you would set this to \"aal2\".
+final String xSessionToken = xSessionToken_example; // String | The Session Token of the Identity performing the settings flow.
 
 try {
-    var result = api_instance.initializeSelfServiceLoginFlowWithoutBrowser(refresh, aal, xSessionToken);
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceLoginFlowWithoutBrowser(refresh, aal, xSessionToken);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceLoginFlowWithoutBrowser: $e\n');
 }
 ```
@@ -980,13 +980,13 @@ This endpoint initializes a browser-based account recovery flow. Once initialize
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
+final api = OryKratosClient().getV0alpha2Api();
+final String returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
 
 try {
-    var result = api_instance.initializeSelfServiceRecoveryFlowForBrowsers(returnTo);
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceRecoveryFlowForBrowsers(returnTo);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceRecoveryFlowForBrowsers: $e\n');
 }
 ```
@@ -1023,12 +1023,12 @@ This endpoint initiates a recovery flow for API clients such as mobile devices, 
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
+final api = OryKratosClient().getV0alpha2Api();
 
 try {
-    var result = api_instance.initializeSelfServiceRecoveryFlowWithoutBrowser();
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceRecoveryFlowWithoutBrowser();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceRecoveryFlowWithoutBrowser: $e\n');
 }
 ```
@@ -1062,13 +1062,13 @@ This endpoint initializes a browser-based user registration flow. This endpoint 
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
+final api = OryKratosClient().getV0alpha2Api();
+final String returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
 
 try {
-    var result = api_instance.initializeSelfServiceRegistrationFlowForBrowsers(returnTo);
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceRegistrationFlowForBrowsers(returnTo);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceRegistrationFlowForBrowsers: $e\n');
 }
 ```
@@ -1105,12 +1105,12 @@ This endpoint initiates a registration flow for API clients such as mobile devic
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
+final api = OryKratosClient().getV0alpha2Api();
 
 try {
-    var result = api_instance.initializeSelfServiceRegistrationFlowWithoutBrowser();
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceRegistrationFlowWithoutBrowser();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceRegistrationFlowWithoutBrowser: $e\n');
 }
 ```
@@ -1144,13 +1144,13 @@ This endpoint initializes a browser-based user settings flow. Once initialized, 
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
+final api = OryKratosClient().getV0alpha2Api();
+final String returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
 
 try {
-    var result = api_instance.initializeSelfServiceSettingsFlowForBrowsers(returnTo);
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceSettingsFlowForBrowsers(returnTo);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceSettingsFlowForBrowsers: $e\n');
 }
 ```
@@ -1187,13 +1187,13 @@ This endpoint initiates a settings flow for API clients such as mobile devices, 
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var xSessionToken = xSessionToken_example; // String | The Session Token of the Identity performing the settings flow.
+final api = OryKratosClient().getV0alpha2Api();
+final String xSessionToken = xSessionToken_example; // String | The Session Token of the Identity performing the settings flow.
 
 try {
-    var result = api_instance.initializeSelfServiceSettingsFlowWithoutBrowser(xSessionToken);
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceSettingsFlowWithoutBrowser(xSessionToken);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceSettingsFlowWithoutBrowser: $e\n');
 }
 ```
@@ -1230,13 +1230,13 @@ This endpoint initializes a browser-based account verification flow. Once initia
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
+final api = OryKratosClient().getV0alpha2Api();
+final String returnTo = returnTo_example; // String | The URL to return the browser to after the flow was completed.
 
 try {
-    var result = api_instance.initializeSelfServiceVerificationFlowForBrowsers(returnTo);
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceVerificationFlowForBrowsers(returnTo);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceVerificationFlowForBrowsers: $e\n');
 }
 ```
@@ -1273,12 +1273,12 @@ This endpoint initiates a verification flow for API clients such as mobile devic
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
+final api = OryKratosClient().getV0alpha2Api();
 
 try {
-    var result = api_instance.initializeSelfServiceVerificationFlowWithoutBrowser();
-    print(result);
-} catch (e) {
+    final response = api.initializeSelfServiceVerificationFlowWithoutBrowser();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->initializeSelfServiceVerificationFlowWithoutBrowser: $e\n');
 }
 ```
@@ -1312,14 +1312,14 @@ Get all Identity Schemas
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var perPage = 789; // int | Items per Page  This is the number of items per page.
-var page = 789; // int | Pagination Page
+final api = OryKratosClient().getV0alpha2Api();
+final int perPage = 789; // int | Items per Page  This is the number of items per page.
+final int page = 789; // int | Pagination Page
 
 try {
-    var result = api_instance.listIdentitySchemas(perPage, page);
-    print(result);
-} catch (e) {
+    final response = api.listIdentitySchemas(perPage, page);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->listIdentitySchemas: $e\n');
 }
 ```
@@ -1333,7 +1333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<IdentitySchema>**](IdentitySchema.md)
+[**BuiltList&lt;IdentitySchema&gt;**](IdentitySchema.md)
 
 ### Authorization
 
@@ -1357,16 +1357,16 @@ This endpoint is useful for:  Displaying all other sessions that belong to the l
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var xSessionToken = xSessionToken_example; // String | Set the Session Token when calling from non-browser clients. A session token has a format of `MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj`.
-var cookie = cookie_example; // String | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: `ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==`.  It is ok if more than one cookie are included here as all other cookies will be ignored.
-var perPage = 789; // int | Items per Page  This is the number of items per page.
-var page = 789; // int | Pagination Page
+final api = OryKratosClient().getV0alpha2Api();
+final String xSessionToken = xSessionToken_example; // String | Set the Session Token when calling from non-browser clients. A session token has a format of `MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj`.
+final String cookie = cookie_example; // String | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: `ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==`.  It is ok if more than one cookie are included here as all other cookies will be ignored.
+final int perPage = 789; // int | Items per Page  This is the number of items per page.
+final int page = 789; // int | Pagination Page
 
 try {
-    var result = api_instance.listSessions(xSessionToken, cookie, perPage, page);
-    print(result);
-} catch (e) {
+    final response = api.listSessions(xSessionToken, cookie, perPage, page);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->listSessions: $e\n');
 }
 ```
@@ -1382,7 +1382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<Session>**](Session.md)
+[**BuiltList&lt;Session&gt;**](Session.md)
 
 ### Authorization
 
@@ -1406,12 +1406,12 @@ This endpoint is useful for:  To forcefully logout the current user from another
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var id = id_example; // String | ID is the session's ID.
+final api = OryKratosClient().getV0alpha2Api();
+final String id = id_example; // String | ID is the session's ID.
 
 try {
-    api_instance.revokeSession(id);
-} catch (e) {
+    api.revokeSession(id);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->revokeSession: $e\n');
 }
 ```
@@ -1448,14 +1448,14 @@ This endpoint is useful for:  To forcefully logout the current user from all oth
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var xSessionToken = xSessionToken_example; // String | Set the Session Token when calling from non-browser clients. A session token has a format of `MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj`.
-var cookie = cookie_example; // String | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: `ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==`.  It is ok if more than one cookie are included here as all other cookies will be ignored.
+final api = OryKratosClient().getV0alpha2Api();
+final String xSessionToken = xSessionToken_example; // String | Set the Session Token when calling from non-browser clients. A session token has a format of `MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj`.
+final String cookie = cookie_example; // String | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: `ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==`.  It is ok if more than one cookie are included here as all other cookies will be ignored.
 
 try {
-    var result = api_instance.revokeSessions(xSessionToken, cookie);
-    print(result);
-} catch (e) {
+    final response = api.revokeSessions(xSessionToken, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->revokeSessions: $e\n');
 }
 ```
@@ -1493,16 +1493,16 @@ Submit a Login Flow
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var flow = flow_example; // String | The Login Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/login?flow=abcde`).
-var submitSelfServiceLoginFlowBody = new SubmitSelfServiceLoginFlowBody(); // SubmitSelfServiceLoginFlowBody | 
-var xSessionToken = xSessionToken_example; // String | The Session Token of the Identity performing the settings flow.
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
+final api = OryKratosClient().getV0alpha2Api();
+final String flow = flow_example; // String | The Login Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/login?flow=abcde`).
+final SubmitSelfServiceLoginFlowBody submitSelfServiceLoginFlowBody = ; // SubmitSelfServiceLoginFlowBody | 
+final String xSessionToken = xSessionToken_example; // String | The Session Token of the Identity performing the settings flow.
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
 
 try {
-    var result = api_instance.submitSelfServiceLoginFlow(flow, submitSelfServiceLoginFlowBody, xSessionToken, cookie);
-    print(result);
-} catch (e) {
+    final response = api.submitSelfServiceLoginFlow(flow, submitSelfServiceLoginFlowBody, xSessionToken, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->submitSelfServiceLoginFlow: $e\n');
 }
 ```
@@ -1542,13 +1542,13 @@ This endpoint logs out an identity in a self-service manner.  If the `Accept` HT
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var token = token_example; // String | A Valid Logout Token  If you do not have a logout token because you only have a session cookie, call `/self-service/logout/urls` to generate a URL for this endpoint.
-var returnTo = returnTo_example; // String | The URL to return to after the logout was completed.
+final api = OryKratosClient().getV0alpha2Api();
+final String token = token_example; // String | A Valid Logout Token  If you do not have a logout token because you only have a session cookie, call `/self-service/logout/urls` to generate a URL for this endpoint.
+final String returnTo = returnTo_example; // String | The URL to return to after the logout was completed.
 
 try {
-    api_instance.submitSelfServiceLogoutFlow(token, returnTo);
-} catch (e) {
+    api.submitSelfServiceLogoutFlow(token, returnTo);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->submitSelfServiceLogoutFlow: $e\n');
 }
 ```
@@ -1586,12 +1586,12 @@ Use this endpoint to log out an identity using an Ory Session Token. If the Ory 
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var submitSelfServiceLogoutFlowWithoutBrowserBody = new SubmitSelfServiceLogoutFlowWithoutBrowserBody(); // SubmitSelfServiceLogoutFlowWithoutBrowserBody | 
+final api = OryKratosClient().getV0alpha2Api();
+final SubmitSelfServiceLogoutFlowWithoutBrowserBody submitSelfServiceLogoutFlowWithoutBrowserBody = ; // SubmitSelfServiceLogoutFlowWithoutBrowserBody | 
 
 try {
-    api_instance.submitSelfServiceLogoutFlowWithoutBrowser(submitSelfServiceLogoutFlowWithoutBrowserBody);
-} catch (e) {
+    api.submitSelfServiceLogoutFlowWithoutBrowser(submitSelfServiceLogoutFlowWithoutBrowserBody);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->submitSelfServiceLogoutFlowWithoutBrowser: $e\n');
 }
 ```
@@ -1628,16 +1628,16 @@ Use this endpoint to complete a recovery flow. This endpoint behaves differently
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var flow = flow_example; // String | The Recovery Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/recovery?flow=abcde`).
-var submitSelfServiceRecoveryFlowBody = new SubmitSelfServiceRecoveryFlowBody(); // SubmitSelfServiceRecoveryFlowBody | 
-var token = token_example; // String | Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call.
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
+final api = OryKratosClient().getV0alpha2Api();
+final String flow = flow_example; // String | The Recovery Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/recovery?flow=abcde`).
+final SubmitSelfServiceRecoveryFlowBody submitSelfServiceRecoveryFlowBody = ; // SubmitSelfServiceRecoveryFlowBody | 
+final String token = token_example; // String | Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call.
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
 
 try {
-    var result = api_instance.submitSelfServiceRecoveryFlow(flow, submitSelfServiceRecoveryFlowBody, token, cookie);
-    print(result);
-} catch (e) {
+    final response = api.submitSelfServiceRecoveryFlow(flow, submitSelfServiceRecoveryFlowBody, token, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->submitSelfServiceRecoveryFlow: $e\n');
 }
 ```
@@ -1677,15 +1677,15 @@ Use this endpoint to complete a registration flow by sending an identity's trait
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var flow = flow_example; // String | The Registration Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/registration?flow=abcde`).
-var submitSelfServiceRegistrationFlowBody = new SubmitSelfServiceRegistrationFlowBody(); // SubmitSelfServiceRegistrationFlowBody | 
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
+final api = OryKratosClient().getV0alpha2Api();
+final String flow = flow_example; // String | The Registration Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/registration?flow=abcde`).
+final SubmitSelfServiceRegistrationFlowBody submitSelfServiceRegistrationFlowBody = ; // SubmitSelfServiceRegistrationFlowBody | 
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
 
 try {
-    var result = api_instance.submitSelfServiceRegistrationFlow(flow, submitSelfServiceRegistrationFlowBody, cookie);
-    print(result);
-} catch (e) {
+    final response = api.submitSelfServiceRegistrationFlow(flow, submitSelfServiceRegistrationFlowBody, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->submitSelfServiceRegistrationFlow: $e\n');
 }
 ```
@@ -1724,16 +1724,16 @@ Use this endpoint to complete a settings flow by sending an identity's updated p
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var flow = flow_example; // String | The Settings Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/settings?flow=abcde`).
-var submitSelfServiceSettingsFlowBody = new SubmitSelfServiceSettingsFlowBody(); // SubmitSelfServiceSettingsFlowBody | 
-var xSessionToken = xSessionToken_example; // String | The Session Token of the Identity performing the settings flow.
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
+final api = OryKratosClient().getV0alpha2Api();
+final String flow = flow_example; // String | The Settings Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/settings?flow=abcde`).
+final SubmitSelfServiceSettingsFlowBody submitSelfServiceSettingsFlowBody = ; // SubmitSelfServiceSettingsFlowBody | 
+final String xSessionToken = xSessionToken_example; // String | The Session Token of the Identity performing the settings flow.
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
 
 try {
-    var result = api_instance.submitSelfServiceSettingsFlow(flow, submitSelfServiceSettingsFlowBody, xSessionToken, cookie);
-    print(result);
-} catch (e) {
+    final response = api.submitSelfServiceSettingsFlow(flow, submitSelfServiceSettingsFlowBody, xSessionToken, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->submitSelfServiceSettingsFlow: $e\n');
 }
 ```
@@ -1773,16 +1773,16 @@ Use this endpoint to complete a verification flow. This endpoint behaves differe
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var flow = flow_example; // String | The Verification Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/verification?flow=abcde`).
-var submitSelfServiceVerificationFlowBody = new SubmitSelfServiceVerificationFlowBody(); // SubmitSelfServiceVerificationFlowBody | 
-var token = token_example; // String | Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call.
-var cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
+final api = OryKratosClient().getV0alpha2Api();
+final String flow = flow_example; // String | The Verification Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/verification?flow=abcde`).
+final SubmitSelfServiceVerificationFlowBody submitSelfServiceVerificationFlowBody = ; // SubmitSelfServiceVerificationFlowBody | 
+final String token = token_example; // String | Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call.
+final String cookie = cookie_example; // String | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected.
 
 try {
-    var result = api_instance.submitSelfServiceVerificationFlow(flow, submitSelfServiceVerificationFlowBody, token, cookie);
-    print(result);
-} catch (e) {
+    final response = api.submitSelfServiceVerificationFlow(flow, submitSelfServiceVerificationFlowBody, token, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->submitSelfServiceVerificationFlow: $e\n');
 }
 ```
@@ -1822,14 +1822,14 @@ Uses the HTTP Headers in the GET request to determine (e.g. by using checking th
 ```dart
 import 'package:ory_kratos_client/api.dart';
 
-var api_instance = new V0alpha2Api();
-var xSessionToken = MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj; // String | Set the Session Token when calling from non-browser clients. A session token has a format of `MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj`.
-var cookie = ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==; // String | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: `ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==`.  It is ok if more than one cookie are included here as all other cookies will be ignored.
+final api = OryKratosClient().getV0alpha2Api();
+final String xSessionToken = MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj; // String | Set the Session Token when calling from non-browser clients. A session token has a format of `MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj`.
+final String cookie = ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==; // String | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: `ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==`.  It is ok if more than one cookie are included here as all other cookies will be ignored.
 
 try {
-    var result = api_instance.toSession(xSessionToken, cookie);
-    print(result);
-} catch (e) {
+    final response = api.toSession(xSessionToken, cookie);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling V0alpha2Api->toSession: $e\n');
 }
 ```

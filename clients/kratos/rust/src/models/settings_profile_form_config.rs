@@ -25,13 +25,14 @@ pub struct SettingsProfileFormConfig {
     pub nodes: Vec<crate::models::UiNode>,
 }
 
+
 impl SettingsProfileFormConfig {
     pub fn new(action: String, method: String, nodes: Vec<crate::models::UiNode>) -> SettingsProfileFormConfig {
         SettingsProfileFormConfig {
-            action,
-            messages: None,
-            method,
-            nodes,
+                action,
+                messages: None,
+                method,
+                nodes,
         }
     }
 }

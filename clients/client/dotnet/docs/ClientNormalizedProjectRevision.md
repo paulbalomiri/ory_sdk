@@ -75,6 +75,8 @@ Name | Type | Description | Notes
 **KratosCourierTemplatesVerificationValidEmailBodyPlaintext** | **string** | Configures the Ory Kratos Valid Verification Email Body Plaintext Template  This governs the \&quot;courier.smtp.templates.recovery.valid.email.body.plaintext\&quot; setting. | [optional] 
 **KratosCourierTemplatesVerificationValidEmailSubject** | **string** | Configures the Ory Kratos Valid Verification Email Subject Template  This governs the \&quot;courier.smtp.templates.verification.valid.email.subject\&quot; setting. | [optional] 
 **KratosIdentitySchemas** | [**List&lt;ClientNormalizedProjectRevisionIdentitySchema&gt;**](ClientNormalizedProjectRevisionIdentitySchema.md) |  | [optional] 
+**KratosOauth2ProviderHeaders** | **Object** | NullJSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger and is NULLable- | [optional] 
+**KratosOauth2ProviderUrl** | **string** | The Revisions&#39; OAuth2 Provider Integration URL  This governs the \&quot;oauth2_provider.url\&quot; setting. | [optional] 
 **KratosSecretsCipher** | **List&lt;string&gt;** |  | [optional] 
 **KratosSecretsCookie** | **List&lt;string&gt;** |  | [optional] 
 **KratosSecretsDefault** | **List&lt;string&gt;** |  | [optional] 

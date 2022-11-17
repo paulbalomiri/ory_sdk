@@ -30,6 +30,16 @@ void main() {
       // TODO
     });
 
+    // String oauth2LoginChallenge
+    test('to test the property `oauth2LoginChallenge`', () async {
+      // TODO
+    });
+
+    // LoginRequest oauth2LoginRequest
+    test('to test the property `oauth2LoginRequest`', () async {
+      // TODO
+    });
+
     // RequestURL is the initial URL that was requested from Ory Kratos. It can be used to forward information contained in the URL's path or query for example.
     // String requestUrl
     test('to test the property `requestUrl`', () async {

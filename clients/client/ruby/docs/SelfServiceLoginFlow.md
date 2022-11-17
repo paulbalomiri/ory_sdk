@@ -9,6 +9,8 @@
 | **expires_at** | **Time** | ExpiresAt is the time (UTC) when the flow expires. If the user still wishes to log in, a new flow has to be initiated. |  |
 | **id** | **String** | ID represents the flow&#39;s unique ID. When performing the login flow, this represents the id in the login UI&#39;s query parameter: http://&lt;selfservice.flows.login.ui_url&gt;/?flow&#x3D;&lt;flow_id&gt; |  |
 | **issued_at** | **Time** | IssuedAt is the time (UTC) when the flow started. |  |
+| **oauth2_login_challenge** | **String** |  | [optional] |
+| **oauth2_login_request** | [**LoginRequest**](LoginRequest.md) |  | [optional] |
 | **refresh** | **Boolean** | Refresh stores whether this login flow should enforce re-authentication. | [optional] |
 | **request_url** | **String** | RequestURL is the initial URL that was requested from Ory Kratos. It can be used to forward information contained in the URL&#39;s path or query for example. |  |
 | **requested_aal** | [**AuthenticatorAssuranceLevel**](AuthenticatorAssuranceLevel.md) |  | [optional] |
@@ -28,6 +30,8 @@ instance = OryClient::SelfServiceLoginFlow.new(
   expires_at: null,
   id: null,
   issued_at: null,
+  oauth2_login_challenge: null,
+  oauth2_login_request: null,
   refresh: null,
   request_url: null,
   requested_aal: null,

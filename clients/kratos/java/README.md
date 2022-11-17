@@ -2,7 +2,7 @@
 
 Ory Kratos API
 - API version: v0.10.1
-  - Build date: 2022-06-01T11:19:13.300472677Z[Etc/UTC]
+  - Build date: 2022-11-17T18:49:16.514253300Z[Etc/UTC]
 
 Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs
 are exposed on different ports. Public APIs can face the public internet without any protection
@@ -98,7 +98,7 @@ public class Example {
 
     MetadataApi apiInstance = new MetadataApi(defaultClient);
     try {
-      InlineResponse2001 result = apiInstance.getVersion();
+      GetVersion200Response result = apiInstance.getVersion();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetadataApi#getVersion");
@@ -177,6 +177,7 @@ Class | Method | HTTP request | Description
  - [AuthenticatorAssuranceLevel](docs/AuthenticatorAssuranceLevel.md)
  - [ErrorAuthenticatorAssuranceLevelNotSatisfied](docs/ErrorAuthenticatorAssuranceLevelNotSatisfied.md)
  - [GenericError](docs/GenericError.md)
+ - [GetVersion200Response](docs/GetVersion200Response.md)
  - [HealthNotReadyStatus](docs/HealthNotReadyStatus.md)
  - [HealthStatus](docs/HealthStatus.md)
  - [Identity](docs/Identity.md)
@@ -187,9 +188,8 @@ Class | Method | HTTP request | Description
  - [IdentityCredentialsType](docs/IdentityCredentialsType.md)
  - [IdentitySchema](docs/IdentitySchema.md)
  - [IdentityState](docs/IdentityState.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2001](docs/InlineResponse2001.md)
- - [InlineResponse503](docs/InlineResponse503.md)
+ - [IsAlive200Response](docs/IsAlive200Response.md)
+ - [IsReady503Response](docs/IsReady503Response.md)
  - [JsonError](docs/JsonError.md)
  - [NeedsPrivilegedSessionError](docs/NeedsPrivilegedSessionError.md)
  - [Pagination](docs/Pagination.md)

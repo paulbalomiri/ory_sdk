@@ -19,11 +19,17 @@ pub struct AdminIdentityImportCredentials {
     pub password: Option<Box<crate::models::AdminCreateIdentityImportCredentialsPassword>>,
 }
 
+impl Default for AdminIdentityImportCredentials {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl AdminIdentityImportCredentials {
     pub fn new() -> AdminIdentityImportCredentials {
         AdminIdentityImportCredentials {
-            oidc: None,
-            password: None,
+                oidc: None,
+                password: None,
         }
     }
 }

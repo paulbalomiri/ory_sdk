@@ -27,9 +27,8 @@ import sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithPasswordMethodBody;
 import sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithProfileMethodBody;
 import sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithTotpMethodBody;
 import sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

@@ -18,10 +18,16 @@ pub struct HealthStatus {
     pub status: Option<String>,
 }
 
+impl Default for HealthStatus {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl HealthStatus {
     pub fn new() -> HealthStatus {
         HealthStatus {
-            status: None,
+                status: None,
         }
     }
 }

@@ -21,11 +21,17 @@ pub struct Pagination {
     pub per_page: Option<i64>,
 }
 
+impl Default for Pagination {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl Pagination {
     pub fn new() -> Pagination {
         Pagination {
-            page: None,
-            per_page: None,
+                page: None,
+                per_page: None,
         }
     }
 }

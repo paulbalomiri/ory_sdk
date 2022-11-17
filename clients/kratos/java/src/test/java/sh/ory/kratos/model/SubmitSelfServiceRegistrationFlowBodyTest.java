@@ -24,9 +24,8 @@ import java.io.IOException;
 import sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithOidcMethodBody;
 import sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithPasswordMethodBody;
 import sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

@@ -48,22 +48,23 @@ pub struct SelfServiceLoginFlow {
     pub updated_at: Option<String>,
 }
 
+
 impl SelfServiceLoginFlow {
     /// This object represents a login flow. A login flow is initiated at the \"Initiate Login API / Browser Flow\" endpoint by a client.  Once a login flow is completed successfully, a session cookie or session token will be issued.
     pub fn new(expires_at: String, id: String, issued_at: String, request_url: String, _type: String, ui: crate::models::UiContainer) -> SelfServiceLoginFlow {
         SelfServiceLoginFlow {
-            active: None,
-            created_at: None,
-            expires_at,
-            id,
-            issued_at,
-            refresh: None,
-            request_url,
-            requested_aal: None,
-            return_to: None,
-            _type,
-            ui: Box::new(ui),
-            updated_at: None,
+                active: None,
+                created_at: None,
+                expires_at,
+                id,
+                issued_at,
+                refresh: None,
+                request_url,
+                requested_aal: None,
+                return_to: None,
+                _type,
+                ui: Box::new(ui),
+                updated_at: None,
         }
     }
 }

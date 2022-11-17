@@ -27,14 +27,15 @@ pub struct RecoveryAddress {
     pub via: String,
 }
 
+
 impl RecoveryAddress {
     pub fn new(id: String, value: String, via: String) -> RecoveryAddress {
         RecoveryAddress {
-            created_at: None,
-            id,
-            updated_at: None,
-            value,
-            via,
+                created_at: None,
+                id,
+                updated_at: None,
+                value,
+                via,
         }
     }
 }

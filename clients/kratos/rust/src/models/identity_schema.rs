@@ -21,11 +21,17 @@ pub struct IdentitySchema {
     pub schema: Option<serde_json::Value>,
 }
 
+impl Default for IdentitySchema {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl IdentitySchema {
     pub fn new() -> IdentitySchema {
         IdentitySchema {
-            id: None,
-            schema: None,
+                id: None,
+                schema: None,
         }
     }
 }

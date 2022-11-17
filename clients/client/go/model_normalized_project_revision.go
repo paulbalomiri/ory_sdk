@@ -3,7 +3,7 @@ Ory APIs
 
 Documentation for all public and administrative Ory APIs. Administrative APIs can only be accessed with a valid Personal Access Token. Public APIs are mostly used in browsers. 
 
-API version: v0.2.0-alpha.60
+API version: v0.3.0
 Contact: support@ory.sh
 */
 
@@ -147,6 +147,10 @@ type NormalizedProjectRevision struct {
 	// Configures the Ory Kratos Valid Verification Email Subject Template  This governs the \"courier.smtp.templates.verification.valid.email.subject\" setting.
 	KratosCourierTemplatesVerificationValidEmailSubject *string `json:"kratos_courier_templates_verification_valid_email_subject,omitempty"`
 	KratosIdentitySchemas []NormalizedProjectRevisionIdentitySchema `json:"kratos_identity_schemas,omitempty"`
+	// NullJSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger and is NULLable-
+	KratosOauth2ProviderHeaders map[string]interface{} `json:"kratos_oauth2_provider_headers,omitempty"`
+	// The Revisions' OAuth2 Provider Integration URL  This governs the \"oauth2_provider.url\" setting.
+	KratosOauth2ProviderUrl *string `json:"kratos_oauth2_provider_url,omitempty"`
 	KratosSecretsCipher []string `json:"kratos_secrets_cipher,omitempty"`
 	KratosSecretsCookie []string `json:"kratos_secrets_cookie,omitempty"`
 	KratosSecretsDefault []string `json:"kratos_secrets_default,omitempty"`
@@ -1967,9 +1971,9 @@ func (o *NormalizedProjectRevision) SetKratosCourierSmtpFromName(v string) {
 	o.KratosCourierSmtpFromName = &v
 }
 
-// GetKratosCourierSmtpHeaders returns the KratosCourierSmtpHeaders field value if set, zero value otherwise.
+// GetKratosCourierSmtpHeaders returns the KratosCourierSmtpHeaders field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NormalizedProjectRevision) GetKratosCourierSmtpHeaders() map[string]interface{} {
-	if o == nil || o.KratosCourierSmtpHeaders == nil {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -1978,6 +1982,7 @@ func (o *NormalizedProjectRevision) GetKratosCourierSmtpHeaders() map[string]int
 
 // GetKratosCourierSmtpHeadersOk returns a tuple with the KratosCourierSmtpHeaders field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NormalizedProjectRevision) GetKratosCourierSmtpHeadersOk() (map[string]interface{}, bool) {
 	if o == nil || o.KratosCourierSmtpHeaders == nil {
 		return nil, false
@@ -2605,6 +2610,71 @@ func (o *NormalizedProjectRevision) HasKratosIdentitySchemas() bool {
 // SetKratosIdentitySchemas gets a reference to the given []NormalizedProjectRevisionIdentitySchema and assigns it to the KratosIdentitySchemas field.
 func (o *NormalizedProjectRevision) SetKratosIdentitySchemas(v []NormalizedProjectRevisionIdentitySchema) {
 	o.KratosIdentitySchemas = v
+}
+
+// GetKratosOauth2ProviderHeaders returns the KratosOauth2ProviderHeaders field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NormalizedProjectRevision) GetKratosOauth2ProviderHeaders() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.KratosOauth2ProviderHeaders
+}
+
+// GetKratosOauth2ProviderHeadersOk returns a tuple with the KratosOauth2ProviderHeaders field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NormalizedProjectRevision) GetKratosOauth2ProviderHeadersOk() (map[string]interface{}, bool) {
+	if o == nil || o.KratosOauth2ProviderHeaders == nil {
+		return nil, false
+	}
+	return o.KratosOauth2ProviderHeaders, true
+}
+
+// HasKratosOauth2ProviderHeaders returns a boolean if a field has been set.
+func (o *NormalizedProjectRevision) HasKratosOauth2ProviderHeaders() bool {
+	if o != nil && o.KratosOauth2ProviderHeaders != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetKratosOauth2ProviderHeaders gets a reference to the given map[string]interface{} and assigns it to the KratosOauth2ProviderHeaders field.
+func (o *NormalizedProjectRevision) SetKratosOauth2ProviderHeaders(v map[string]interface{}) {
+	o.KratosOauth2ProviderHeaders = v
+}
+
+// GetKratosOauth2ProviderUrl returns the KratosOauth2ProviderUrl field value if set, zero value otherwise.
+func (o *NormalizedProjectRevision) GetKratosOauth2ProviderUrl() string {
+	if o == nil || o.KratosOauth2ProviderUrl == nil {
+		var ret string
+		return ret
+	}
+	return *o.KratosOauth2ProviderUrl
+}
+
+// GetKratosOauth2ProviderUrlOk returns a tuple with the KratosOauth2ProviderUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NormalizedProjectRevision) GetKratosOauth2ProviderUrlOk() (*string, bool) {
+	if o == nil || o.KratosOauth2ProviderUrl == nil {
+		return nil, false
+	}
+	return o.KratosOauth2ProviderUrl, true
+}
+
+// HasKratosOauth2ProviderUrl returns a boolean if a field has been set.
+func (o *NormalizedProjectRevision) HasKratosOauth2ProviderUrl() bool {
+	if o != nil && o.KratosOauth2ProviderUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetKratosOauth2ProviderUrl gets a reference to the given string and assigns it to the KratosOauth2ProviderUrl field.
+func (o *NormalizedProjectRevision) SetKratosOauth2ProviderUrl(v string) {
+	o.KratosOauth2ProviderUrl = &v
 }
 
 // GetKratosSecretsCipher returns the KratosSecretsCipher field value if set, zero value otherwise.
@@ -5021,6 +5091,12 @@ func (o NormalizedProjectRevision) MarshalJSON() ([]byte, error) {
 	}
 	if o.KratosIdentitySchemas != nil {
 		toSerialize["kratos_identity_schemas"] = o.KratosIdentitySchemas
+	}
+	if o.KratosOauth2ProviderHeaders != nil {
+		toSerialize["kratos_oauth2_provider_headers"] = o.KratosOauth2ProviderHeaders
+	}
+	if o.KratosOauth2ProviderUrl != nil {
+		toSerialize["kratos_oauth2_provider_url"] = o.KratosOauth2ProviderUrl
 	}
 	if o.KratosSecretsCipher != nil {
 		toSerialize["kratos_secrets_cipher"] = o.KratosSecretsCipher

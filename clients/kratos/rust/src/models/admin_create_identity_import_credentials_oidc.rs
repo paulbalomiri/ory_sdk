@@ -17,10 +17,16 @@ pub struct AdminCreateIdentityImportCredentialsOidc {
     pub config: Option<Box<crate::models::AdminCreateIdentityImportCredentialsOidcConfig>>,
 }
 
+impl Default for AdminCreateIdentityImportCredentialsOidc {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl AdminCreateIdentityImportCredentialsOidc {
     pub fn new() -> AdminCreateIdentityImportCredentialsOidc {
         AdminCreateIdentityImportCredentialsOidc {
-            config: None,
+                config: None,
         }
     }
 }

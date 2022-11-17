@@ -42,20 +42,21 @@ pub struct SelfServiceSettingsFlow {
     pub ui: Box<crate::models::UiContainer>,
 }
 
+
 impl SelfServiceSettingsFlow {
     /// This flow is used when an identity wants to update settings (e.g. profile data, passwords, ...) in a selfservice manner.  We recommend reading the [User Settings Documentation](../self-service/flows/user-settings)
     pub fn new(expires_at: String, id: String, identity: crate::models::Identity, issued_at: String, request_url: String, state: crate::models::SelfServiceSettingsFlowState, _type: String, ui: crate::models::UiContainer) -> SelfServiceSettingsFlow {
         SelfServiceSettingsFlow {
-            active: None,
-            expires_at,
-            id,
-            identity: Box::new(identity),
-            issued_at,
-            request_url,
-            return_to: None,
-            state,
-            _type,
-            ui: Box::new(ui),
+                active: None,
+                expires_at,
+                id,
+                identity: Box::new(identity),
+                issued_at,
+                request_url,
+                return_to: None,
+                state,
+                _type,
+                ui: Box::new(ui),
         }
     }
 }

@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **type** | **str** | The flow type can either be &#x60;api&#x60; or &#x60;browser&#x60;. | 
 **ui** | [**UiContainer**](UiContainer.md) |  | 
 **active** | [**IdentityCredentialsType**](IdentityCredentialsType.md) |  | [optional] 
+**oauth2_login_challenge** | **str, none_type** |  | [optional] 
+**oauth2_login_request** | [**LoginRequest**](LoginRequest.md) |  | [optional] 
 **return_to** | **str** | ReturnTo contains the requested return_to URL. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

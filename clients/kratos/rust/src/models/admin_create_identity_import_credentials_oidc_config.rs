@@ -20,11 +20,17 @@ pub struct AdminCreateIdentityImportCredentialsOidcConfig {
     pub providers: Option<Vec<crate::models::AdminCreateIdentityImportCredentialsOidcProvider>>,
 }
 
+impl Default for AdminCreateIdentityImportCredentialsOidcConfig {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl AdminCreateIdentityImportCredentialsOidcConfig {
     pub fn new() -> AdminCreateIdentityImportCredentialsOidcConfig {
         AdminCreateIdentityImportCredentialsOidcConfig {
-            config: None,
-            providers: None,
+                config: None,
+                providers: None,
         }
     }
 }

@@ -21,11 +21,17 @@ pub struct AdminCreateIdentityImportCredentialsPasswordConfig {
     pub password: Option<String>,
 }
 
+impl Default for AdminCreateIdentityImportCredentialsPasswordConfig {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl AdminCreateIdentityImportCredentialsPasswordConfig {
     pub fn new() -> AdminCreateIdentityImportCredentialsPasswordConfig {
         AdminCreateIdentityImportCredentialsPasswordConfig {
-            hashed_password: None,
-            password: None,
+                hashed_password: None,
+                password: None,
         }
     }
 }

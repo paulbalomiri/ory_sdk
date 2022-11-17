@@ -26,13 +26,14 @@ pub struct UiNodeAnchorAttributes {
     pub title: Box<crate::models::UiText>,
 }
 
+
 impl UiNodeAnchorAttributes {
     pub fn new(href: String, id: String, node_type: String, title: crate::models::UiText) -> UiNodeAnchorAttributes {
         UiNodeAnchorAttributes {
-            href,
-            id,
-            node_type,
-            title: Box::new(title),
+                href,
+                id,
+                node_type,
+                title: Box::new(title),
         }
     }
 }

@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:ory_client/src/model/login_request.dart';
 import 'package:ory_client/src/model/identity_credentials_type.dart';
 import 'package:ory_client/src/model/authenticator_assurance_level.dart';
 import 'package:ory_client/src/model/ui_container.dart';
@@ -19,6 +20,8 @@ part 'self_service_login_flow.g.dart';
 /// * [expiresAt] - ExpiresAt is the time (UTC) when the flow expires. If the user still wishes to log in, a new flow has to be initiated.
 /// * [id] - ID represents the flow's unique ID. When performing the login flow, this represents the id in the login UI's query parameter: http://<selfservice.flows.login.ui_url>/?flow=<flow_id>
 /// * [issuedAt] - IssuedAt is the time (UTC) when the flow started.
+/// * [oauth2LoginChallenge] 
+/// * [oauth2LoginRequest] 
 /// * [refresh] - Refresh stores whether this login flow should enforce re-authentication.
 /// * [requestUrl] - RequestURL is the initial URL that was requested from Ory Kratos. It can be used to forward information contained in the URL's path or query for example.
 /// * [requestedAal] 
@@ -47,6 +50,12 @@ abstract class SelfServiceLoginFlow implements Built<SelfServiceLoginFlow, SelfS
   /// IssuedAt is the time (UTC) when the flow started.
   @BuiltValueField(wireName: r'issued_at')
   DateTime get issuedAt;
+
+  @BuiltValueField(wireName: r'oauth2_login_challenge')
+  String? get oauth2LoginChallenge;
+
+  @BuiltValueField(wireName: r'oauth2_login_request')
+  LoginRequest? get oauth2LoginRequest;
 
   /// Refresh stores whether this login flow should enforce re-authentication.
   @BuiltValueField(wireName: r'refresh')
@@ -127,6 +136,20 @@ class _$SelfServiceLoginFlowSerializer implements PrimitiveSerializer<SelfServic
       object.issuedAt,
       specifiedType: const FullType(DateTime),
     );
+    if (object.oauth2LoginChallenge != null) {
+      yield r'oauth2_login_challenge';
+      yield serializers.serialize(
+        object.oauth2LoginChallenge,
+        specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.oauth2LoginRequest != null) {
+      yield r'oauth2_login_request';
+      yield serializers.serialize(
+        object.oauth2LoginRequest,
+        specifiedType: const FullType(LoginRequest),
+      );
+    }
     if (object.refresh != null) {
       yield r'refresh';
       yield serializers.serialize(
@@ -227,6 +250,21 @@ class _$SelfServiceLoginFlowSerializer implements PrimitiveSerializer<SelfServic
             specifiedType: const FullType(DateTime),
           ) as DateTime;
           result.issuedAt = valueDes;
+          break;
+        case r'oauth2_login_challenge':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.oauth2LoginChallenge = valueDes;
+          break;
+        case r'oauth2_login_request':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(LoginRequest),
+          ) as LoginRequest;
+          result.oauth2LoginRequest.replace(valueDes);
           break;
         case r'refresh':
           final valueDes = serializers.deserialize(

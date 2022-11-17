@@ -21,11 +21,17 @@ pub struct SubmitSelfServiceFlowWithWebAuthnRegistrationMethod {
     pub webauthn_register_displayname: Option<String>,
 }
 
+impl Default for SubmitSelfServiceFlowWithWebAuthnRegistrationMethod {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl SubmitSelfServiceFlowWithWebAuthnRegistrationMethod {
     pub fn new() -> SubmitSelfServiceFlowWithWebAuthnRegistrationMethod {
         SubmitSelfServiceFlowWithWebAuthnRegistrationMethod {
-            webauthn_register: None,
-            webauthn_register_displayname: None,
+                webauthn_register: None,
+                webauthn_register_displayname: None,
         }
     }
 }

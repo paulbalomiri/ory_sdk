@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **ui** | [**UiContainer**](UiContainer.md) |  | 
 **active** | [**IdentityCredentialsType**](IdentityCredentialsType.md) |  | [optional] 
 **created_at** | **datetime** | CreatedAt is a helper struct field for gobuffalo.pop. | [optional] 
+**oauth2_login_challenge** | **str, none_type** |  | [optional] 
+**oauth2_login_request** | [**LoginRequest**](LoginRequest.md) |  | [optional] 
 **refresh** | **bool** | Refresh stores whether this login flow should enforce re-authentication. | [optional] 
 **requested_aal** | [**AuthenticatorAssuranceLevel**](AuthenticatorAssuranceLevel.md) |  | [optional] 
 **return_to** | **str** | ReturnTo contains the requested return_to URL. | [optional] 

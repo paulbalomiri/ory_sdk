@@ -88,6 +88,8 @@ part 'normalized_project_revision.g.dart';
 /// * [kratosCourierTemplatesVerificationValidEmailBodyPlaintext] - Configures the Ory Kratos Valid Verification Email Body Plaintext Template  This governs the \"courier.smtp.templates.recovery.valid.email.body.plaintext\" setting.
 /// * [kratosCourierTemplatesVerificationValidEmailSubject] - Configures the Ory Kratos Valid Verification Email Subject Template  This governs the \"courier.smtp.templates.verification.valid.email.subject\" setting.
 /// * [kratosIdentitySchemas] 
+/// * [kratosOauth2ProviderHeaders] - NullJSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger and is NULLable-
+/// * [kratosOauth2ProviderUrl] - The Revisions' OAuth2 Provider Integration URL  This governs the \"oauth2_provider.url\" setting.
 /// * [kratosSecretsCipher] 
 /// * [kratosSecretsCookie] 
 /// * [kratosSecretsDefault] 
@@ -429,6 +431,14 @@ abstract class NormalizedProjectRevision implements Built<NormalizedProjectRevis
 
   @BuiltValueField(wireName: r'kratos_identity_schemas')
   BuiltList<NormalizedProjectRevisionIdentitySchema>? get kratosIdentitySchemas;
+
+  /// NullJSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger and is NULLable-
+  @BuiltValueField(wireName: r'kratos_oauth2_provider_headers')
+  JsonObject? get kratosOauth2ProviderHeaders;
+
+  /// The Revisions' OAuth2 Provider Integration URL  This governs the \"oauth2_provider.url\" setting.
+  @BuiltValueField(wireName: r'kratos_oauth2_provider_url')
+  String? get kratosOauth2ProviderUrl;
 
   @BuiltValueField(wireName: r'kratos_secrets_cipher')
   BuiltList<String>? get kratosSecretsCipher;
@@ -1090,7 +1100,7 @@ class _$NormalizedProjectRevisionSerializer implements PrimitiveSerializer<Norma
       yield r'kratos_courier_smtp_headers';
       yield serializers.serialize(
         object.kratosCourierSmtpHeaders,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType.nullable(JsonObject),
       );
     }
     if (object.kratosCourierTemplatesRecoveryCodeInvalidEmailBodyHtml != null) {
@@ -1224,6 +1234,20 @@ class _$NormalizedProjectRevisionSerializer implements PrimitiveSerializer<Norma
       yield serializers.serialize(
         object.kratosIdentitySchemas,
         specifiedType: const FullType(BuiltList, [FullType(NormalizedProjectRevisionIdentitySchema)]),
+      );
+    }
+    if (object.kratosOauth2ProviderHeaders != null) {
+      yield r'kratos_oauth2_provider_headers';
+      yield serializers.serialize(
+        object.kratosOauth2ProviderHeaders,
+        specifiedType: const FullType.nullable(JsonObject),
+      );
+    }
+    if (object.kratosOauth2ProviderUrl != null) {
+      yield r'kratos_oauth2_provider_url';
+      yield serializers.serialize(
+        object.kratosOauth2ProviderUrl,
+        specifiedType: const FullType(String),
       );
     }
     if (object.kratosSecretsCipher != null) {
@@ -2093,8 +2117,9 @@ class _$NormalizedProjectRevisionSerializer implements PrimitiveSerializer<Norma
         case r'kratos_courier_smtp_headers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
+            specifiedType: const FullType.nullable(JsonObject),
+          ) as JsonObject?;
+          if (valueDes == null) continue;
           result.kratosCourierSmtpHeaders = valueDes;
           break;
         case r'kratos_courier_templates_recovery_code_invalid_email_body_html':
@@ -2229,6 +2254,21 @@ class _$NormalizedProjectRevisionSerializer implements PrimitiveSerializer<Norma
             specifiedType: const FullType(BuiltList, [FullType(NormalizedProjectRevisionIdentitySchema)]),
           ) as BuiltList<NormalizedProjectRevisionIdentitySchema>;
           result.kratosIdentitySchemas.replace(valueDes);
+          break;
+        case r'kratos_oauth2_provider_headers':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(JsonObject),
+          ) as JsonObject?;
+          if (valueDes == null) continue;
+          result.kratosOauth2ProviderHeaders = valueDes;
+          break;
+        case r'kratos_oauth2_provider_url':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.kratosOauth2ProviderUrl = valueDes;
           break;
         case r'kratos_secrets_cipher':
           final valueDes = serializers.deserialize(

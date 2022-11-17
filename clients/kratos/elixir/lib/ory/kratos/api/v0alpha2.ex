@@ -31,9 +31,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:post)
-      |> url("/admin/identities")
+      %Tesla.Env{
+        method: :post,
+        url: "/admin/identities",
+      }
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
       |> Map.from_struct()
@@ -71,9 +72,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:post)
-      |> url("/admin/recovery/link")
+      %Tesla.Env{
+        method: :post,
+        url: "/admin/recovery/link",
+      }
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
       |> Map.from_struct()
@@ -107,9 +109,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec admin_delete_identity(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Kratos.Model.JsonError.t} | {:error, Tesla.Env.t}
   def admin_delete_identity(connection, id, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:delete)
-      |> url("/admin/identities/#{id}")
+      %Tesla.Env{
+        method: :delete,
+        url: "/admin/identities/#{id}",
+      }
       |> Map.from_struct()
       |> Enum.into([])
 
@@ -140,9 +143,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec admin_delete_identity_sessions(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Kratos.Model.JsonError.t} | {:error, Tesla.Env.t}
   def admin_delete_identity_sessions(connection, id, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:delete)
-      |> url("/admin/identities/#{id}/sessions")
+      %Tesla.Env{
+        method: :delete,
+        url: "/admin/identities/#{id}/sessions",
+      }
       |> Map.from_struct()
       |> Enum.into([])
 
@@ -175,9 +179,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec admin_extend_session(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Kratos.Model.JsonError.t} | {:ok, Ory.Kratos.Model.Session.t} | {:error, Tesla.Env.t}
   def admin_extend_session(connection, id, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:patch)
-      |> url("/admin/sessions/#{id}/extend")
+      %Tesla.Env{
+        method: :patch,
+        url: "/admin/sessions/#{id}/extend",
+      }
       |> ensure_body()
       |> Map.from_struct()
       |> Enum.into([])
@@ -215,9 +220,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/admin/identities/#{id}")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/identities/#{id}",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -255,9 +261,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/admin/identities")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/identities",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -297,9 +304,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/admin/identities/#{id}/sessions")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/identities/#{id}/sessions",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -338,9 +346,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:put)
-      |> url("/admin/identities/#{id}")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/identities/#{id}",
+      }
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
       |> Map.from_struct()
@@ -379,9 +388,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/logout/browser")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/logout/browser",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -412,9 +422,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec get_json_schema(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Kratos.Model.JsonError.t} | {:ok, Map.t} | {:error, Tesla.Env.t}
   def get_json_schema(connection, id, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/schemas/#{id}")
+      %Tesla.Env{
+        method: :get,
+        url: "/schemas/#{id}",
+      }
       |> Map.from_struct()
       |> Enum.into([])
 
@@ -445,9 +456,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec get_self_service_error(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Kratos.Model.JsonError.t} | {:ok, Ory.Kratos.Model.SelfServiceError.t} | {:error, Tesla.Env.t}
   def get_self_service_error(connection, id, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/errors")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/errors",
+      }
       |> add_param(:query, :id, id)
       |> Map.from_struct()
       |> Enum.into([])
@@ -485,9 +497,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/login/flows")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/login/flows",
+      }
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
@@ -527,9 +540,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/recovery/flows")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/recovery/flows",
+      }
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
@@ -568,9 +582,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/registration/flows")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/registration/flows",
+      }
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
@@ -612,9 +627,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/settings/flows")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/settings/flows",
+      }
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
@@ -655,9 +671,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/verification/flows")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/verification/flows",
+      }
       |> add_param(:query, :id, id)
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
@@ -690,9 +707,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec get_web_authn_java_script(Tesla.Env.client, keyword()) :: {:ok, String.t} | {:error, Tesla.Env.t}
   def get_web_authn_java_script(connection, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/.well-known/ory/webauthn.js")
+      %Tesla.Env{
+        method: :get,
+        url: "/.well-known/ory/webauthn.js",
+      }
       |> Map.from_struct()
       |> Enum.into([])
 
@@ -729,9 +747,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/login/browser")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/login/browser",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -772,9 +791,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/login/api")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/login/api",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -810,9 +830,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/recovery/browser")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/recovery/browser",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -844,9 +865,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec initialize_self_service_recovery_flow_without_browser(Tesla.Env.client, keyword()) :: {:ok, Ory.Kratos.Model.JsonError.t} | {:ok, Ory.Kratos.Model.SelfServiceRecoveryFlow.t} | {:error, Tesla.Env.t}
   def initialize_self_service_recovery_flow_without_browser(connection, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/recovery/api")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/recovery/api",
+      }
       |> Map.from_struct()
       |> Enum.into([])
 
@@ -881,9 +903,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/registration/browser")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/registration/browser",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -914,9 +937,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec initialize_self_service_registration_flow_without_browser(Tesla.Env.client, keyword()) :: {:ok, Ory.Kratos.Model.SelfServiceRegistrationFlow.t} | {:ok, Ory.Kratos.Model.JsonError.t} | {:error, Tesla.Env.t}
   def initialize_self_service_registration_flow_without_browser(connection, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/registration/api")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/registration/api",
+      }
       |> Map.from_struct()
       |> Enum.into([])
 
@@ -951,9 +975,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/settings/browser")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/settings/browser",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -992,9 +1017,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/settings/api")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/settings/api",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -1030,9 +1056,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/verification/browser")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/verification/browser",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -1063,9 +1090,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec initialize_self_service_verification_flow_without_browser(Tesla.Env.client, keyword()) :: {:ok, Ory.Kratos.Model.SelfServiceVerificationFlow.t} | {:ok, Ory.Kratos.Model.JsonError.t} | {:error, Tesla.Env.t}
   def initialize_self_service_verification_flow_without_browser(connection, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/verification/api")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/verification/api",
+      }
       |> Map.from_struct()
       |> Enum.into([])
 
@@ -1101,9 +1129,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/schemas")
+      %Tesla.Env{
+        method: :get,
+        url: "/schemas",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -1144,9 +1173,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/sessions")
+      %Tesla.Env{
+        method: :get,
+        url: "/sessions",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -1180,9 +1210,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec revoke_session(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Kratos.Model.JsonError.t} | {:error, Tesla.Env.t}
   def revoke_session(connection, id, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:delete)
-      |> url("/sessions/#{id}")
+      %Tesla.Env{
+        method: :delete,
+        url: "/sessions/#{id}",
+      }
       |> Map.from_struct()
       |> Enum.into([])
 
@@ -1220,9 +1251,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:delete)
-      |> url("/sessions")
+      %Tesla.Env{
+        method: :delete,
+        url: "/sessions",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -1264,9 +1296,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:post)
-      |> url("/self-service/login")
+      %Tesla.Env{
+        method: :post,
+        url: "/self-service/login",
+      }
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_login_flow_body)
       |> add_optional_params(optional_params, opts)
@@ -1309,9 +1342,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/self-service/logout")
+      %Tesla.Env{
+        method: :get,
+        url: "/self-service/logout",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])
@@ -1343,9 +1377,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
   @spec submit_self_service_logout_flow_without_browser(Tesla.Env.client, Ory.Kratos.Model.SubmitSelfServiceLogoutFlowWithoutBrowserBody.t, keyword()) :: {:ok, nil} | {:ok, Ory.Kratos.Model.JsonError.t} | {:error, Tesla.Env.t}
   def submit_self_service_logout_flow_without_browser(connection, submit_self_service_logout_flow_without_browser_body, _opts \\ []) do
     request =
-      %Tesla.Env{}
-      |> method(:delete)
-      |> url("/self-service/logout/api")
+      %Tesla.Env{
+        method: :delete,
+        url: "/self-service/logout/api",
+      }
       |> add_param(:body, :body, submit_self_service_logout_flow_without_browser_body)
       |> Map.from_struct()
       |> Enum.into([])
@@ -1385,9 +1420,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:post)
-      |> url("/self-service/recovery")
+      %Tesla.Env{
+        method: :post,
+        url: "/self-service/recovery",
+      }
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_recovery_flow_body)
       |> add_optional_params(optional_params, opts)
@@ -1429,9 +1465,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:post)
-      |> url("/self-service/registration")
+      %Tesla.Env{
+        method: :post,
+        url: "/self-service/registration",
+      }
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_registration_flow_body)
       |> add_optional_params(optional_params, opts)
@@ -1476,9 +1513,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:post)
-      |> url("/self-service/settings")
+      %Tesla.Env{
+        method: :post,
+        url: "/self-service/settings",
+      }
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_settings_flow_body)
       |> add_optional_params(optional_params, opts)
@@ -1525,9 +1563,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:post)
-      |> url("/self-service/verification")
+      %Tesla.Env{
+        method: :post,
+        url: "/self-service/verification",
+      }
       |> add_param(:query, :flow, flow)
       |> add_param(:body, :body, submit_self_service_verification_flow_body)
       |> add_optional_params(optional_params, opts)
@@ -1569,9 +1608,10 @@ defmodule Ory.Kratos.Api.V0alpha2 do
     }
 
     request =
-      %Tesla.Env{}
-      |> method(:get)
-      |> url("/sessions/whoami")
+      %Tesla.Env{
+        method: :get,
+        url: "/sessions/whoami",
+      }
       |> add_optional_params(optional_params, opts)
       |> Map.from_struct()
       |> Enum.into([])

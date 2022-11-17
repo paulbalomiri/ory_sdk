@@ -25,13 +25,14 @@ pub struct SubmitSelfServiceSettingsFlowWithProfileMethodBody {
     pub traits: serde_json::Value,
 }
 
+
 impl SubmitSelfServiceSettingsFlowWithProfileMethodBody {
     /// nolint:deadcode,unused
     pub fn new(method: String, traits: serde_json::Value) -> SubmitSelfServiceSettingsFlowWithProfileMethodBody {
         SubmitSelfServiceSettingsFlowWithProfileMethodBody {
-            csrf_token: None,
-            method,
-            traits,
+                csrf_token: None,
+                method,
+                traits,
         }
     }
 }

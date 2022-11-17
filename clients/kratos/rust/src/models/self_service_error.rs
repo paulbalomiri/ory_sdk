@@ -25,13 +25,14 @@ pub struct SelfServiceError {
     pub updated_at: Option<String>,
 }
 
+
 impl SelfServiceError {
     pub fn new(id: String) -> SelfServiceError {
         SelfServiceError {
-            created_at: None,
-            error: None,
-            id,
-            updated_at: None,
+                created_at: None,
+                error: None,
+                id,
+                updated_at: None,
         }
     }
 }

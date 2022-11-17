@@ -17,10 +17,16 @@ pub struct AdminCreateIdentityImportCredentialsPassword {
     pub config: Option<Box<crate::models::AdminCreateIdentityImportCredentialsPasswordConfig>>,
 }
 
+impl Default for AdminCreateIdentityImportCredentialsPassword {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl AdminCreateIdentityImportCredentialsPassword {
     pub fn new() -> AdminCreateIdentityImportCredentialsPassword {
         AdminCreateIdentityImportCredentialsPassword {
-            config: None,
+                config: None,
         }
     }
 }

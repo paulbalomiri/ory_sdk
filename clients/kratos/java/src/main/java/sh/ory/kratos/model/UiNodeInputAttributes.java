@@ -26,11 +26,31 @@ import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import sh.ory.kratos.model.UiText;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import sh.ory.kratos.JSON;
+
 /**
  * InputAttributes represents the attributes of an input node
  */
 @ApiModel(description = "InputAttributes represents the attributes of an input node")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-06-01T11:19:13.300472677Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-17T18:49:16.514253300Z[Etc/UTC]")
 public class UiNodeInputAttributes {
   public static final String SERIALIZED_NAME_DISABLED = "disabled";
   @SerializedName(SERIALIZED_NAME_DISABLED)
@@ -278,6 +298,7 @@ public class UiNodeInputAttributes {
   }
 
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -342,5 +363,128 @@ public class UiNodeInputAttributes {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("disabled");
+    openapiFields.add("label");
+    openapiFields.add("name");
+    openapiFields.add("node_type");
+    openapiFields.add("onclick");
+    openapiFields.add("pattern");
+    openapiFields.add("required");
+    openapiFields.add("type");
+    openapiFields.add("value");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("disabled");
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("node_type");
+    openapiRequiredFields.add("type");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to UiNodeInputAttributes
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (UiNodeInputAttributes.openapiRequiredFields.isEmpty()) {
+          return;
+        } else { // has required fields
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UiNodeInputAttributes is not found in the empty JSON string", UiNodeInputAttributes.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!UiNodeInputAttributes.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UiNodeInputAttributes` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : UiNodeInputAttributes.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // validate the optional field `label`
+      if (jsonObj.getAsJsonObject("label") != null) {
+        UiText.validateJsonObject(jsonObj.getAsJsonObject("label"));
+      }
+      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (jsonObj.get("node_type") != null && !jsonObj.get("node_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `node_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("node_type").toString()));
+      }
+      if (jsonObj.get("onclick") != null && !jsonObj.get("onclick").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `onclick` to be a primitive type in the JSON string but got `%s`", jsonObj.get("onclick").toString()));
+      }
+      if (jsonObj.get("pattern") != null && !jsonObj.get("pattern").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pattern` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pattern").toString()));
+      }
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!UiNodeInputAttributes.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UiNodeInputAttributes' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<UiNodeInputAttributes> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UiNodeInputAttributes.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<UiNodeInputAttributes>() {
+           @Override
+           public void write(JsonWriter out, UiNodeInputAttributes value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public UiNodeInputAttributes read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of UiNodeInputAttributes given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of UiNodeInputAttributes
+  * @throws IOException if the JSON string is invalid with respect to UiNodeInputAttributes
+  */
+  public static UiNodeInputAttributes fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UiNodeInputAttributes.class);
+  }
+
+ /**
+  * Convert an instance of UiNodeInputAttributes to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

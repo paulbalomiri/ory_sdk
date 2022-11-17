@@ -24,12 +24,13 @@ pub struct SubmitSelfServiceLoginFlowWithTotpMethodBody {
     pub totp_code: String,
 }
 
+
 impl SubmitSelfServiceLoginFlowWithTotpMethodBody {
     pub fn new(method: String, totp_code: String) -> SubmitSelfServiceLoginFlowWithTotpMethodBody {
         SubmitSelfServiceLoginFlowWithTotpMethodBody {
-            csrf_token: None,
-            method,
-            totp_code,
+                csrf_token: None,
+                method,
+                totp_code,
         }
     }
 }

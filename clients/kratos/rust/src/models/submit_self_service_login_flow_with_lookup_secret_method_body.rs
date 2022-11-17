@@ -24,12 +24,13 @@ pub struct SubmitSelfServiceLoginFlowWithLookupSecretMethodBody {
     pub method: String,
 }
 
+
 impl SubmitSelfServiceLoginFlowWithLookupSecretMethodBody {
     pub fn new(lookup_secret: String, method: String) -> SubmitSelfServiceLoginFlowWithLookupSecretMethodBody {
         SubmitSelfServiceLoginFlowWithLookupSecretMethodBody {
-            csrf_token: None,
-            lookup_secret,
-            method,
+                csrf_token: None,
+                lookup_secret,
+                method,
         }
     }
 }

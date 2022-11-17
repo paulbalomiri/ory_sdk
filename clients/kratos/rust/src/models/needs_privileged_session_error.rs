@@ -42,18 +42,19 @@ pub struct NeedsPrivilegedSessionError {
     pub status: Option<String>,
 }
 
+
 impl NeedsPrivilegedSessionError {
     pub fn new(message: String, redirect_browser_to: String) -> NeedsPrivilegedSessionError {
         NeedsPrivilegedSessionError {
-            code: None,
-            debug: None,
-            details: None,
-            id: None,
-            message,
-            reason: None,
-            redirect_browser_to,
-            request: None,
-            status: None,
+                code: None,
+                debug: None,
+                details: None,
+                id: None,
+                message,
+                reason: None,
+                redirect_browser_to,
+                request: None,
+                status: None,
         }
     }
 }

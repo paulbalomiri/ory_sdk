@@ -19,11 +19,12 @@ pub struct SubmitSelfServiceLogoutFlowWithoutBrowserBody {
     pub session_token: String,
 }
 
+
 impl SubmitSelfServiceLogoutFlowWithoutBrowserBody {
     /// nolint:deadcode,unused
     pub fn new(session_token: String) -> SubmitSelfServiceLogoutFlowWithoutBrowserBody {
         SubmitSelfServiceLogoutFlowWithoutBrowserBody {
-            session_token,
+                session_token,
         }
     }
 }

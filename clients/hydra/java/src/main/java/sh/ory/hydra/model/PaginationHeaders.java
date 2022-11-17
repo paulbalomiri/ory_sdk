@@ -47,7 +47,7 @@ import sh.ory.hydra.JSON;
 /**
  * PaginationHeaders
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-10T17:15:30.879216533Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-17T15:41:33.537063700Z[Etc/UTC]")
 public class PaginationHeaders {
   public static final String SERIALIZED_NAME_LINK = "link";
   @SerializedName(SERIALIZED_NAME_LINK)

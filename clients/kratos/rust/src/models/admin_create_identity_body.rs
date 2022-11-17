@@ -37,17 +37,18 @@ pub struct AdminCreateIdentityBody {
     pub verifiable_addresses: Option<Vec<crate::models::VerifiableIdentityAddress>>,
 }
 
+
 impl AdminCreateIdentityBody {
     pub fn new(schema_id: String, traits: serde_json::Value) -> AdminCreateIdentityBody {
         AdminCreateIdentityBody {
-            credentials: None,
-            metadata_admin: None,
-            metadata_public: None,
-            recovery_addresses: None,
-            schema_id,
-            state: None,
-            traits,
-            verifiable_addresses: None,
+                credentials: None,
+                metadata_admin: None,
+                metadata_public: None,
+                recovery_addresses: None,
+                schema_id,
+                state: None,
+                traits,
+                verifiable_addresses: None,
         }
     }
 }

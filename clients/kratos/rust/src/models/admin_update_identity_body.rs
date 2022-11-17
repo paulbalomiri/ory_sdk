@@ -29,14 +29,15 @@ pub struct AdminUpdateIdentityBody {
     pub traits: serde_json::Value,
 }
 
+
 impl AdminUpdateIdentityBody {
     pub fn new(schema_id: String, state: crate::models::IdentityState, traits: serde_json::Value) -> AdminUpdateIdentityBody {
         AdminUpdateIdentityBody {
-            metadata_admin: None,
-            metadata_public: None,
-            schema_id,
-            state,
-            traits,
+                metadata_admin: None,
+                metadata_public: None,
+                schema_id,
+                state,
+                traits,
         }
     }
 }

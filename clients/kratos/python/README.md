@@ -56,9 +56,9 @@ import ory_kratos_client
 from pprint import pprint
 from ory_kratos_client.api import metadata_api
 from ory_kratos_client.model.generic_error import GenericError
-from ory_kratos_client.model.inline_response200 import InlineResponse200
-from ory_kratos_client.model.inline_response2001 import InlineResponse2001
-from ory_kratos_client.model.inline_response503 import InlineResponse503
+from ory_kratos_client.model.get_version200_response import GetVersion200Response
+from ory_kratos_client.model.is_alive200_response import IsAlive200Response
+from ory_kratos_client.model.is_ready503_response import IsReady503Response
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = ory_kratos_client.Configuration(
@@ -71,7 +71,7 @@ configuration = ory_kratos_client.Configuration(
 with ory_kratos_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
-    
+
     try:
         # Return Running Software Version.
         api_response = api_instance.get_version()
@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
  - [AuthenticatorAssuranceLevel](docs/AuthenticatorAssuranceLevel.md)
  - [ErrorAuthenticatorAssuranceLevelNotSatisfied](docs/ErrorAuthenticatorAssuranceLevelNotSatisfied.md)
  - [GenericError](docs/GenericError.md)
+ - [GetVersion200Response](docs/GetVersion200Response.md)
  - [HealthNotReadyStatus](docs/HealthNotReadyStatus.md)
  - [HealthStatus](docs/HealthStatus.md)
  - [Identity](docs/Identity.md)
@@ -157,9 +158,8 @@ Class | Method | HTTP request | Description
  - [IdentitySchema](docs/IdentitySchema.md)
  - [IdentitySchemas](docs/IdentitySchemas.md)
  - [IdentityState](docs/IdentityState.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse2001](docs/InlineResponse2001.md)
- - [InlineResponse503](docs/InlineResponse503.md)
+ - [IsAlive200Response](docs/IsAlive200Response.md)
+ - [IsReady503Response](docs/IsReady503Response.md)
  - [JsonError](docs/JsonError.md)
  - [NeedsPrivilegedSessionError](docs/NeedsPrivilegedSessionError.md)
  - [Pagination](docs/Pagination.md)

@@ -52,23 +52,24 @@ pub struct Identity {
     pub verifiable_addresses: Option<Vec<crate::models::VerifiableIdentityAddress>>,
 }
 
+
 impl Identity {
     /// An identity can be a real human, a service, an IoT device - everything that can be described as an \"actor\" in a system.
     pub fn new(id: String, schema_id: String, schema_url: String, traits: Option<serde_json::Value>) -> Identity {
         Identity {
-            created_at: None,
-            credentials: None,
-            id,
-            metadata_admin: None,
-            metadata_public: None,
-            recovery_addresses: None,
-            schema_id,
-            schema_url,
-            state: None,
-            state_changed_at: None,
-            traits,
-            updated_at: None,
-            verifiable_addresses: None,
+                created_at: None,
+                credentials: None,
+                id,
+                metadata_admin: None,
+                metadata_public: None,
+                recovery_addresses: None,
+                schema_id,
+                schema_url,
+                state: None,
+                state_changed_at: None,
+                traits,
+                updated_at: None,
+                verifiable_addresses: None,
         }
     }
 }

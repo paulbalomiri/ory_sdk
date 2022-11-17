@@ -40,19 +40,20 @@ pub struct SelfServiceRecoveryFlow {
     pub ui: Box<crate::models::UiContainer>,
 }
 
+
 impl SelfServiceRecoveryFlow {
     /// This request is used when an identity wants to recover their account.  We recommend reading the [Account Recovery Documentation](../self-service/flows/password-reset-account-recovery)
     pub fn new(expires_at: String, id: String, issued_at: String, request_url: String, state: crate::models::SelfServiceRecoveryFlowState, _type: String, ui: crate::models::UiContainer) -> SelfServiceRecoveryFlow {
         SelfServiceRecoveryFlow {
-            active: None,
-            expires_at,
-            id,
-            issued_at,
-            request_url,
-            return_to: None,
-            state,
-            _type,
-            ui: Box::new(ui),
+                active: None,
+                expires_at,
+                id,
+                issued_at,
+                request_url,
+                return_to: None,
+                state,
+                _type,
+                ui: Box::new(ui),
         }
     }
 }

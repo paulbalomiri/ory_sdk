@@ -15,6 +15,7 @@ docs/AdminUpdateIdentityBody.md
 docs/AuthenticatorAssuranceLevel.md
 docs/ErrorAuthenticatorAssuranceLevelNotSatisfied.md
 docs/GenericError.md
+docs/GetVersion200Response.md
 docs/HealthNotReadyStatus.md
 docs/HealthStatus.md
 docs/Identity.md
@@ -27,9 +28,8 @@ docs/IdentityList.md
 docs/IdentitySchema.md
 docs/IdentitySchemas.md
 docs/IdentityState.md
-docs/InlineResponse200.md
-docs/InlineResponse2001.md
-docs/InlineResponse503.md
+docs/IsAlive200Response.md
+docs/IsReady503Response.md
 docs/JsonError.md
 docs/MetadataApi.md
 docs/NeedsPrivilegedSessionError.md
@@ -117,6 +117,7 @@ ory_kratos_client/model/admin_update_identity_body.py
 ory_kratos_client/model/authenticator_assurance_level.py
 ory_kratos_client/model/error_authenticator_assurance_level_not_satisfied.py
 ory_kratos_client/model/generic_error.py
+ory_kratos_client/model/get_version200_response.py
 ory_kratos_client/model/health_not_ready_status.py
 ory_kratos_client/model/health_status.py
 ory_kratos_client/model/identity.py
@@ -129,9 +130,8 @@ ory_kratos_client/model/identity_list.py
 ory_kratos_client/model/identity_schema.py
 ory_kratos_client/model/identity_schemas.py
 ory_kratos_client/model/identity_state.py
-ory_kratos_client/model/inline_response200.py
-ory_kratos_client/model/inline_response2001.py
-ory_kratos_client/model/inline_response503.py
+ory_kratos_client/model/is_alive200_response.py
+ory_kratos_client/model/is_ready503_response.py
 ory_kratos_client/model/json_error.py
 ory_kratos_client/model/needs_privileged_session_error.py
 ory_kratos_client/model/pagination.py
@@ -215,6 +215,7 @@ test/test_admin_update_identity_body.py
 test/test_authenticator_assurance_level.py
 test/test_error_authenticator_assurance_level_not_satisfied.py
 test/test_generic_error.py
+test/test_get_version200_response.py
 test/test_health_not_ready_status.py
 test/test_health_status.py
 test/test_identity.py
@@ -227,9 +228,8 @@ test/test_identity_list.py
 test/test_identity_schema.py
 test/test_identity_schemas.py
 test/test_identity_state.py
-test/test_inline_response200.py
-test/test_inline_response2001.py
-test/test_inline_response503.py
+test/test_is_alive200_response.py
+test/test_is_ready503_response.py
 test/test_json_error.py
 test/test_metadata_api.py
 test/test_needs_privileged_session_error.py

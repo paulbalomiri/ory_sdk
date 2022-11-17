@@ -21,6 +21,7 @@ from ory_kratos_client.model.admin_update_identity_body import AdminUpdateIdenti
 from ory_kratos_client.model.authenticator_assurance_level import AuthenticatorAssuranceLevel
 from ory_kratos_client.model.error_authenticator_assurance_level_not_satisfied import ErrorAuthenticatorAssuranceLevelNotSatisfied
 from ory_kratos_client.model.generic_error import GenericError
+from ory_kratos_client.model.get_version200_response import GetVersion200Response
 from ory_kratos_client.model.health_not_ready_status import HealthNotReadyStatus
 from ory_kratos_client.model.health_status import HealthStatus
 from ory_kratos_client.model.identity import Identity
@@ -33,9 +34,8 @@ from ory_kratos_client.model.identity_list import IdentityList
 from ory_kratos_client.model.identity_schema import IdentitySchema
 from ory_kratos_client.model.identity_schemas import IdentitySchemas
 from ory_kratos_client.model.identity_state import IdentityState
-from ory_kratos_client.model.inline_response200 import InlineResponse200
-from ory_kratos_client.model.inline_response2001 import InlineResponse2001
-from ory_kratos_client.model.inline_response503 import InlineResponse503
+from ory_kratos_client.model.is_alive200_response import IsAlive200Response
+from ory_kratos_client.model.is_ready503_response import IsReady503Response
 from ory_kratos_client.model.json_error import JsonError
 from ory_kratos_client.model.needs_privileged_session_error import NeedsPrivilegedSessionError
 from ory_kratos_client.model.pagination import Pagination

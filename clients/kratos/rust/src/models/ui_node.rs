@@ -18,32 +18,33 @@ pub struct UiNode {
     pub attributes: Box<crate::models::UiNodeAttributes>,
     /// Group specifies which group (e.g. password authenticator) this node belongs to.
     #[serde(rename = "group")]
-    pub group: Group,
+    pub group: GroupEnum,
     #[serde(rename = "messages")]
     pub messages: Vec<crate::models::UiText>,
     #[serde(rename = "meta")]
     pub meta: Box<crate::models::UiNodeMeta>,
     /// The node's type
     #[serde(rename = "type")]
-    pub _type: Type,
+    pub _type: TypeEnum,
 }
+
 
 impl UiNode {
     /// Nodes are represented as HTML elements or their native UI equivalents. For example, a node can be an `<img>` tag, or an `<input element>` but also `some plain text`.
-    pub fn new(attributes: crate::models::UiNodeAttributes, group: Group, messages: Vec<crate::models::UiText>, meta: crate::models::UiNodeMeta, _type: Type) -> UiNode {
+    pub fn new(attributes: crate::models::UiNodeAttributes, group: GroupEnum, messages: Vec<crate::models::UiText>, meta: crate::models::UiNodeMeta, _type: TypeEnum) -> UiNode {
         UiNode {
-            attributes: Box::new(attributes),
-            group,
-            messages,
-            meta: Box::new(meta),
-            _type,
+                attributes: Box::new(attributes),
+                group,
+                messages,
+                meta: Box::new(meta),
+                _type,
         }
     }
 }
 
 /// Group specifies which group (e.g. password authenticator) this node belongs to.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Group {
+pub enum GroupEnum {
     #[serde(rename = "default")]
     Default,
     #[serde(rename = "password")]
@@ -63,7 +64,7 @@ pub enum Group {
 }
 /// The node's type
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Type {
+pub enum TypeEnum {
     #[serde(rename = "text")]
     Text,
     #[serde(rename = "input")]

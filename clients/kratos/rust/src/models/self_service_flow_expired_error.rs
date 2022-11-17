@@ -45,20 +45,21 @@ pub struct SelfServiceFlowExpiredError {
     pub use_flow_id: Option<String>,
 }
 
+
 impl SelfServiceFlowExpiredError {
     /// Is sent when a flow is expired
     pub fn new(message: String) -> SelfServiceFlowExpiredError {
         SelfServiceFlowExpiredError {
-            code: None,
-            debug: None,
-            details: None,
-            id: None,
-            message,
-            reason: None,
-            request: None,
-            since: None,
-            status: None,
-            use_flow_id: None,
+                code: None,
+                debug: None,
+                details: None,
+                id: None,
+                message,
+                reason: None,
+                request: None,
+                since: None,
+                status: None,
+                use_flow_id: None,
         }
     }
 }

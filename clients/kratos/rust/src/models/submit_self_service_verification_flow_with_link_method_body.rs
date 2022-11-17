@@ -24,12 +24,13 @@ pub struct SubmitSelfServiceVerificationFlowWithLinkMethodBody {
     pub method: String,
 }
 
+
 impl SubmitSelfServiceVerificationFlowWithLinkMethodBody {
     pub fn new(email: String, method: String) -> SubmitSelfServiceVerificationFlowWithLinkMethodBody {
         SubmitSelfServiceVerificationFlowWithLinkMethodBody {
-            csrf_token: None,
-            email,
-            method,
+                csrf_token: None,
+                email,
+                method,
         }
     }
 }

@@ -21,12 +21,13 @@ pub struct SuccessfulSelfServiceLoginWithoutBrowser {
     pub session_token: Option<String>,
 }
 
+
 impl SuccessfulSelfServiceLoginWithoutBrowser {
     /// The Response for Login Flows via API
     pub fn new(session: crate::models::Session) -> SuccessfulSelfServiceLoginWithoutBrowser {
         SuccessfulSelfServiceLoginWithoutBrowser {
-            session: Box::new(session),
-            session_token: None,
+                session: Box::new(session),
+                session_token: None,
         }
     }
 }

@@ -18,10 +18,16 @@ pub struct SessionDevice {
     pub user_agent: Option<String>,
 }
 
+impl Default for SessionDevice {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl SessionDevice {
     pub fn new() -> SessionDevice {
         SessionDevice {
-            user_agent: None,
+                user_agent: None,
         }
     }
 }

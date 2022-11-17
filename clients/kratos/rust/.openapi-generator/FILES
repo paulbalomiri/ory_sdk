@@ -15,6 +15,7 @@ docs/AdminUpdateIdentityBody.md
 docs/AuthenticatorAssuranceLevel.md
 docs/ErrorAuthenticatorAssuranceLevelNotSatisfied.md
 docs/GenericError.md
+docs/GetVersion200Response.md
 docs/HealthNotReadyStatus.md
 docs/HealthStatus.md
 docs/Identity.md
@@ -25,9 +26,8 @@ docs/IdentityCredentialsPassword.md
 docs/IdentityCredentialsType.md
 docs/IdentitySchema.md
 docs/IdentityState.md
-docs/InlineResponse200.md
-docs/InlineResponse2001.md
-docs/InlineResponse503.md
+docs/IsAlive200Response.md
+docs/IsReady503Response.md
 docs/JsonError.md
 docs/MetadataApi.md
 docs/NeedsPrivilegedSessionError.md
@@ -107,6 +107,7 @@ src/models/admin_update_identity_body.rs
 src/models/authenticator_assurance_level.rs
 src/models/error_authenticator_assurance_level_not_satisfied.rs
 src/models/generic_error.rs
+src/models/get_version_200_response.rs
 src/models/health_not_ready_status.rs
 src/models/health_status.rs
 src/models/identity.rs
@@ -117,9 +118,8 @@ src/models/identity_credentials_password.rs
 src/models/identity_credentials_type.rs
 src/models/identity_schema.rs
 src/models/identity_state.rs
-src/models/inline_response_200.rs
-src/models/inline_response_200_1.rs
-src/models/inline_response_503.rs
+src/models/is_alive_200_response.rs
+src/models/is_ready_503_response.rs
 src/models/json_error.rs
 src/models/mod.rs
 src/models/needs_privileged_session_error.rs

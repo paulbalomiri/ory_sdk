@@ -24,11 +24,9 @@ import 'package:ory_client/src/model/admin_create_identity_import_credentials_oi
 import 'package:ory_client/src/model/admin_create_identity_import_credentials_oidc_provider.dart';
 import 'package:ory_client/src/model/admin_create_identity_import_credentials_password.dart';
 import 'package:ory_client/src/model/admin_create_identity_import_credentials_password_config.dart';
-import 'package:ory_client/src/model/admin_create_json_web_key_set_body.dart';
 import 'package:ory_client/src/model/admin_create_self_service_recovery_code_body.dart';
 import 'package:ory_client/src/model/admin_create_self_service_recovery_link_body.dart';
 import 'package:ory_client/src/model/admin_identity_import_credentials.dart';
-import 'package:ory_client/src/model/admin_trust_o_auth2_jwt_grant_issuer_body.dart';
 import 'package:ory_client/src/model/admin_update_identity_body.dart';
 import 'package:ory_client/src/model/authenticator_assurance_level.dart';
 import 'package:ory_client/src/model/cloud_account.dart';
@@ -36,10 +34,12 @@ import 'package:ory_client/src/model/cname_settings.dart';
 import 'package:ory_client/src/model/courier_message_status.dart';
 import 'package:ory_client/src/model/courier_message_type.dart';
 import 'package:ory_client/src/model/create_custom_hostname_body.dart';
+import 'package:ory_client/src/model/create_json_web_key_set.dart';
 import 'package:ory_client/src/model/create_project_api_key_request.dart';
 import 'package:ory_client/src/model/create_project_body.dart';
 import 'package:ory_client/src/model/create_subscription_payload.dart';
 import 'package:ory_client/src/model/error_authenticator_assurance_level_not_satisfied.dart';
+import 'package:ory_client/src/model/error_o_auth2.dart';
 import 'package:ory_client/src/model/expand_tree.dart';
 import 'package:ory_client/src/model/generic_error.dart';
 import 'package:ory_client/src/model/generic_error_content.dart';
@@ -48,13 +48,8 @@ import 'package:ory_client/src/model/get_managed_identity_schema_location.dart';
 import 'package:ory_client/src/model/get_namespaces_response.dart';
 import 'package:ory_client/src/model/get_relation_tuples_response.dart';
 import 'package:ory_client/src/model/get_version200_response.dart';
-import 'package:ory_client/src/model/handled_o_auth2_consent_request.dart';
-import 'package:ory_client/src/model/handled_o_auth2_login_request.dart';
-import 'package:ory_client/src/model/handled_o_auth2_logout_request.dart';
-import 'package:ory_client/src/model/headers.dart';
 import 'package:ory_client/src/model/health_not_ready_status.dart';
 import 'package:ory_client/src/model/health_status.dart';
-import 'package:ory_client/src/model/id_token_claims.dart';
 import 'package:ory_client/src/model/identity.dart';
 import 'package:ory_client/src/model/identity_credentials.dart';
 import 'package:ory_client/src/model/identity_credentials_oidc.dart';
@@ -75,6 +70,7 @@ import 'package:ory_client/src/model/json_patch.dart';
 import 'package:ory_client/src/model/json_web_key.dart';
 import 'package:ory_client/src/model/json_web_key_set.dart';
 import 'package:ory_client/src/model/keto_namespace.dart';
+import 'package:ory_client/src/model/login_request.dart';
 import 'package:ory_client/src/model/managed_identity_schema.dart';
 import 'package:ory_client/src/model/managed_identity_schema_validation_result.dart';
 import 'package:ory_client/src/model/message.dart';
@@ -86,24 +82,24 @@ import 'package:ory_client/src/model/normalized_project_revision_hook.dart';
 import 'package:ory_client/src/model/normalized_project_revision_identity_schema.dart';
 import 'package:ory_client/src/model/normalized_project_revision_third_party_provider.dart';
 import 'package:ory_client/src/model/null_plan.dart';
-import 'package:ory_client/src/model/o_auth2_access_request.dart';
-import 'package:ory_client/src/model/o_auth2_api_error.dart';
 import 'package:ory_client/src/model/o_auth2_client.dart';
+import 'package:ory_client/src/model/o_auth2_client_token_lifespans.dart';
 import 'package:ory_client/src/model/o_auth2_consent_request.dart';
 import 'package:ory_client/src/model/o_auth2_consent_request_open_id_connect_context.dart';
 import 'package:ory_client/src/model/o_auth2_consent_session.dart';
 import 'package:ory_client/src/model/o_auth2_consent_session_expires_at.dart';
 import 'package:ory_client/src/model/o_auth2_login_request.dart';
 import 'package:ory_client/src/model/o_auth2_logout_request.dart';
-import 'package:ory_client/src/model/o_auth2_token_response.dart';
+import 'package:ory_client/src/model/o_auth2_redirect_to.dart';
+import 'package:ory_client/src/model/o_auth2_token_exchange.dart';
 import 'package:ory_client/src/model/oidc_configuration.dart';
 import 'package:ory_client/src/model/oidc_user_info.dart';
+import 'package:ory_client/src/model/open_id_connect_context.dart';
 import 'package:ory_client/src/model/pagination.dart';
 import 'package:ory_client/src/model/pagination_headers.dart';
 import 'package:ory_client/src/model/parse_error.dart';
 import 'package:ory_client/src/model/patch_delta.dart';
 import 'package:ory_client/src/model/post_check_opl_syntax_response.dart';
-import 'package:ory_client/src/model/previous_o_auth2_consent_session.dart';
 import 'package:ory_client/src/model/project.dart';
 import 'package:ory_client/src/model/project_api_key.dart';
 import 'package:ory_client/src/model/project_host.dart';
@@ -117,8 +113,6 @@ import 'package:ory_client/src/model/provision_mock_subscription_payload.dart';
 import 'package:ory_client/src/model/quota_custom_domains.dart';
 import 'package:ory_client/src/model/quota_project_member_seats.dart';
 import 'package:ory_client/src/model/recovery_identity_address.dart';
-import 'package:ory_client/src/model/refresh_token_hook_request.dart';
-import 'package:ory_client/src/model/refresh_token_hook_response.dart';
 import 'package:ory_client/src/model/reject_o_auth2_request.dart';
 import 'package:ory_client/src/model/relation_query.dart';
 import 'package:ory_client/src/model/relation_tuple.dart';
@@ -170,12 +164,14 @@ import 'package:ory_client/src/model/submit_self_service_settings_flow_with_web_
 import 'package:ory_client/src/model/submit_self_service_verification_flow_body.dart';
 import 'package:ory_client/src/model/submit_self_service_verification_flow_with_link_method_body.dart';
 import 'package:ory_client/src/model/subscription.dart';
-import 'package:ory_client/src/model/successful_o_auth2_request_response.dart';
 import 'package:ory_client/src/model/successful_project_update.dart';
 import 'package:ory_client/src/model/successful_self_service_login_without_browser.dart';
 import 'package:ory_client/src/model/successful_self_service_registration_without_browser.dart';
 import 'package:ory_client/src/model/token_pagination.dart';
 import 'package:ory_client/src/model/token_pagination_headers.dart';
+import 'package:ory_client/src/model/token_pagination_request_parameters.dart';
+import 'package:ory_client/src/model/token_pagination_response_headers.dart';
+import 'package:ory_client/src/model/trust_o_auth2_jwt_grant_issuer.dart';
 import 'package:ory_client/src/model/trusted_o_auth2_jwt_grant_issuer.dart';
 import 'package:ory_client/src/model/trusted_o_auth2_jwt_grant_json_web_key.dart';
 import 'package:ory_client/src/model/ui_container.dart';
@@ -189,7 +185,6 @@ import 'package:ory_client/src/model/ui_node_script_attributes.dart';
 import 'package:ory_client/src/model/ui_node_text_attributes.dart';
 import 'package:ory_client/src/model/ui_text.dart';
 import 'package:ory_client/src/model/update_custom_hostname_body.dart';
-import 'package:ory_client/src/model/update_o_auth2_client_lifespans.dart';
 import 'package:ory_client/src/model/update_project.dart';
 import 'package:ory_client/src/model/update_subscription_payload.dart';
 import 'package:ory_client/src/model/verifiable_identity_address.dart';
@@ -209,11 +204,9 @@ part 'serializers.g.dart';
   AdminCreateIdentityImportCredentialsOidcProvider,
   AdminCreateIdentityImportCredentialsPassword,
   AdminCreateIdentityImportCredentialsPasswordConfig,
-  AdminCreateJsonWebKeySetBody,
   AdminCreateSelfServiceRecoveryCodeBody,
   AdminCreateSelfServiceRecoveryLinkBody,
   AdminIdentityImportCredentials,
-  AdminTrustOAuth2JwtGrantIssuerBody,
   AdminUpdateIdentityBody,
   AuthenticatorAssuranceLevel,
   CloudAccount,
@@ -221,10 +214,12 @@ part 'serializers.g.dart';
   CourierMessageStatus,
   CourierMessageType,
   CreateCustomHostnameBody,
+  CreateJsonWebKeySet,
   CreateProjectApiKeyRequest,
   CreateProjectBody,
   CreateSubscriptionPayload,
   ErrorAuthenticatorAssuranceLevelNotSatisfied,
+  ErrorOAuth2,
   ExpandTree,
   GenericError,
   GenericErrorContent,
@@ -233,13 +228,8 @@ part 'serializers.g.dart';
   GetNamespacesResponse,
   GetRelationTuplesResponse,
   GetVersion200Response,
-  HandledOAuth2ConsentRequest,
-  HandledOAuth2LoginRequest,
-  HandledOAuth2LogoutRequest,
-  Headers,
   HealthNotReadyStatus,
   HealthStatus,
-  IDTokenClaims,
   Identity,
   IdentityCredentials,
   IdentityCredentialsOidc,
@@ -260,6 +250,7 @@ part 'serializers.g.dart';
   JsonWebKey,
   JsonWebKeySet,
   KetoNamespace,
+  LoginRequest,
   ManagedIdentitySchema,
   ManagedIdentitySchemaValidationResult,
   Message,
@@ -271,24 +262,24 @@ part 'serializers.g.dart';
   NormalizedProjectRevisionIdentitySchema,
   NormalizedProjectRevisionThirdPartyProvider,
   NullPlan,
-  OAuth2AccessRequest,
-  OAuth2ApiError,
   OAuth2Client,
+  OAuth2ClientTokenLifespans,
   OAuth2ConsentRequest,
   OAuth2ConsentRequestOpenIDConnectContext,
   OAuth2ConsentSession,
   OAuth2ConsentSessionExpiresAt,
   OAuth2LoginRequest,
   OAuth2LogoutRequest,
-  OAuth2TokenResponse,
+  OAuth2RedirectTo,
+  OAuth2TokenExchange,
   OidcConfiguration,
   OidcUserInfo,
+  OpenIDConnectContext,
   Pagination,
   PaginationHeaders,
   ParseError,
   PatchDelta,
   PostCheckOplSyntaxResponse,
-  PreviousOAuth2ConsentSession,
   Project,
   ProjectApiKey,
   ProjectHost,
@@ -302,8 +293,6 @@ part 'serializers.g.dart';
   QuotaCustomDomains,
   QuotaProjectMemberSeats,
   RecoveryIdentityAddress,
-  RefreshTokenHookRequest,
-  RefreshTokenHookResponse,
   RejectOAuth2Request,
   RelationQuery,
   RelationTuple,
@@ -355,12 +344,14 @@ part 'serializers.g.dart';
   SubmitSelfServiceVerificationFlowBody,
   SubmitSelfServiceVerificationFlowWithLinkMethodBody,
   Subscription,
-  SuccessfulOAuth2RequestResponse,
   SuccessfulProjectUpdate,
   SuccessfulSelfServiceLoginWithoutBrowser,
   SuccessfulSelfServiceRegistrationWithoutBrowser,
   TokenPagination,
   TokenPaginationHeaders,
+  TokenPaginationRequestParameters,
+  TokenPaginationResponseHeaders,
+  TrustOAuth2JwtGrantIssuer,
   TrustedOAuth2JwtGrantIssuer,
   TrustedOAuth2JwtGrantJsonWebKey,
   UiContainer,
@@ -374,7 +365,6 @@ part 'serializers.g.dart';
   UiNodeTextAttributes,
   UiText,
   UpdateCustomHostnameBody,
-  UpdateOAuth2ClientLifespans,
   UpdateProject,
   UpdateSubscriptionPayload,
   VerifiableIdentityAddress,
@@ -383,12 +373,16 @@ part 'serializers.g.dart';
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TrustedOAuth2JwtGrantIssuer)]),
+        () => ListBuilder<TrustedOAuth2JwtGrantIssuer>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Message)]),
         () => ListBuilder<Message>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TrustedOAuth2JwtGrantIssuer)]),
-        () => ListBuilder<TrustedOAuth2JwtGrantIssuer>(),
+        const FullType(BuiltList, [FullType(OAuth2ConsentSession)]),
+        () => ListBuilder<OAuth2ConsentSession>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(OAuth2Client)]),
@@ -429,10 +423,6 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ProjectApiKey)]),
         () => ListBuilder<ProjectApiKey>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PreviousOAuth2ConsentSession)]),
-        () => ListBuilder<PreviousOAuth2ConsentSession>(),
       )
       ..add(const OneOfSerializer())
       ..add(const AnyOfSerializer())

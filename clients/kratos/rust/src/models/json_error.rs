@@ -18,11 +18,12 @@ pub struct JsonError {
     pub error: Box<crate::models::GenericError>,
 }
 
+
 impl JsonError {
     /// The standard Ory JSON API error format.
     pub fn new(error: crate::models::GenericError) -> JsonError {
         JsonError {
-            error: Box::new(error),
+                error: Box::new(error),
         }
     }
 }

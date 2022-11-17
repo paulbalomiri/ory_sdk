@@ -41,18 +41,19 @@ pub struct ErrorAuthenticatorAssuranceLevelNotSatisfied {
     pub status: Option<String>,
 }
 
+
 impl ErrorAuthenticatorAssuranceLevelNotSatisfied {
     pub fn new(message: String) -> ErrorAuthenticatorAssuranceLevelNotSatisfied {
         ErrorAuthenticatorAssuranceLevelNotSatisfied {
-            code: None,
-            debug: None,
-            details: None,
-            id: None,
-            message,
-            reason: None,
-            redirect_browser_to: None,
-            request: None,
-            status: None,
+                code: None,
+                debug: None,
+                details: None,
+                id: None,
+                message,
+                reason: None,
+                redirect_browser_to: None,
+                request: None,
+                status: None,
         }
     }
 }

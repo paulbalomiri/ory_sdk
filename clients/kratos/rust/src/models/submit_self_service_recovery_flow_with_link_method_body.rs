@@ -24,12 +24,13 @@ pub struct SubmitSelfServiceRecoveryFlowWithLinkMethodBody {
     pub method: String,
 }
 
+
 impl SubmitSelfServiceRecoveryFlowWithLinkMethodBody {
     pub fn new(email: String, method: String) -> SubmitSelfServiceRecoveryFlowWithLinkMethodBody {
         SubmitSelfServiceRecoveryFlowWithLinkMethodBody {
-            csrf_token: None,
-            email,
-            method,
+                csrf_token: None,
+                email,
+                method,
         }
     }
 }

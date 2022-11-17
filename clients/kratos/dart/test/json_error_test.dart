@@ -1,12 +1,5 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.7
-
-// ignore_for_file: unused_import
-
-import 'package:ory_kratos_client/model/json_error.dart';
 import 'package:test/test.dart';
+import 'package:ory_kratos_client/ory_kratos_client.dart';
 
 // tests for JsonError
 void main() {
@@ -19,7 +12,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

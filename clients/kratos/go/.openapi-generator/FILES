@@ -19,6 +19,7 @@ docs/AdminUpdateIdentityBody.md
 docs/AuthenticatorAssuranceLevel.md
 docs/ErrorAuthenticatorAssuranceLevelNotSatisfied.md
 docs/GenericError.md
+docs/GetVersion200Response.md
 docs/HealthNotReadyStatus.md
 docs/HealthStatus.md
 docs/Identity.md
@@ -29,9 +30,8 @@ docs/IdentityCredentialsPassword.md
 docs/IdentityCredentialsType.md
 docs/IdentitySchema.md
 docs/IdentityState.md
-docs/InlineResponse200.md
-docs/InlineResponse2001.md
-docs/InlineResponse503.md
+docs/IsAlive200Response.md
+docs/IsReady503Response.md
 docs/JsonError.md
 docs/MetadataApi.md
 docs/NeedsPrivilegedSessionError.md
@@ -108,6 +108,7 @@ model_admin_update_identity_body.go
 model_authenticator_assurance_level.go
 model_error_authenticator_assurance_level_not_satisfied.go
 model_generic_error.go
+model_get_version_200_response.go
 model_health_not_ready_status.go
 model_health_status.go
 model_identity.go
@@ -118,9 +119,8 @@ model_identity_credentials_password.go
 model_identity_credentials_type.go
 model_identity_schema.go
 model_identity_state.go
-model_inline_response_200.go
-model_inline_response_200_1.go
-model_inline_response_503.go
+model_is_alive_200_response.go
+model_is_ready_503_response.go
 model_json_error.go
 model_needs_privileged_session_error.go
 model_pagination.go

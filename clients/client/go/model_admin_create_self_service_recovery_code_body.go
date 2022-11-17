@@ -3,7 +3,7 @@ Ory APIs
 
 Documentation for all public and administrative Ory APIs. Administrative APIs can only be accessed with a valid Personal Access Token. Public APIs are mostly used in browsers. 
 
-API version: v0.2.0-alpha.60
+API version: v0.3.0
 Contact: support@ory.sh
 */
 
@@ -17,7 +17,7 @@ import (
 
 // AdminCreateSelfServiceRecoveryCodeBody struct for AdminCreateSelfServiceRecoveryCodeBody
 type AdminCreateSelfServiceRecoveryCodeBody struct {
-	// Code Expires In  The recovery code will expire at that point in time. Defaults to the configuration value of `selfservice.flows.recovery.request_lifespan`.
+	// Code Expires In  The recovery code will expire after that amount of time has passed. Defaults to the configuration value of `selfservice.methods.code.config.lifespan`.
 	ExpiresIn *string `json:"expires_in,omitempty"`
 	// Identity to Recover  The identity's ID you wish to recover.
 	IdentityId string `json:"identity_id"`

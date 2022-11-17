@@ -37,18 +37,19 @@ pub struct Session {
     pub issued_at: Option<String>,
 }
 
+
 impl Session {
     /// A Session
     pub fn new(id: String, identity: crate::models::Identity) -> Session {
         Session {
-            active: None,
-            authenticated_at: None,
-            authentication_methods: None,
-            authenticator_assurance_level: None,
-            expires_at: None,
-            id,
-            identity: Box::new(identity),
-            issued_at: None,
+                active: None,
+                authenticated_at: None,
+                authentication_methods: None,
+                authenticator_assurance_level: None,
+                expires_at: None,
+                id,
+                identity: Box::new(identity),
+                issued_at: None,
         }
     }
 }

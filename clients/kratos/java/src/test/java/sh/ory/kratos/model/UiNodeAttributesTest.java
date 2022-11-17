@@ -28,9 +28,8 @@ import sh.ory.kratos.model.UiNodeInputAttributes;
 import sh.ory.kratos.model.UiNodeScriptAttributes;
 import sh.ory.kratos.model.UiNodeTextAttributes;
 import sh.ory.kratos.model.UiText;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

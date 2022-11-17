@@ -75,6 +75,8 @@ Name | Type | Description | Notes
 **KratosCourierTemplatesVerificationValidEmailBodyPlaintext** | Pointer to **string** | Configures the Ory Kratos Valid Verification Email Body Plaintext Template  This governs the \&quot;courier.smtp.templates.recovery.valid.email.body.plaintext\&quot; setting. | [optional] 
 **KratosCourierTemplatesVerificationValidEmailSubject** | Pointer to **string** | Configures the Ory Kratos Valid Verification Email Subject Template  This governs the \&quot;courier.smtp.templates.verification.valid.email.subject\&quot; setting. | [optional] 
 **KratosIdentitySchemas** | Pointer to [**[]NormalizedProjectRevisionIdentitySchema**](NormalizedProjectRevisionIdentitySchema.md) |  | [optional] 
+**KratosOauth2ProviderHeaders** | Pointer to **map[string]interface{}** | NullJSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger and is NULLable- | [optional] 
+**KratosOauth2ProviderUrl** | Pointer to **string** | The Revisions&#39; OAuth2 Provider Integration URL  This governs the \&quot;oauth2_provider.url\&quot; setting. | [optional] 
 **KratosSecretsCipher** | Pointer to **[]string** |  | [optional] 
 **KratosSecretsCookie** | Pointer to **[]string** |  | [optional] 
 **KratosSecretsDefault** | Pointer to **[]string** |  | [optional] 
@@ -1494,6 +1496,16 @@ SetKratosCourierSmtpHeaders sets KratosCourierSmtpHeaders field to given value.
 
 HasKratosCourierSmtpHeaders returns a boolean if a field has been set.
 
+### SetKratosCourierSmtpHeadersNil
+
+`func (o *NormalizedProjectRevision) SetKratosCourierSmtpHeadersNil(b bool)`
+
+ SetKratosCourierSmtpHeadersNil sets the value for KratosCourierSmtpHeaders to be an explicit nil
+
+### UnsetKratosCourierSmtpHeaders
+`func (o *NormalizedProjectRevision) UnsetKratosCourierSmtpHeaders()`
+
+UnsetKratosCourierSmtpHeaders ensures that no value is present for KratosCourierSmtpHeaders, not even an explicit nil
 ### GetKratosCourierTemplatesRecoveryCodeInvalidEmailBodyHtml
 
 `func (o *NormalizedProjectRevision) GetKratosCourierTemplatesRecoveryCodeInvalidEmailBodyHtml() string`
@@ -1968,6 +1980,66 @@ SetKratosIdentitySchemas sets KratosIdentitySchemas field to given value.
 `func (o *NormalizedProjectRevision) HasKratosIdentitySchemas() bool`
 
 HasKratosIdentitySchemas returns a boolean if a field has been set.
+
+### GetKratosOauth2ProviderHeaders
+
+`func (o *NormalizedProjectRevision) GetKratosOauth2ProviderHeaders() map[string]interface{}`
+
+GetKratosOauth2ProviderHeaders returns the KratosOauth2ProviderHeaders field if non-nil, zero value otherwise.
+
+### GetKratosOauth2ProviderHeadersOk
+
+`func (o *NormalizedProjectRevision) GetKratosOauth2ProviderHeadersOk() (*map[string]interface{}, bool)`
+
+GetKratosOauth2ProviderHeadersOk returns a tuple with the KratosOauth2ProviderHeaders field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKratosOauth2ProviderHeaders
+
+`func (o *NormalizedProjectRevision) SetKratosOauth2ProviderHeaders(v map[string]interface{})`
+
+SetKratosOauth2ProviderHeaders sets KratosOauth2ProviderHeaders field to given value.
+
+### HasKratosOauth2ProviderHeaders
+
+`func (o *NormalizedProjectRevision) HasKratosOauth2ProviderHeaders() bool`
+
+HasKratosOauth2ProviderHeaders returns a boolean if a field has been set.
+
+### SetKratosOauth2ProviderHeadersNil
+
+`func (o *NormalizedProjectRevision) SetKratosOauth2ProviderHeadersNil(b bool)`
+
+ SetKratosOauth2ProviderHeadersNil sets the value for KratosOauth2ProviderHeaders to be an explicit nil
+
+### UnsetKratosOauth2ProviderHeaders
+`func (o *NormalizedProjectRevision) UnsetKratosOauth2ProviderHeaders()`
+
+UnsetKratosOauth2ProviderHeaders ensures that no value is present for KratosOauth2ProviderHeaders, not even an explicit nil
+### GetKratosOauth2ProviderUrl
+
+`func (o *NormalizedProjectRevision) GetKratosOauth2ProviderUrl() string`
+
+GetKratosOauth2ProviderUrl returns the KratosOauth2ProviderUrl field if non-nil, zero value otherwise.
+
+### GetKratosOauth2ProviderUrlOk
+
+`func (o *NormalizedProjectRevision) GetKratosOauth2ProviderUrlOk() (*string, bool)`
+
+GetKratosOauth2ProviderUrlOk returns a tuple with the KratosOauth2ProviderUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKratosOauth2ProviderUrl
+
+`func (o *NormalizedProjectRevision) SetKratosOauth2ProviderUrl(v string)`
+
+SetKratosOauth2ProviderUrl sets KratosOauth2ProviderUrl field to given value.
+
+### HasKratosOauth2ProviderUrl
+
+`func (o *NormalizedProjectRevision) HasKratosOauth2ProviderUrl() bool`
+
+HasKratosOauth2ProviderUrl returns a boolean if a field has been set.
 
 ### GetKratosSecretsCipher
 

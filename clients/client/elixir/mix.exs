@@ -1,9 +1,9 @@
-defmodule Ory.Mixfile do
+defmodule OryAPIs.Mixfile do
   use Mix.Project
 
   def project do
     [app: :ory_client,
-     version: "0.2.0-alpha.60",
+     version: "0.3.0",
      elixir: "~> 1.10",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,

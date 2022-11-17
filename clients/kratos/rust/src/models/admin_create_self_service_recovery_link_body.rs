@@ -20,11 +20,12 @@ pub struct AdminCreateSelfServiceRecoveryLinkBody {
     pub identity_id: String,
 }
 
+
 impl AdminCreateSelfServiceRecoveryLinkBody {
     pub fn new(identity_id: String) -> AdminCreateSelfServiceRecoveryLinkBody {
         AdminCreateSelfServiceRecoveryLinkBody {
-            expires_in: None,
-            identity_id,
+                expires_in: None,
+                identity_id,
         }
     }
 }

@@ -42,18 +42,19 @@ pub struct SelfServiceBrowserLocationChangeRequiredError {
     pub status: Option<String>,
 }
 
+
 impl SelfServiceBrowserLocationChangeRequiredError {
     pub fn new(message: String) -> SelfServiceBrowserLocationChangeRequiredError {
         SelfServiceBrowserLocationChangeRequiredError {
-            code: None,
-            debug: None,
-            details: None,
-            id: None,
-            message,
-            reason: None,
-            redirect_browser_to: None,
-            request: None,
-            status: None,
+                code: None,
+                debug: None,
+                details: None,
+                id: None,
+                message,
+                reason: None,
+                redirect_browser_to: None,
+                request: None,
+                status: None,
         }
     }
 }

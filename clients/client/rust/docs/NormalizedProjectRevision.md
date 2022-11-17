@@ -75,6 +75,8 @@ Name | Type | Description | Notes
 **kratos_courier_templates_verification_valid_email_body_plaintext** | Option<**String**> | Configures the Ory Kratos Valid Verification Email Body Plaintext Template  This governs the \"courier.smtp.templates.recovery.valid.email.body.plaintext\" setting. | [optional]
 **kratos_courier_templates_verification_valid_email_subject** | Option<**String**> | Configures the Ory Kratos Valid Verification Email Subject Template  This governs the \"courier.smtp.templates.verification.valid.email.subject\" setting. | [optional]
 **kratos_identity_schemas** | Option<[**Vec<crate::models::NormalizedProjectRevisionIdentitySchema>**](normalizedProjectRevisionIdentitySchema.md)> |  | [optional]
+**kratos_oauth2_provider_headers** | Option<[**serde_json::Value**](.md)> | NullJSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger and is NULLable- | [optional]
+**kratos_oauth2_provider_url** | Option<**String**> | The Revisions' OAuth2 Provider Integration URL  This governs the \"oauth2_provider.url\" setting. | [optional]
 **kratos_secrets_cipher** | Option<**Vec<String>**> |  | [optional]
 **kratos_secrets_cookie** | Option<**Vec<String>**> |  | [optional]
 **kratos_secrets_default** | Option<**Vec<String>**> |  | [optional]

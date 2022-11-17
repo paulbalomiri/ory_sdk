@@ -30,14 +30,15 @@ pub struct SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody {
     pub webauthn_register_displayname: Option<String>,
 }
 
+
 impl SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody {
     pub fn new(method: String, traits: serde_json::Value) -> SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody {
         SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody {
-            csrf_token: None,
-            method,
-            traits,
-            webauthn_register: None,
-            webauthn_register_displayname: None,
+                csrf_token: None,
+                method,
+                traits,
+                webauthn_register: None,
+                webauthn_register_displayname: None,
         }
     }
 }

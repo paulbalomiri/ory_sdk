@@ -24,12 +24,13 @@ pub struct SubmitSelfServiceSettingsFlowWithPasswordMethodBody {
     pub password: String,
 }
 
+
 impl SubmitSelfServiceSettingsFlowWithPasswordMethodBody {
     pub fn new(method: String, password: String) -> SubmitSelfServiceSettingsFlowWithPasswordMethodBody {
         SubmitSelfServiceSettingsFlowWithPasswordMethodBody {
-            csrf_token: None,
-            method,
-            password,
+                csrf_token: None,
+                method,
+                password,
         }
     }
 }

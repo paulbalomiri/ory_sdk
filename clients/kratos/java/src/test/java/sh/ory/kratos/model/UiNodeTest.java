@@ -26,9 +26,8 @@ import java.util.List;
 import sh.ory.kratos.model.UiNodeAttributes;
 import sh.ory.kratos.model.UiNodeMeta;
 import sh.ory.kratos.model.UiText;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

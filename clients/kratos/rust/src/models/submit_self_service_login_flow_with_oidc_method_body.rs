@@ -28,14 +28,15 @@ pub struct SubmitSelfServiceLoginFlowWithOidcMethodBody {
     pub traits: Option<serde_json::Value>,
 }
 
+
 impl SubmitSelfServiceLoginFlowWithOidcMethodBody {
     /// SubmitSelfServiceLoginFlowWithOidcMethodBody is used to decode the login form payload when using the oidc method.
     pub fn new(method: String, provider: String) -> SubmitSelfServiceLoginFlowWithOidcMethodBody {
         SubmitSelfServiceLoginFlowWithOidcMethodBody {
-            csrf_token: None,
-            method,
-            provider,
-            traits: None,
+                csrf_token: None,
+                method,
+                provider,
+                traits: None,
         }
     }
 }

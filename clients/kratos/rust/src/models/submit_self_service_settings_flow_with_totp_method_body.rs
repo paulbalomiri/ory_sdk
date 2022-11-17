@@ -27,13 +27,14 @@ pub struct SubmitSelfServiceSettingsFlowWithTotpMethodBody {
     pub totp_unlink: Option<bool>,
 }
 
+
 impl SubmitSelfServiceSettingsFlowWithTotpMethodBody {
     pub fn new(method: String) -> SubmitSelfServiceSettingsFlowWithTotpMethodBody {
         SubmitSelfServiceSettingsFlowWithTotpMethodBody {
-            csrf_token: None,
-            method,
-            totp_code: None,
-            totp_unlink: None,
+                csrf_token: None,
+                method,
+                totp_code: None,
+                totp_unlink: None,
         }
     }
 }

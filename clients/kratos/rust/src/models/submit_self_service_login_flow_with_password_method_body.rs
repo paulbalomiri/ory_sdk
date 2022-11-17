@@ -30,14 +30,15 @@ pub struct SubmitSelfServiceLoginFlowWithPasswordMethodBody {
     pub password_identifier: Option<String>,
 }
 
+
 impl SubmitSelfServiceLoginFlowWithPasswordMethodBody {
     pub fn new(identifier: String, method: String, password: String) -> SubmitSelfServiceLoginFlowWithPasswordMethodBody {
         SubmitSelfServiceLoginFlowWithPasswordMethodBody {
-            csrf_token: None,
-            identifier,
-            method,
-            password,
-            password_identifier: None,
+                csrf_token: None,
+                identifier,
+                method,
+                password,
+                password_identifier: None,
         }
     }
 }

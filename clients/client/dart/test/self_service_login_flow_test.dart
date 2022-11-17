@@ -36,6 +36,16 @@ void main() {
       // TODO
     });
 
+    // String oauth2LoginChallenge
+    test('to test the property `oauth2LoginChallenge`', () async {
+      // TODO
+    });
+
+    // LoginRequest oauth2LoginRequest
+    test('to test the property `oauth2LoginRequest`', () async {
+      // TODO
+    });
+
     // Refresh stores whether this login flow should enforce re-authentication.
     // bool refresh
     test('to test the property `refresh`', () async {

@@ -26,14 +26,15 @@ pub struct UiContainer {
     pub nodes: Vec<crate::models::UiNode>,
 }
 
+
 impl UiContainer {
     /// Container represents a HTML Form. The container can work with both HTTP Form and JSON requests
     pub fn new(action: String, method: String, nodes: Vec<crate::models::UiNode>) -> UiContainer {
         UiContainer {
-            action,
-            messages: None,
-            method,
-            nodes,
+                action,
+                messages: None,
+                method,
+                nodes,
         }
     }
 }

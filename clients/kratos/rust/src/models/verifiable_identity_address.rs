@@ -38,18 +38,19 @@ pub struct VerifiableIdentityAddress {
     pub via: String,
 }
 
+
 impl VerifiableIdentityAddress {
     /// VerifiableAddress is an identity's verifiable address
     pub fn new(id: String, status: String, value: String, verified: bool, via: String) -> VerifiableIdentityAddress {
         VerifiableIdentityAddress {
-            created_at: None,
-            id,
-            status,
-            updated_at: None,
-            value,
-            verified,
-            verified_at: None,
-            via,
+                created_at: None,
+                id,
+                status,
+                updated_at: None,
+                value,
+                verified,
+                verified_at: None,
+                via,
         }
     }
 }

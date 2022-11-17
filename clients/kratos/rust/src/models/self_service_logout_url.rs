@@ -21,11 +21,12 @@ pub struct SelfServiceLogoutUrl {
     pub logout_url: String,
 }
 
+
 impl SelfServiceLogoutUrl {
     pub fn new(logout_token: String, logout_url: String) -> SelfServiceLogoutUrl {
         SelfServiceLogoutUrl {
-            logout_token,
-            logout_url,
+                logout_token,
+                logout_url,
         }
     }
 }

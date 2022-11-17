@@ -33,15 +33,16 @@ pub struct SubmitSelfServiceSettingsFlowWithLookupMethodBody {
     pub method: String,
 }
 
+
 impl SubmitSelfServiceSettingsFlowWithLookupMethodBody {
     pub fn new(method: String) -> SubmitSelfServiceSettingsFlowWithLookupMethodBody {
         SubmitSelfServiceSettingsFlowWithLookupMethodBody {
-            csrf_token: None,
-            lookup_secret_confirm: None,
-            lookup_secret_disable: None,
-            lookup_secret_regenerate: None,
-            lookup_secret_reveal: None,
-            method,
+                csrf_token: None,
+                lookup_secret_confirm: None,
+                lookup_secret_disable: None,
+                lookup_secret_regenerate: None,
+                lookup_secret_reveal: None,
+                method,
         }
     }
 }

@@ -18,10 +18,16 @@ pub struct IdentityCredentialsPassword {
     pub hashed_password: Option<String>,
 }
 
+impl Default for IdentityCredentialsPassword {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl IdentityCredentialsPassword {
     pub fn new() -> IdentityCredentialsPassword {
         IdentityCredentialsPassword {
-            hashed_password: None,
+                hashed_password: None,
         }
     }
 }

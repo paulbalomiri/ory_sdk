@@ -26,15 +26,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import sh.ory.kratos.model.IdentityCredentials;
 import sh.ory.kratos.model.IdentityState;
 import sh.ory.kratos.model.RecoveryAddress;
 import sh.ory.kratos.model.VerifiableIdentityAddress;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 
 /**

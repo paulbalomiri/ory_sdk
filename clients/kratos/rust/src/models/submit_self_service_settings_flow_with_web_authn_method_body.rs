@@ -30,14 +30,15 @@ pub struct SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody {
     pub webauthn_remove: Option<String>,
 }
 
+
 impl SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody {
     pub fn new(method: String) -> SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody {
         SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody {
-            csrf_token: None,
-            method,
-            webauthn_register: None,
-            webauthn_register_displayname: None,
-            webauthn_remove: None,
+                csrf_token: None,
+                method,
+                webauthn_register: None,
+                webauthn_register_displayname: None,
+                webauthn_remove: None,
         }
     }
 }

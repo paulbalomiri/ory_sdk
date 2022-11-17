@@ -1,4 +1,5 @@
 .gitignore
+.gitlab-ci.yml
 .openapi-generator-ignore
 .rspec
 .rubocop.yml
@@ -18,6 +19,7 @@ docs/AdminUpdateIdentityBody.md
 docs/AuthenticatorAssuranceLevel.md
 docs/ErrorAuthenticatorAssuranceLevelNotSatisfied.md
 docs/GenericError.md
+docs/GetVersion200Response.md
 docs/HealthNotReadyStatus.md
 docs/HealthStatus.md
 docs/Identity.md
@@ -28,9 +30,8 @@ docs/IdentityCredentialsPassword.md
 docs/IdentityCredentialsType.md
 docs/IdentitySchema.md
 docs/IdentityState.md
-docs/InlineResponse200.md
-docs/InlineResponse2001.md
-docs/InlineResponse503.md
+docs/IsAlive200Response.md
+docs/IsReady503Response.md
 docs/JsonError.md
 docs/MetadataApi.md
 docs/NeedsPrivilegedSessionError.md
@@ -111,6 +112,7 @@ lib/ory-kratos-client/models/admin_update_identity_body.rb
 lib/ory-kratos-client/models/authenticator_assurance_level.rb
 lib/ory-kratos-client/models/error_authenticator_assurance_level_not_satisfied.rb
 lib/ory-kratos-client/models/generic_error.rb
+lib/ory-kratos-client/models/get_version200_response.rb
 lib/ory-kratos-client/models/health_not_ready_status.rb
 lib/ory-kratos-client/models/health_status.rb
 lib/ory-kratos-client/models/identity.rb
@@ -121,9 +123,8 @@ lib/ory-kratos-client/models/identity_credentials_password.rb
 lib/ory-kratos-client/models/identity_credentials_type.rb
 lib/ory-kratos-client/models/identity_schema.rb
 lib/ory-kratos-client/models/identity_state.rb
-lib/ory-kratos-client/models/inline_response200.rb
-lib/ory-kratos-client/models/inline_response2001.rb
-lib/ory-kratos-client/models/inline_response503.rb
+lib/ory-kratos-client/models/is_alive200_response.rb
+lib/ory-kratos-client/models/is_ready503_response.rb
 lib/ory-kratos-client/models/json_error.rb
 lib/ory-kratos-client/models/needs_privileged_session_error.rb
 lib/ory-kratos-client/models/pagination.rb
@@ -201,6 +202,7 @@ spec/models/admin_update_identity_body_spec.rb
 spec/models/authenticator_assurance_level_spec.rb
 spec/models/error_authenticator_assurance_level_not_satisfied_spec.rb
 spec/models/generic_error_spec.rb
+spec/models/get_version200_response_spec.rb
 spec/models/health_not_ready_status_spec.rb
 spec/models/health_status_spec.rb
 spec/models/identity_credentials_oidc_provider_spec.rb
@@ -211,9 +213,8 @@ spec/models/identity_credentials_type_spec.rb
 spec/models/identity_schema_spec.rb
 spec/models/identity_spec.rb
 spec/models/identity_state_spec.rb
-spec/models/inline_response2001_spec.rb
-spec/models/inline_response200_spec.rb
-spec/models/inline_response503_spec.rb
+spec/models/is_alive200_response_spec.rb
+spec/models/is_ready503_response_spec.rb
 spec/models/json_error_spec.rb
 spec/models/needs_privileged_session_error_spec.rb
 spec/models/pagination_spec.rb

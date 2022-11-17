@@ -58,6 +58,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class V0alpha2Api {
     private ApiClient localVarApiClient;
@@ -113,7 +114,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call adminCreateIdentityCall(AdminCreateIdentityBody adminCreateIdentityBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -247,7 +247,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call adminCreateSelfServiceRecoveryLinkCall(AdminCreateSelfServiceRecoveryLinkBody adminCreateSelfServiceRecoveryLinkBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -380,7 +379,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call adminDeleteIdentityCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -514,7 +512,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call adminDeleteIdentitySessionsCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -653,7 +650,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call adminExtendSessionCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -793,7 +789,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call adminGetIdentityCall(String id, List<String> includeCredential, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -936,7 +931,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call adminListIdentitiesCall(Long perPage, Long page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1079,7 +1073,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call adminListIdentitySessionsCall(String id, Long perPage, Long page, Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1245,7 +1238,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call adminUpdateIdentityCall(String id, AdminUpdateIdentityBody adminUpdateIdentityBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1390,7 +1382,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call createSelfServiceLogoutFlowUrlForBrowsersCall(String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1524,7 +1515,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call getJsonSchemaCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1661,7 +1651,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call getSelfServiceErrorCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1806,7 +1795,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call getSelfServiceLoginFlowCall(String id, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1960,7 +1948,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call getSelfServiceRecoveryFlowCall(String id, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2112,7 +2099,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call getSelfServiceRegistrationFlowCall(String id, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2269,7 +2255,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call getSelfServiceSettingsFlowCall(String id, String xSessionToken, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2433,7 +2418,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call getSelfServiceVerificationFlowCall(String id, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2579,7 +2563,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call getWebAuthnJavaScriptCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2703,7 +2686,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceLoginFlowForBrowsersCall(Boolean refresh, String aal, String returnTo, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2856,7 +2838,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceLoginFlowWithoutBrowserCall(Boolean refresh, String aal, String xSessionToken, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3005,7 +2986,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceRecoveryFlowForBrowsersCall(String returnTo, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3141,7 +3121,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceRecoveryFlowWithoutBrowserCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3268,7 +3247,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceRegistrationFlowForBrowsersCall(String returnTo, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3401,7 +3379,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceRegistrationFlowWithoutBrowserCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3531,7 +3508,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceSettingsFlowForBrowsersCall(String returnTo, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3674,7 +3650,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceSettingsFlowWithoutBrowserCall(String xSessionToken, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3808,7 +3783,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceVerificationFlowForBrowsersCall(String returnTo, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3941,7 +3915,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call initializeSelfServiceVerificationFlowWithoutBrowserCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4068,7 +4041,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call listIdentitySchemasCall(Long perPage, Long page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4211,7 +4183,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call listSessionsCall(String xSessionToken, String cookie, Long perPage, Long page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4373,7 +4344,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call revokeSessionCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4511,7 +4481,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call revokeSessionsCall(String xSessionToken, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4664,7 +4633,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call submitSelfServiceLoginFlowCall(String flow, SubmitSelfServiceLoginFlowBody submitSelfServiceLoginFlowBody, String xSessionToken, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4835,7 +4803,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call submitSelfServiceLogoutFlowCall(String token, String returnTo, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4972,7 +4939,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call submitSelfServiceLogoutFlowWithoutBrowserCall(SubmitSelfServiceLogoutFlowWithoutBrowserBody submitSelfServiceLogoutFlowWithoutBrowserBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5108,7 +5074,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call submitSelfServiceRecoveryFlowCall(String flow, SubmitSelfServiceRecoveryFlowBody submitSelfServiceRecoveryFlowBody, String token, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5280,7 +5245,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call submitSelfServiceRegistrationFlowCall(String flow, SubmitSelfServiceRegistrationFlowBody submitSelfServiceRegistrationFlowBody, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5451,7 +5415,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call submitSelfServiceSettingsFlowCall(String flow, SubmitSelfServiceSettingsFlowBody submitSelfServiceSettingsFlowBody, String xSessionToken, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5632,7 +5595,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call submitSelfServiceVerificationFlowCall(String flow, SubmitSelfServiceVerificationFlowBody submitSelfServiceVerificationFlowBody, String token, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5801,7 +5763,6 @@ public class V0alpha2Api {
      */
     public okhttp3.Call toSessionCall(String xSessionToken, String cookie, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 

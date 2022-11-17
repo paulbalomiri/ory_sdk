@@ -23,13 +23,14 @@ pub struct SuccessfulSelfServiceRegistrationWithoutBrowser {
     pub session_token: Option<String>,
 }
 
+
 impl SuccessfulSelfServiceRegistrationWithoutBrowser {
     /// The Response for Registration Flows via API
     pub fn new(identity: crate::models::Identity) -> SuccessfulSelfServiceRegistrationWithoutBrowser {
         SuccessfulSelfServiceRegistrationWithoutBrowser {
-            identity: Box::new(identity),
-            session: None,
-            session_token: None,
+                identity: Box::new(identity),
+                session: None,
+                session_token: None,
         }
     }
 }

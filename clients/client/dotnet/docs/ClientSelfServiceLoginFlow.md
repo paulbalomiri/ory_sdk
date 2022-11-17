@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **ExpiresAt** | **DateTime** | ExpiresAt is the time (UTC) when the flow expires. If the user still wishes to log in, a new flow has to be initiated. | 
 **Id** | **string** | ID represents the flow&#39;s unique ID. When performing the login flow, this represents the id in the login UI&#39;s query parameter: http://&lt;selfservice.flows.login.ui_url&gt;/?flow&#x3D;&lt;flow_id&gt; | 
 **IssuedAt** | **DateTime** | IssuedAt is the time (UTC) when the flow started. | 
+**Oauth2LoginChallenge** | **string** |  | [optional] 
+**Oauth2LoginRequest** | [**ClientLoginRequest**](ClientLoginRequest.md) |  | [optional] 
 **Refresh** | **bool** | Refresh stores whether this login flow should enforce re-authentication. | [optional] 
 **RequestUrl** | **string** | RequestURL is the initial URL that was requested from Ory Kratos. It can be used to forward information contained in the URL&#39;s path or query for example. | 
 **RequestedAal** | [**ClientAuthenticatorAssuranceLevel**](ClientAuthenticatorAssuranceLevel.md) |  | [optional] 

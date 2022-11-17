@@ -9,10 +9,26 @@
  */
 
 
+use std::fmt::Display;
+
+use num_traits;
 use reqwest;
 
 use crate::apis::ResponseContent;
 use super::{Error, configuration};
+
+trait NumVecJoin {
+    fn join(&self, sep: &str) -> String;
+}
+
+impl <T: Display + num_traits::Num> NumVecJoin for Vec<T> {
+    fn join(&self, sep: &str) -> String {
+        self.iter()
+            .map(ToString::to_string)
+            .collect::<Vec<String>>()
+            .join(sep)
+    }
+}
 
 
 /// struct for typed errors of method `admin_create_identity`
@@ -407,7 +423,7 @@ pub enum ToSessionError {
 
 
 /// This endpoint creates an identity. Learn how identities work in [Ory Kratos' User And Identity Model Documentation](https://www.ory.sh/docs/next/kratos/concepts/identity-user-model).
-pub async fn admin_create_identity(configuration: &configuration::Configuration, admin_create_identity_body: Option<crate::models::AdminCreateIdentityBody>) -> Result<crate::models::Identity, Error<AdminCreateIdentityError>> {
+pub async fn admin_create_identity(configuration: &configuration::Configuration, admin_create_identity_body: Option<&crate::models::AdminCreateIdentityBody>) -> Result<crate::models::Identity, Error<AdminCreateIdentityError>> {
 
     let local_var_client = &configuration.client;
 
@@ -443,7 +459,7 @@ pub async fn admin_create_identity(configuration: &configuration::Configuration,
 }
 
 /// This endpoint creates a recovery link which should be given to the user in order for them to recover (or activate) their account.
-pub async fn admin_create_self_service_recovery_link(configuration: &configuration::Configuration, admin_create_self_service_recovery_link_body: Option<crate::models::AdminCreateSelfServiceRecoveryLinkBody>) -> Result<crate::models::SelfServiceRecoveryLink, Error<AdminCreateSelfServiceRecoveryLinkError>> {
+pub async fn admin_create_self_service_recovery_link(configuration: &configuration::Configuration, admin_create_self_service_recovery_link_body: Option<&crate::models::AdminCreateSelfServiceRecoveryLinkBody>) -> Result<crate::models::SelfServiceRecoveryLink, Error<AdminCreateSelfServiceRecoveryLinkError>> {
 
     let local_var_client = &configuration.client;
 
@@ -584,7 +600,7 @@ pub async fn admin_get_identity(configuration: &configuration::Configuration, id
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = include_credential {
-        local_var_req_builder = local_var_req_builder.query(&[("include_credential", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("include_credential", local_var_str.iter().map(|p| p.to_string()).collect::<Vec<String>>().join(","))]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -622,10 +638,10 @@ pub async fn admin_list_identities(configuration: &configuration::Configuration,
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = per_page {
-        local_var_req_builder = local_var_req_builder.query(&[("per_page", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("per_page", local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = page {
-        local_var_req_builder = local_var_req_builder.query(&[("page", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("page", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -663,13 +679,13 @@ pub async fn admin_list_identity_sessions(configuration: &configuration::Configu
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = per_page {
-        local_var_req_builder = local_var_req_builder.query(&[("per_page", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("per_page", local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = page {
-        local_var_req_builder = local_var_req_builder.query(&[("page", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("page", local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = active {
-        local_var_req_builder = local_var_req_builder.query(&[("active", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("active", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -699,7 +715,7 @@ pub async fn admin_list_identity_sessions(configuration: &configuration::Configu
 }
 
 /// This endpoint updates an identity. The full identity payload (except credentials) is expected. This endpoint does not support patching.  Learn how identities work in [Ory Kratos' User And Identity Model Documentation](https://www.ory.sh/docs/next/kratos/concepts/identity-user-model).
-pub async fn admin_update_identity(configuration: &configuration::Configuration, id: &str, admin_update_identity_body: Option<crate::models::AdminUpdateIdentityBody>) -> Result<crate::models::Identity, Error<AdminUpdateIdentityError>> {
+pub async fn admin_update_identity(configuration: &configuration::Configuration, id: &str, admin_update_identity_body: Option<&crate::models::AdminUpdateIdentityBody>) -> Result<crate::models::Identity, Error<AdminUpdateIdentityError>> {
 
     let local_var_client = &configuration.client;
 
@@ -799,7 +815,7 @@ pub async fn get_self_service_error(configuration: &configuration::Configuration
     let local_var_uri_str = format!("{}/self-service/errors", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("id", id.to_string())]);
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -827,7 +843,7 @@ pub async fn get_self_service_login_flow(configuration: &configuration::Configur
     let local_var_uri_str = format!("{}/self-service/login/flows", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("id", id.to_string())]);
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -858,7 +874,7 @@ pub async fn get_self_service_recovery_flow(configuration: &configuration::Confi
     let local_var_uri_str = format!("{}/self-service/recovery/flows", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("id", id.to_string())]);
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -889,7 +905,7 @@ pub async fn get_self_service_registration_flow(configuration: &configuration::C
     let local_var_uri_str = format!("{}/self-service/registration/flows", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("id", id.to_string())]);
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -920,7 +936,7 @@ pub async fn get_self_service_settings_flow(configuration: &configuration::Confi
     let local_var_uri_str = format!("{}/self-service/settings/flows", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("id", id.to_string())]);
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -954,7 +970,7 @@ pub async fn get_self_service_verification_flow(configuration: &configuration::C
     let local_var_uri_str = format!("{}/self-service/verification/flows", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("id", &id.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("id", id.to_string())]);
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -1013,13 +1029,13 @@ pub async fn initialize_self_service_login_flow_for_browsers(configuration: &con
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = refresh {
-        local_var_req_builder = local_var_req_builder.query(&[("refresh", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("refresh", local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = aal {
-        local_var_req_builder = local_var_req_builder.query(&[("aal", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("aal", local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = return_to {
-        local_var_req_builder = local_var_req_builder.query(&[("return_to", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("return_to", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1049,10 +1065,10 @@ pub async fn initialize_self_service_login_flow_without_browser(configuration: &
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = refresh {
-        local_var_req_builder = local_var_req_builder.query(&[("refresh", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("refresh", local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = aal {
-        local_var_req_builder = local_var_req_builder.query(&[("aal", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("aal", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1085,7 +1101,7 @@ pub async fn initialize_self_service_recovery_flow_for_browsers(configuration: &
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = return_to {
-        local_var_req_builder = local_var_req_builder.query(&[("return_to", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("return_to", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1142,7 +1158,7 @@ pub async fn initialize_self_service_registration_flow_for_browsers(configuratio
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = return_to {
-        local_var_req_builder = local_var_req_builder.query(&[("return_to", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("return_to", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1199,7 +1215,7 @@ pub async fn initialize_self_service_settings_flow_for_browsers(configuration: &
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = return_to {
-        local_var_req_builder = local_var_req_builder.query(&[("return_to", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("return_to", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1259,7 +1275,7 @@ pub async fn initialize_self_service_verification_flow_for_browsers(configuratio
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = return_to {
-        local_var_req_builder = local_var_req_builder.query(&[("return_to", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("return_to", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1316,10 +1332,10 @@ pub async fn list_identity_schemas(configuration: &configuration::Configuration,
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = per_page {
-        local_var_req_builder = local_var_req_builder.query(&[("per_page", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("per_page", local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = page {
-        local_var_req_builder = local_var_req_builder.query(&[("page", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("page", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1349,10 +1365,10 @@ pub async fn list_sessions(configuration: &configuration::Configuration, x_sessi
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = per_page {
-        local_var_req_builder = local_var_req_builder.query(&[("per_page", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("per_page", local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = page {
-        local_var_req_builder = local_var_req_builder.query(&[("page", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("page", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1440,14 +1456,14 @@ pub async fn revoke_sessions(configuration: &configuration::Configuration, x_ses
 }
 
 /// :::info  This endpoint is EXPERIMENTAL and subject to potential breaking changes in the future.  :::  Use this endpoint to complete a login flow. This endpoint behaves differently for API and browser flows.  API flows expect `application/json` to be sent in the body and responds with HTTP 200 and a application/json body with the session token on success; HTTP 410 if the original flow expired with the appropriate error messages set and optionally a `use_flow_id` parameter in the body; HTTP 400 on form validation errors.  Browser flows expect a Content-Type of `application/x-www-form-urlencoded` or `application/json` to be sent in the body and respond with a HTTP 303 redirect to the post/after login URL or the `return_to` value if it was set and if the login succeeded; a HTTP 303 redirect to the login UI URL with the flow ID containing the validation errors otherwise.  Browser flows with an accept header of `application/json` will not redirect but instead respond with HTTP 200 and a application/json body with the signed in identity and a `Set-Cookie` header on success; HTTP 303 redirect to a fresh login flow if the original flow expired with the appropriate error messages set; HTTP 400 on form validation errors.  If this endpoint is called with `Accept: application/json` in the header, the response contains the flow without a redirect. In the case of an error, the `error.id` of the JSON response body can be one of:  `session_already_available`: The user is already signed in. `security_csrf_violation`: Unable to fetch the flow because a CSRF violation occurred. `security_identity_mismatch`: The requested `?return_to` address is not allowed to be used. Adjust this in the configuration! `browser_location_change_required`: Usually sent when an AJAX request indicates that the browser needs to open a specific URL. Most likely used in Social Sign In flows.  More information can be found at [Ory Kratos User Login](https://www.ory.sh/docs/kratos/self-service/flows/user-login) and [User Registration Documentation](https://www.ory.sh/docs/kratos/self-service/flows/user-registration).
-pub async fn submit_self_service_login_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_login_flow_body: crate::models::SubmitSelfServiceLoginFlowBody, x_session_token: Option<&str>, cookie: Option<&str>) -> Result<crate::models::SuccessfulSelfServiceLoginWithoutBrowser, Error<SubmitSelfServiceLoginFlowError>> {
+pub async fn submit_self_service_login_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_login_flow_body: &crate::models::SubmitSelfServiceLoginFlowBody, x_session_token: Option<&str>, cookie: Option<&str>) -> Result<crate::models::SuccessfulSelfServiceLoginWithoutBrowser, Error<SubmitSelfServiceLoginFlowError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/self-service/login", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("flow", &flow.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("flow", flow.to_string())]);
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -1483,10 +1499,10 @@ pub async fn submit_self_service_logout_flow(configuration: &configuration::Conf
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = token {
-        local_var_req_builder = local_var_req_builder.query(&[("token", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("token", local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = return_to {
-        local_var_req_builder = local_var_req_builder.query(&[("return_to", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("return_to", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1508,7 +1524,7 @@ pub async fn submit_self_service_logout_flow(configuration: &configuration::Conf
 }
 
 /// Use this endpoint to log out an identity using an Ory Session Token. If the Ory Session Token was successfully revoked, the server returns a 204 No Content response. A 204 No Content response is also sent when the Ory Session Token has been revoked already before.  If the Ory Session Token is malformed or does not exist a 403 Forbidden response will be returned.  This endpoint does not remove any HTTP Cookies - use the Browser-Based Self-Service Logout Flow instead.
-pub async fn submit_self_service_logout_flow_without_browser(configuration: &configuration::Configuration, submit_self_service_logout_flow_without_browser_body: crate::models::SubmitSelfServiceLogoutFlowWithoutBrowserBody) -> Result<(), Error<SubmitSelfServiceLogoutFlowWithoutBrowserError>> {
+pub async fn submit_self_service_logout_flow_without_browser(configuration: &configuration::Configuration, submit_self_service_logout_flow_without_browser_body: &crate::models::SubmitSelfServiceLogoutFlowWithoutBrowserBody) -> Result<(), Error<SubmitSelfServiceLogoutFlowWithoutBrowserError>> {
 
     let local_var_client = &configuration.client;
 
@@ -1536,16 +1552,16 @@ pub async fn submit_self_service_logout_flow_without_browser(configuration: &con
 }
 
 /// Use this endpoint to complete a recovery flow. This endpoint behaves differently for API and browser flows and has several states:  `choose_method` expects `flow` (in the URL query) and `email` (in the body) to be sent and works with API- and Browser-initiated flows. For API clients and Browser clients with HTTP Header `Accept: application/json` it either returns a HTTP 200 OK when the form is valid and HTTP 400 OK when the form is invalid. and a HTTP 303 See Other redirect with a fresh recovery flow if the flow was otherwise invalid (e.g. expired). For Browser clients without HTTP Header `Accept` or with `Accept: text/_*` it returns a HTTP 303 See Other redirect to the Recovery UI URL with the Recovery Flow ID appended. `sent_email` is the success state after `choose_method` for the `link` method and allows the user to request another recovery email. It works for both API and Browser-initiated flows and returns the same responses as the flow in `choose_method` state. `passed_challenge` expects a `token` to be sent in the URL query and given the nature of the flow (\"sending a recovery link\") does not have any API capabilities. The server responds with a HTTP 303 See Other redirect either to the Settings UI URL (if the link was valid) and instructs the user to update their password, or a redirect to the Recover UI URL with a new Recovery Flow ID which contains an error message that the recovery link was invalid.  More information can be found at [Ory Kratos Account Recovery Documentation](../self-service/flows/account-recovery).
-pub async fn submit_self_service_recovery_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_recovery_flow_body: crate::models::SubmitSelfServiceRecoveryFlowBody, token: Option<&str>, cookie: Option<&str>) -> Result<crate::models::SelfServiceRecoveryFlow, Error<SubmitSelfServiceRecoveryFlowError>> {
+pub async fn submit_self_service_recovery_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_recovery_flow_body: &crate::models::SubmitSelfServiceRecoveryFlowBody, token: Option<&str>, cookie: Option<&str>) -> Result<crate::models::SelfServiceRecoveryFlow, Error<SubmitSelfServiceRecoveryFlowError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/self-service/recovery", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("flow", &flow.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("flow", flow.to_string())]);
     if let Some(ref local_var_str) = token {
-        local_var_req_builder = local_var_req_builder.query(&[("token", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("token", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -1571,14 +1587,14 @@ pub async fn submit_self_service_recovery_flow(configuration: &configuration::Co
 }
 
 /// Use this endpoint to complete a registration flow by sending an identity's traits and password. This endpoint behaves differently for API and browser flows.  API flows expect `application/json` to be sent in the body and respond with HTTP 200 and a application/json body with the created identity success - if the session hook is configured the `session` and `session_token` will also be included; HTTP 410 if the original flow expired with the appropriate error messages set and optionally a `use_flow_id` parameter in the body; HTTP 400 on form validation errors.  Browser flows expect a Content-Type of `application/x-www-form-urlencoded` or `application/json` to be sent in the body and respond with a HTTP 303 redirect to the post/after registration URL or the `return_to` value if it was set and if the registration succeeded; a HTTP 303 redirect to the registration UI URL with the flow ID containing the validation errors otherwise.  Browser flows with an accept header of `application/json` will not redirect but instead respond with HTTP 200 and a application/json body with the signed in identity and a `Set-Cookie` header on success; HTTP 303 redirect to a fresh login flow if the original flow expired with the appropriate error messages set; HTTP 400 on form validation errors.  If this endpoint is called with `Accept: application/json` in the header, the response contains the flow without a redirect. In the case of an error, the `error.id` of the JSON response body can be one of:  `session_already_available`: The user is already signed in. `security_csrf_violation`: Unable to fetch the flow because a CSRF violation occurred. `security_identity_mismatch`: The requested `?return_to` address is not allowed to be used. Adjust this in the configuration! `browser_location_change_required`: Usually sent when an AJAX request indicates that the browser needs to open a specific URL. Most likely used in Social Sign In flows.  More information can be found at [Ory Kratos User Login](https://www.ory.sh/docs/kratos/self-service/flows/user-login) and [User Registration Documentation](https://www.ory.sh/docs/kratos/self-service/flows/user-registration).
-pub async fn submit_self_service_registration_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_registration_flow_body: crate::models::SubmitSelfServiceRegistrationFlowBody, cookie: Option<&str>) -> Result<crate::models::SuccessfulSelfServiceRegistrationWithoutBrowser, Error<SubmitSelfServiceRegistrationFlowError>> {
+pub async fn submit_self_service_registration_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_registration_flow_body: &crate::models::SubmitSelfServiceRegistrationFlowBody, cookie: Option<&str>) -> Result<crate::models::SuccessfulSelfServiceRegistrationWithoutBrowser, Error<SubmitSelfServiceRegistrationFlowError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/self-service/registration", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("flow", &flow.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("flow", flow.to_string())]);
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -1603,14 +1619,14 @@ pub async fn submit_self_service_registration_flow(configuration: &configuration
 }
 
 /// Use this endpoint to complete a settings flow by sending an identity's updated password. This endpoint behaves differently for API and browser flows.  API-initiated flows expect `application/json` to be sent in the body and respond with HTTP 200 and an application/json body with the session token on success; HTTP 303 redirect to a fresh settings flow if the original flow expired with the appropriate error messages set; HTTP 400 on form validation errors. HTTP 401 when the endpoint is called without a valid session token. HTTP 403 when `selfservice.flows.settings.privileged_session_max_age` was reached or the session's AAL is too low. Implies that the user needs to re-authenticate.  Browser flows without HTTP Header `Accept` or with `Accept: text/_*` respond with a HTTP 303 redirect to the post/after settings URL or the `return_to` value if it was set and if the flow succeeded; a HTTP 303 redirect to the Settings UI URL with the flow ID containing the validation errors otherwise. a HTTP 303 redirect to the login endpoint when `selfservice.flows.settings.privileged_session_max_age` was reached or the session's AAL is too low.  Browser flows with HTTP Header `Accept: application/json` respond with HTTP 200 and a application/json body with the signed in identity and a `Set-Cookie` header on success; HTTP 303 redirect to a fresh login flow if the original flow expired with the appropriate error messages set; HTTP 401 when the endpoint is called without a valid session cookie. HTTP 403 when the page is accessed without a session cookie or the session's AAL is too low. HTTP 400 on form validation errors.  Depending on your configuration this endpoint might return a 403 error if the session has a lower Authenticator Assurance Level (AAL) than is possible for the identity. This can happen if the identity has password + webauthn credentials (which would result in AAL2) but the session has only AAL1. If this error occurs, ask the user to sign in with the second factor (happens automatically for server-side browser flows) or change the configuration.  If this endpoint is called with a `Accept: application/json` HTTP header, the response contains the flow without a redirect. In the case of an error, the `error.id` of the JSON response body can be one of:  `session_refresh_required`: The identity requested to change something that needs a privileged session. Redirect the identity to the login init endpoint with query parameters `?refresh=true&return_to=<the-current-browser-url>`, or initiate a refresh login flow otherwise. `security_csrf_violation`: Unable to fetch the flow because a CSRF violation occurred. `session_inactive`: No Ory Session was found - sign in a user first. `security_identity_mismatch`: The flow was interrupted with `session_refresh_required` but apparently some other identity logged in instead. `security_identity_mismatch`: The requested `?return_to` address is not allowed to be used. Adjust this in the configuration! `browser_location_change_required`: Usually sent when an AJAX request indicates that the browser needs to open a specific URL. Most likely used in Social Sign In flows.  More information can be found at [Ory Kratos User Settings & Profile Management Documentation](../self-service/flows/user-settings).
-pub async fn submit_self_service_settings_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_settings_flow_body: crate::models::SubmitSelfServiceSettingsFlowBody, x_session_token: Option<&str>, cookie: Option<&str>) -> Result<crate::models::SelfServiceSettingsFlow, Error<SubmitSelfServiceSettingsFlowError>> {
+pub async fn submit_self_service_settings_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_settings_flow_body: &crate::models::SubmitSelfServiceSettingsFlowBody, x_session_token: Option<&str>, cookie: Option<&str>) -> Result<crate::models::SelfServiceSettingsFlow, Error<SubmitSelfServiceSettingsFlowError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/self-service/settings", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("flow", &flow.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("flow", flow.to_string())]);
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -1638,16 +1654,16 @@ pub async fn submit_self_service_settings_flow(configuration: &configuration::Co
 }
 
 /// Use this endpoint to complete a verification flow. This endpoint behaves differently for API and browser flows and has several states:  `choose_method` expects `flow` (in the URL query) and `email` (in the body) to be sent and works with API- and Browser-initiated flows. For API clients and Browser clients with HTTP Header `Accept: application/json` it either returns a HTTP 200 OK when the form is valid and HTTP 400 OK when the form is invalid and a HTTP 303 See Other redirect with a fresh verification flow if the flow was otherwise invalid (e.g. expired). For Browser clients without HTTP Header `Accept` or with `Accept: text/_*` it returns a HTTP 303 See Other redirect to the Verification UI URL with the Verification Flow ID appended. `sent_email` is the success state after `choose_method` when using the `link` method and allows the user to request another verification email. It works for both API and Browser-initiated flows and returns the same responses as the flow in `choose_method` state. `passed_challenge` expects a `token` to be sent in the URL query and given the nature of the flow (\"sending a verification link\") does not have any API capabilities. The server responds with a HTTP 303 See Other redirect either to the Settings UI URL (if the link was valid) and instructs the user to update their password, or a redirect to the Verification UI URL with a new Verification Flow ID which contains an error message that the verification link was invalid.  More information can be found at [Ory Kratos Email and Phone Verification Documentation](https://www.ory.sh/docs/kratos/selfservice/flows/verify-email-account-activation).
-pub async fn submit_self_service_verification_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_verification_flow_body: crate::models::SubmitSelfServiceVerificationFlowBody, token: Option<&str>, cookie: Option<&str>) -> Result<crate::models::SelfServiceVerificationFlow, Error<SubmitSelfServiceVerificationFlowError>> {
+pub async fn submit_self_service_verification_flow(configuration: &configuration::Configuration, flow: &str, submit_self_service_verification_flow_body: &crate::models::SubmitSelfServiceVerificationFlowBody, token: Option<&str>, cookie: Option<&str>) -> Result<crate::models::SelfServiceVerificationFlow, Error<SubmitSelfServiceVerificationFlowError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/self-service/verification", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("flow", &flow.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("flow", flow.to_string())]);
     if let Some(ref local_var_str) = token {
-        local_var_req_builder = local_var_req_builder.query(&[("token", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("token", local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

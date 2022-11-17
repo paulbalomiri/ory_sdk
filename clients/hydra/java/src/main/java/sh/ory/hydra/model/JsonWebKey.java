@@ -49,7 +49,7 @@ import sh.ory.hydra.JSON;
 /**
  * JsonWebKey
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-10T17:15:30.879216533Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-17T15:41:33.537063700Z[Etc/UTC]")
 public class JsonWebKey {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)

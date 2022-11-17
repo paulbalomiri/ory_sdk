@@ -28,14 +28,15 @@ pub struct SubmitSelfServiceRegistrationFlowWithPasswordMethodBody {
     pub traits: serde_json::Value,
 }
 
+
 impl SubmitSelfServiceRegistrationFlowWithPasswordMethodBody {
     /// SubmitSelfServiceRegistrationFlowWithPasswordMethodBody is used to decode the registration form payload when using the password method.
     pub fn new(method: String, password: String, traits: serde_json::Value) -> SubmitSelfServiceRegistrationFlowWithPasswordMethodBody {
         SubmitSelfServiceRegistrationFlowWithPasswordMethodBody {
-            csrf_token: None,
-            method,
-            password,
-            traits,
+                csrf_token: None,
+                method,
+                password,
+                traits,
         }
     }
 }

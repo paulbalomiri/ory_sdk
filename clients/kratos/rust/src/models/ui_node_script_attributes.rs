@@ -42,18 +42,19 @@ pub struct UiNodeScriptAttributes {
     pub _type: String,
 }
 
+
 impl UiNodeScriptAttributes {
     pub fn new(_async: bool, crossorigin: String, id: String, integrity: String, node_type: String, nonce: String, referrerpolicy: String, src: String, _type: String) -> UiNodeScriptAttributes {
         UiNodeScriptAttributes {
-            _async,
-            crossorigin,
-            id,
-            integrity,
-            node_type,
-            nonce,
-            referrerpolicy,
-            src,
-            _type,
+                _async,
+                crossorigin,
+                id,
+                integrity,
+                node_type,
+                nonce,
+                referrerpolicy,
+                src,
+                _type,
         }
     }
 }

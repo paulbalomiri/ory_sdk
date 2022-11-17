@@ -24,7 +24,6 @@ import com.google.gson.JsonElement;
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
 
-import sh.ory.kratos.model.*;
 import okio.ByteString;
 
 import java.io.IOException;
@@ -41,110 +40,116 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.HashMap;
 
+/*
+ * A JSON utility class
+ *
+ * NOTE: in the future, this class may be converted to static, which may break
+ *       backward-compatibility
+ */
 public class JSON {
-    private Gson gson;
-    private boolean isLenientOnJson = false;
-    private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
-    private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
-    private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
-    private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
-    private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
+    private static Gson gson;
+    private static boolean isLenientOnJson = false;
+    private static DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
+    private static SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
+    private static OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
+    private static LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
+    private static ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
-                .registerTypeSelector(SubmitSelfServiceLoginFlowBody.class, new TypeSelector<SubmitSelfServiceLoginFlowBody>() {
+                .registerTypeSelector(sh.ory.kratos.model.SubmitSelfServiceLoginFlowBody.class, new TypeSelector<sh.ory.kratos.model.SubmitSelfServiceLoginFlowBody>() {
                     @Override
-                    public Class<? extends SubmitSelfServiceLoginFlowBody> getClassForElement(JsonElement readElement) {
+                    public Class<? extends sh.ory.kratos.model.SubmitSelfServiceLoginFlowBody> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("lookup_secret", SubmitSelfServiceLoginFlowWithLookupSecretMethodBody.class);
-                        classByDiscriminatorValue.put("oidc", SubmitSelfServiceLoginFlowWithOidcMethodBody.class);
-                        classByDiscriminatorValue.put("password", SubmitSelfServiceLoginFlowWithPasswordMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithLookupSecretMethodBody", SubmitSelfServiceLoginFlowWithLookupSecretMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithOidcMethodBody", SubmitSelfServiceLoginFlowWithOidcMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithPasswordMethodBody", SubmitSelfServiceLoginFlowWithPasswordMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithTotpMethodBody", SubmitSelfServiceLoginFlowWithTotpMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithWebAuthnMethodBody", SubmitSelfServiceLoginFlowWithWebAuthnMethodBody.class);
-                        classByDiscriminatorValue.put("totp", SubmitSelfServiceLoginFlowWithTotpMethodBody.class);
-                        classByDiscriminatorValue.put("webauthn", SubmitSelfServiceLoginFlowWithWebAuthnMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowBody", SubmitSelfServiceLoginFlowBody.class);
+                        classByDiscriminatorValue.put("lookup_secret", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithLookupSecretMethodBody.class);
+                        classByDiscriminatorValue.put("oidc", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithOidcMethodBody.class);
+                        classByDiscriminatorValue.put("password", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithPasswordMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithLookupSecretMethodBody", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithLookupSecretMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithOidcMethodBody", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithOidcMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithPasswordMethodBody", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithPasswordMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithTotpMethodBody", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithTotpMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowWithWebAuthnMethodBody", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithWebAuthnMethodBody.class);
+                        classByDiscriminatorValue.put("totp", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithTotpMethodBody.class);
+                        classByDiscriminatorValue.put("webauthn", sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithWebAuthnMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceLoginFlowBody", sh.ory.kratos.model.SubmitSelfServiceLoginFlowBody.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "method"));
                     }
           })
-                .registerTypeSelector(SubmitSelfServiceRecoveryFlowBody.class, new TypeSelector<SubmitSelfServiceRecoveryFlowBody>() {
+                .registerTypeSelector(sh.ory.kratos.model.SubmitSelfServiceRecoveryFlowBody.class, new TypeSelector<sh.ory.kratos.model.SubmitSelfServiceRecoveryFlowBody>() {
                     @Override
-                    public Class<? extends SubmitSelfServiceRecoveryFlowBody> getClassForElement(JsonElement readElement) {
+                    public Class<? extends sh.ory.kratos.model.SubmitSelfServiceRecoveryFlowBody> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("link", SubmitSelfServiceRecoveryFlowWithLinkMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceRecoveryFlowWithLinkMethodBody", SubmitSelfServiceRecoveryFlowWithLinkMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceRecoveryFlowBody", SubmitSelfServiceRecoveryFlowBody.class);
+                        classByDiscriminatorValue.put("link", sh.ory.kratos.model.SubmitSelfServiceRecoveryFlowWithLinkMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceRecoveryFlowWithLinkMethodBody", sh.ory.kratos.model.SubmitSelfServiceRecoveryFlowWithLinkMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceRecoveryFlowBody", sh.ory.kratos.model.SubmitSelfServiceRecoveryFlowBody.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "method"));
                     }
           })
-                .registerTypeSelector(SubmitSelfServiceRegistrationFlowBody.class, new TypeSelector<SubmitSelfServiceRegistrationFlowBody>() {
+                .registerTypeSelector(sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowBody.class, new TypeSelector<sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowBody>() {
                     @Override
-                    public Class<? extends SubmitSelfServiceRegistrationFlowBody> getClassForElement(JsonElement readElement) {
+                    public Class<? extends sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowBody> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("oidc", SubmitSelfServiceRegistrationFlowWithOidcMethodBody.class);
-                        classByDiscriminatorValue.put("password", SubmitSelfServiceRegistrationFlowWithPasswordMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceRegistrationFlowWithOidcMethodBody", SubmitSelfServiceRegistrationFlowWithOidcMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceRegistrationFlowWithPasswordMethodBody", SubmitSelfServiceRegistrationFlowWithPasswordMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceRegistrationFlowWithWebAuthnMethodBody", SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody.class);
-                        classByDiscriminatorValue.put("webauthn", SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceRegistrationFlowBody", SubmitSelfServiceRegistrationFlowBody.class);
+                        classByDiscriminatorValue.put("oidc", sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithOidcMethodBody.class);
+                        classByDiscriminatorValue.put("password", sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithPasswordMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceRegistrationFlowWithOidcMethodBody", sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithOidcMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceRegistrationFlowWithPasswordMethodBody", sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithPasswordMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceRegistrationFlowWithWebAuthnMethodBody", sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody.class);
+                        classByDiscriminatorValue.put("webauthn", sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceRegistrationFlowBody", sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowBody.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "method"));
                     }
           })
-                .registerTypeSelector(SubmitSelfServiceSettingsFlowBody.class, new TypeSelector<SubmitSelfServiceSettingsFlowBody>() {
+                .registerTypeSelector(sh.ory.kratos.model.SubmitSelfServiceSettingsFlowBody.class, new TypeSelector<sh.ory.kratos.model.SubmitSelfServiceSettingsFlowBody>() {
                     @Override
-                    public Class<? extends SubmitSelfServiceSettingsFlowBody> getClassForElement(JsonElement readElement) {
+                    public Class<? extends sh.ory.kratos.model.SubmitSelfServiceSettingsFlowBody> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("lookup_secret", SubmitSelfServiceSettingsFlowWithLookupMethodBody.class);
-                        classByDiscriminatorValue.put("oidc", SubmitSelfServiceSettingsFlowWithOidcMethodBody.class);
-                        classByDiscriminatorValue.put("password", SubmitSelfServiceSettingsFlowWithPasswordMethodBody.class);
-                        classByDiscriminatorValue.put("profile", SubmitSelfServiceSettingsFlowWithProfileMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithLookupMethodBody", SubmitSelfServiceSettingsFlowWithLookupMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithOidcMethodBody", SubmitSelfServiceSettingsFlowWithOidcMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithPasswordMethodBody", SubmitSelfServiceSettingsFlowWithPasswordMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithProfileMethodBody", SubmitSelfServiceSettingsFlowWithProfileMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithTotpMethodBody", SubmitSelfServiceSettingsFlowWithTotpMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithWebAuthnMethodBody", SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody.class);
-                        classByDiscriminatorValue.put("totp", SubmitSelfServiceSettingsFlowWithTotpMethodBody.class);
-                        classByDiscriminatorValue.put("webauthn", SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowBody", SubmitSelfServiceSettingsFlowBody.class);
+                        classByDiscriminatorValue.put("lookup_secret", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithLookupMethodBody.class);
+                        classByDiscriminatorValue.put("oidc", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithOidcMethodBody.class);
+                        classByDiscriminatorValue.put("password", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithPasswordMethodBody.class);
+                        classByDiscriminatorValue.put("profile", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithProfileMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithLookupMethodBody", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithLookupMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithOidcMethodBody", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithOidcMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithPasswordMethodBody", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithPasswordMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithProfileMethodBody", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithProfileMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithTotpMethodBody", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithTotpMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowWithWebAuthnMethodBody", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody.class);
+                        classByDiscriminatorValue.put("totp", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithTotpMethodBody.class);
+                        classByDiscriminatorValue.put("webauthn", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceSettingsFlowBody", sh.ory.kratos.model.SubmitSelfServiceSettingsFlowBody.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "method"));
                     }
           })
-                .registerTypeSelector(SubmitSelfServiceVerificationFlowBody.class, new TypeSelector<SubmitSelfServiceVerificationFlowBody>() {
+                .registerTypeSelector(sh.ory.kratos.model.SubmitSelfServiceVerificationFlowBody.class, new TypeSelector<sh.ory.kratos.model.SubmitSelfServiceVerificationFlowBody>() {
                     @Override
-                    public Class<? extends SubmitSelfServiceVerificationFlowBody> getClassForElement(JsonElement readElement) {
+                    public Class<? extends sh.ory.kratos.model.SubmitSelfServiceVerificationFlowBody> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("link", SubmitSelfServiceVerificationFlowWithLinkMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceVerificationFlowWithLinkMethodBody", SubmitSelfServiceVerificationFlowWithLinkMethodBody.class);
-                        classByDiscriminatorValue.put("submitSelfServiceVerificationFlowBody", SubmitSelfServiceVerificationFlowBody.class);
+                        classByDiscriminatorValue.put("link", sh.ory.kratos.model.SubmitSelfServiceVerificationFlowWithLinkMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceVerificationFlowWithLinkMethodBody", sh.ory.kratos.model.SubmitSelfServiceVerificationFlowWithLinkMethodBody.class);
+                        classByDiscriminatorValue.put("submitSelfServiceVerificationFlowBody", sh.ory.kratos.model.SubmitSelfServiceVerificationFlowBody.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "method"));
                     }
           })
-                .registerTypeSelector(UiNodeAttributes.class, new TypeSelector<UiNodeAttributes>() {
+                .registerTypeSelector(sh.ory.kratos.model.UiNodeAttributes.class, new TypeSelector<sh.ory.kratos.model.UiNodeAttributes>() {
                     @Override
-                    public Class<? extends UiNodeAttributes> getClassForElement(JsonElement readElement) {
+                    public Class<? extends sh.ory.kratos.model.UiNodeAttributes> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("a", UiNodeAnchorAttributes.class);
-                        classByDiscriminatorValue.put("img", UiNodeImageAttributes.class);
-                        classByDiscriminatorValue.put("input", UiNodeInputAttributes.class);
-                        classByDiscriminatorValue.put("script", UiNodeScriptAttributes.class);
-                        classByDiscriminatorValue.put("text", UiNodeTextAttributes.class);
-                        classByDiscriminatorValue.put("uiNodeAnchorAttributes", UiNodeAnchorAttributes.class);
-                        classByDiscriminatorValue.put("uiNodeImageAttributes", UiNodeImageAttributes.class);
-                        classByDiscriminatorValue.put("uiNodeInputAttributes", UiNodeInputAttributes.class);
-                        classByDiscriminatorValue.put("uiNodeScriptAttributes", UiNodeScriptAttributes.class);
-                        classByDiscriminatorValue.put("uiNodeTextAttributes", UiNodeTextAttributes.class);
-                        classByDiscriminatorValue.put("uiNodeAttributes", UiNodeAttributes.class);
+                        classByDiscriminatorValue.put("a", sh.ory.kratos.model.UiNodeAnchorAttributes.class);
+                        classByDiscriminatorValue.put("img", sh.ory.kratos.model.UiNodeImageAttributes.class);
+                        classByDiscriminatorValue.put("input", sh.ory.kratos.model.UiNodeInputAttributes.class);
+                        classByDiscriminatorValue.put("script", sh.ory.kratos.model.UiNodeScriptAttributes.class);
+                        classByDiscriminatorValue.put("text", sh.ory.kratos.model.UiNodeTextAttributes.class);
+                        classByDiscriminatorValue.put("uiNodeAnchorAttributes", sh.ory.kratos.model.UiNodeAnchorAttributes.class);
+                        classByDiscriminatorValue.put("uiNodeImageAttributes", sh.ory.kratos.model.UiNodeImageAttributes.class);
+                        classByDiscriminatorValue.put("uiNodeInputAttributes", sh.ory.kratos.model.UiNodeInputAttributes.class);
+                        classByDiscriminatorValue.put("uiNodeScriptAttributes", sh.ory.kratos.model.UiNodeScriptAttributes.class);
+                        classByDiscriminatorValue.put("uiNodeTextAttributes", sh.ory.kratos.model.UiNodeTextAttributes.class);
+                        classByDiscriminatorValue.put("uiNodeAttributes", sh.ory.kratos.model.UiNodeAttributes.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
                                 getDiscriminatorValue(readElement, "node_type"));
                     }
@@ -177,14 +182,92 @@ public class JSON {
         return clazz;
     }
 
-    public JSON() {
-        gson = createGson()
-            .registerTypeAdapter(Date.class, dateTypeAdapter)
-            .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
-            .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
-            .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
-            .registerTypeAdapter(byte[].class, byteArrayAdapter)
-            .create();
+    {
+        GsonBuilder gsonBuilder = createGson();
+        gsonBuilder.registerTypeAdapter(Date.class, dateTypeAdapter);
+        gsonBuilder.registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter);
+        gsonBuilder.registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter);
+        gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);
+        gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.AdminCreateIdentityBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.AdminCreateIdentityImportCredentialsOidc.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.AdminCreateIdentityImportCredentialsOidcConfig.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.AdminCreateIdentityImportCredentialsOidcProvider.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.AdminCreateIdentityImportCredentialsPassword.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.AdminCreateIdentityImportCredentialsPasswordConfig.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.AdminCreateSelfServiceRecoveryLinkBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.AdminIdentityImportCredentials.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.AdminUpdateIdentityBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.ErrorAuthenticatorAssuranceLevelNotSatisfied.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.GenericError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.GetVersion200Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.HealthNotReadyStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.HealthStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.Identity.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.IdentityCredentials.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.IdentityCredentialsOidc.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.IdentityCredentialsOidcProvider.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.IdentityCredentialsPassword.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.IdentitySchema.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.IsAlive200Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.IsReady503Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.JsonError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.NeedsPrivilegedSessionError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.Pagination.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.RecoveryAddress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.RevokedSessions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceBrowserLocationChangeRequiredError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceFlowExpiredError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceLoginFlow.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceLogoutUrl.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceRecoveryFlow.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceRecoveryLink.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceRegistrationFlow.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceSettingsFlow.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SelfServiceVerificationFlow.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.Session.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SessionAuthenticationMethod.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SessionDevice.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SettingsProfileFormConfig.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceFlowWithWebAuthnRegistrationMethod.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceLoginFlowBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithLookupSecretMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithOidcMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithPasswordMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithTotpMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceLoginFlowWithWebAuthnMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceLogoutFlowWithoutBrowserBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceRecoveryFlowBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceRecoveryFlowWithLinkMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithOidcMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithPasswordMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceSettingsFlowBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithLookupMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithOidcMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithPasswordMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithProfileMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithTotpMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceVerificationFlowBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SubmitSelfServiceVerificationFlowWithLinkMethodBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SuccessfulSelfServiceLoginWithoutBrowser.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.SuccessfulSelfServiceRegistrationWithoutBrowser.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiContainer.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiNode.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiNodeAnchorAttributes.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiNodeAttributes.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiNodeImageAttributes.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiNodeInputAttributes.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiNodeMeta.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiNodeScriptAttributes.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiNodeTextAttributes.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.UiText.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.VerifiableIdentityAddress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new sh.ory.kratos.model.Version.CustomTypeAdapterFactory());
+        gson = gsonBuilder.create();
     }
 
     /**
@@ -192,7 +275,7 @@ public class JSON {
      *
      * @return Gson
      */
-    public Gson getGson() {
+    public static Gson getGson() {
         return gson;
     }
 
@@ -200,23 +283,13 @@ public class JSON {
      * Set Gson.
      *
      * @param gson Gson
-     * @return JSON
      */
-    public JSON setGson(Gson gson) {
-        this.gson = gson;
-        return this;
+    public static void setGson(Gson gson) {
+        JSON.gson = gson;
     }
 
-    /**
-     * Configure the parser to be liberal in what it accepts.
-     *
-     * @param lenientOnJson Set it to true to ignore some syntax errors
-     * @return JSON
-     * @see <a href="https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/stream/JsonReader.html">https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/stream/JsonReader.html</a>
-     */
-    public JSON setLenientOnJson(boolean lenientOnJson) {
+    public static void setLenientOnJson(boolean lenientOnJson) {
         isLenientOnJson = lenientOnJson;
-        return this;
     }
 
     /**
@@ -225,7 +298,7 @@ public class JSON {
      * @param obj Object
      * @return String representation of the JSON
      */
-    public String serialize(Object obj) {
+    public static String serialize(Object obj) {
         return gson.toJson(obj);
     }
 
@@ -238,11 +311,11 @@ public class JSON {
      * @return The deserialized Java object
      */
     @SuppressWarnings("unchecked")
-    public <T> T deserialize(String body, Type returnType) {
+    public static <T> T deserialize(String body, Type returnType) {
         try {
             if (isLenientOnJson) {
                 JsonReader jsonReader = new JsonReader(new StringReader(body));
-                // see https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5/com/google/gson/stream/JsonReader.html
+                // see https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/stream/JsonReader.html#setLenient(boolean)
                 jsonReader.setLenient(true);
                 return gson.fromJson(jsonReader, returnType);
             } else {
@@ -262,7 +335,7 @@ public class JSON {
     /**
      * Gson TypeAdapter for Byte Array type
      */
-    public class ByteArrayAdapter extends TypeAdapter<byte[]> {
+    public static class ByteArrayAdapter extends TypeAdapter<byte[]> {
 
         @Override
         public void write(JsonWriter out, byte[] value) throws IOException {
@@ -334,7 +407,7 @@ public class JSON {
     /**
      * Gson TypeAdapter for JSR310 LocalDate type
      */
-    public class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
+    public static class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
 
         private DateTimeFormatter formatter;
 
@@ -372,14 +445,12 @@ public class JSON {
         }
     }
 
-    public JSON setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
+    public static void setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
         offsetDateTimeTypeAdapter.setFormat(dateFormat);
-        return this;
     }
 
-    public JSON setLocalDateFormat(DateTimeFormatter dateFormat) {
+    public static void setLocalDateFormat(DateTimeFormatter dateFormat) {
         localDateTypeAdapter.setFormat(dateFormat);
-        return this;
     }
 
     /**
@@ -493,14 +564,11 @@ public class JSON {
         }
     }
 
-    public JSON setDateFormat(DateFormat dateFormat) {
+    public static void setDateFormat(DateFormat dateFormat) {
         dateTypeAdapter.setFormat(dateFormat);
-        return this;
     }
 
-    public JSON setSqlDateFormat(DateFormat dateFormat) {
+    public static void setSqlDateFormat(DateFormat dateFormat) {
         sqlDateTypeAdapter.setFormat(dateFormat);
-        return this;
     }
-
 }

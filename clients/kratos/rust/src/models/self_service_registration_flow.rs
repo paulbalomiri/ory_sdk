@@ -36,17 +36,18 @@ pub struct SelfServiceRegistrationFlow {
     pub ui: Box<crate::models::UiContainer>,
 }
 
+
 impl SelfServiceRegistrationFlow {
     pub fn new(expires_at: String, id: String, issued_at: String, request_url: String, _type: String, ui: crate::models::UiContainer) -> SelfServiceRegistrationFlow {
         SelfServiceRegistrationFlow {
-            active: None,
-            expires_at,
-            id,
-            issued_at,
-            request_url,
-            return_to: None,
-            _type,
-            ui: Box::new(ui),
+                active: None,
+                expires_at,
+                id,
+                issued_at,
+                request_url,
+                return_to: None,
+                _type,
+                ui: Box::new(ui),
         }
     }
 }

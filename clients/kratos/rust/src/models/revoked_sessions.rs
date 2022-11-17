@@ -18,10 +18,16 @@ pub struct RevokedSessions {
     pub count: Option<i64>,
 }
 
+impl Default for RevokedSessions {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl RevokedSessions {
     pub fn new() -> RevokedSessions {
         RevokedSessions {
-            count: None,
+                count: None,
         }
     }
 }

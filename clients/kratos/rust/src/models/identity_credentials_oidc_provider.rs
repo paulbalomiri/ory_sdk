@@ -25,14 +25,20 @@ pub struct IdentityCredentialsOidcProvider {
     pub subject: Option<String>,
 }
 
+impl Default for IdentityCredentialsOidcProvider {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl IdentityCredentialsOidcProvider {
     pub fn new() -> IdentityCredentialsOidcProvider {
         IdentityCredentialsOidcProvider {
-            initial_access_token: None,
-            initial_id_token: None,
-            initial_refresh_token: None,
-            provider: None,
-            subject: None,
+                initial_access_token: None,
+                initial_id_token: None,
+                initial_refresh_token: None,
+                provider: None,
+                subject: None,
         }
     }
 }

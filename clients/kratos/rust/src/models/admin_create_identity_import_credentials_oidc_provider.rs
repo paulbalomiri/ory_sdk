@@ -21,11 +21,12 @@ pub struct AdminCreateIdentityImportCredentialsOidcProvider {
     pub subject: String,
 }
 
+
 impl AdminCreateIdentityImportCredentialsOidcProvider {
     pub fn new(provider: String, subject: String) -> AdminCreateIdentityImportCredentialsOidcProvider {
         AdminCreateIdentityImportCredentialsOidcProvider {
-            provider,
-            subject,
+                provider,
+                subject,
         }
     }
 }

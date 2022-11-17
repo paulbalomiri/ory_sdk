@@ -420,6 +420,18 @@ void main() {
       // TODO
     });
 
+    // NullJSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger and is NULLable-
+    // JsonObject kratosOauth2ProviderHeaders
+    test('to test the property `kratosOauth2ProviderHeaders`', () async {
+      // TODO
+    });
+
+    // The Revisions' OAuth2 Provider Integration URL  This governs the \"oauth2_provider.url\" setting.
+    // String kratosOauth2ProviderUrl
+    test('to test the property `kratosOauth2ProviderUrl`', () async {
+      // TODO
+    });
+
     // BuiltList<String> kratosSecretsCipher
     test('to test the property `kratosSecretsCipher`', () async {
       // TODO

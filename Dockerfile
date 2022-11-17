@@ -71,7 +71,7 @@ RUN apt-get install -y --no-install-recommends python3 python3-dev python3-pip r
 
 RUN npm install -g npm@7.21.0
 RUN npm i -g @openapitools/openapi-generator-cli
-RUN openapi-generator-cli version-manager set 5.2.1
+RUN openapi-generator-cli version-manager set 6.0.1
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install --user --upgrade setuptools wheel twine
 
