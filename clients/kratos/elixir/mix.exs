@@ -2,14 +2,16 @@ defmodule Ory.Kratos.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ory_kratos,
-     version: "0.10.1",
-     elixir: "~> 1.10",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     package: package(),
-     description: "Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. ",
-     deps: deps()]
+    [
+      app: :ory_kratos,
+      version: "0.10.1",
+      elixir: "~> 1.10",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      package: package(),
+      description: "Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. ",
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
@@ -37,17 +39,10 @@ defmodule Ory.Kratos.Mixfile do
     ]
   end
 
-   defp package() do
-    [
-      name: "ory_kratos",
-      files: ~w(.formatter.exs config lib mix.exs README* LICENSE*),
-      licenses: ["Apache-2.0"],
-      links: %{
-        "GitHub" => "https://github.com/ory/sdk",
-        "Website" => "https://www.ory.sh",
-        "Documentation" => "https://www.ory.sh/docs",
-        "Product" => "https://console.ory.sh"
-      }
-    ]
+   defp package do
+      [
+        name: "ory_kratos",
+        files: ~w(.formatter.exs config lib mix.exs README* LICENSE*),
+      ]
   end
 end
