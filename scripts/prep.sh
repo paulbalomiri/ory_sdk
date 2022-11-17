@@ -83,6 +83,8 @@ export RUST_PACKAGE_NAME="ory-${PROJECT}-client"
 export NPM_NAME="@ory/$PROJECT-client"
 
 export ELIXIR_PACKAGE_NAME="ory_${PROJECT}"
+#Generates Elixir Package names such as Ory.Hydra
+export ELIXIR_INVOKER_MODULE="Ory.${PROJECT^}"
 
 export GIT_REPO="${PROJECT}-client"
 
