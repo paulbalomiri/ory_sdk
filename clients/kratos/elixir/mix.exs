@@ -1,10 +1,10 @@
-defmodule Ory.Mixfile do
+defmodule Ory.Kratos.Mixfile do
   use Mix.Project
 
   def project do
     [app: :ory_kratos,
      version: "0.10.1",
-     elixir: "~> 1.6",
+     elixir: "~> 1.10",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      package: package(),
@@ -31,15 +31,16 @@ defmodule Ory.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:tesla, "~> 1.2"},
-      {:poison, "~> 3.0"}
+      {:tesla, "~> 1.4"},
+      {:poison, "~> 3.0"},
+      {:ex_doc, "~> 0.28", only: :dev, runtime: false}
     ]
   end
 
    defp package() do
     [
       name: "ory_kratos",
-      files: ~w(lib mix.exs README* LICENSE*),
+      files: ~w(.formatter.exs config lib mix.exs README* LICENSE*),
       licenses: ["Apache-2.0"],
       links: %{
         "GitHub" => "https://github.com/ory/sdk",
