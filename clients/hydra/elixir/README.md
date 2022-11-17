@@ -1,4 +1,4 @@
-# Ory
+# Ory.Hydra
 
 Documentation for all of Ory Hydra&#39;s APIs. 
 
