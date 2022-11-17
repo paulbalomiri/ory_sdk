@@ -303,6 +303,7 @@ elixir () {
   openapi-generator-cli generate -i "${SPEC_FILE}" \
     	-g elixir \
 	    -o "$dir" \
+      -t ./openapi/templates/elixir \
 	    --git-user-id ory \
 	    --git-repo-id sdk \
 	    --git-host github.com \

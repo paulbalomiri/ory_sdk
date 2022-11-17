@@ -56,7 +56,7 @@ defmodule {{moduleName}}.Api.{{classname}} do
 {{/-last}}
 {{/optionalParams}}
     request =
-      %{}
+      %Tesla.Env{}
       |> method({{#atom}}{{#underscored}}{{httpMethod}}{{/underscored}}{{/atom}})
       |> url("{{replacedPathName}}")
 {{#requiredParams}}
