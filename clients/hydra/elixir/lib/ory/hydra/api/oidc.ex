@@ -27,10 +27,12 @@ defmodule Ory.Hydra.Api.Oidc do
   @spec create_oidc_dynamic_client(Tesla.Env.client, Ory.Hydra.Model.OAuth2Client.t, keyword()) :: {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:ok, Ory.Hydra.Model.OAuth2Client.t} | {:error, Tesla.Env.t}
   def create_oidc_dynamic_client(connection, o_auth2_client, _opts \\ []) do
     request =
-      %{}
-      |> method(:post)
-      |> url("/oauth2/register")
+      %Tesla.Env{
+        method: :post,
+        url: "/oauth2/register",
+      }
       |> add_param(:body, :body, o_auth2_client)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -60,9 +62,11 @@ defmodule Ory.Hydra.Api.Oidc do
   @spec delete_oidc_dynamic_client(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.GenericError.t} | {:error, Tesla.Env.t}
   def delete_oidc_dynamic_client(connection, id, _opts \\ []) do
     request =
-      %{}
-      |> method(:delete)
-      |> url("/oauth2/register/#{id}")
+      %Tesla.Env{
+        method: :delete,
+        url: "/oauth2/register/#{id}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -90,9 +94,11 @@ defmodule Ory.Hydra.Api.Oidc do
   @spec discover_oidc_configuration(Tesla.Env.client, keyword()) :: {:ok, Ory.Hydra.Model.OidcConfiguration.t} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def discover_oidc_configuration(connection, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/.well-known/openid-configuration")
+      %Tesla.Env{
+        method: :get,
+        url: "/.well-known/openid-configuration",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -121,9 +127,11 @@ defmodule Ory.Hydra.Api.Oidc do
   @spec get_oidc_dynamic_client(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:ok, Ory.Hydra.Model.OAuth2Client.t} | {:error, Tesla.Env.t}
   def get_oidc_dynamic_client(connection, id, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/oauth2/register/#{id}")
+      %Tesla.Env{
+        method: :get,
+        url: "/oauth2/register/#{id}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -151,9 +159,11 @@ defmodule Ory.Hydra.Api.Oidc do
   @spec get_oidc_user_info(Tesla.Env.client, keyword()) :: {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:ok, Ory.Hydra.Model.OidcUserInfo.t} | {:error, Tesla.Env.t}
   def get_oidc_user_info(connection, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/userinfo")
+      %Tesla.Env{
+        method: :get,
+        url: "/userinfo",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -181,9 +191,11 @@ defmodule Ory.Hydra.Api.Oidc do
   @spec revoke_oidc_session(Tesla.Env.client, keyword()) :: {:ok, nil} | {:error, Tesla.Env.t}
   def revoke_oidc_session(connection, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/oauth2/sessions/logout")
+      %Tesla.Env{
+        method: :get,
+        url: "/oauth2/sessions/logout",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -212,10 +224,12 @@ defmodule Ory.Hydra.Api.Oidc do
   @spec set_oidc_dynamic_client(Tesla.Env.client, String.t, Ory.Hydra.Model.OAuth2Client.t, keyword()) :: {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:ok, Ory.Hydra.Model.OAuth2Client.t} | {:error, Tesla.Env.t}
   def set_oidc_dynamic_client(connection, id, o_auth2_client, _opts \\ []) do
     request =
-      %{}
-      |> method(:put)
-      |> url("/oauth2/register/#{id}")
+      %Tesla.Env{
+        method: :put,
+        url: "/oauth2/register/#{id}",
+      }
       |> add_param(:body, :body, o_auth2_client)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection

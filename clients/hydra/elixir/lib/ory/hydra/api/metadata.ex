@@ -26,9 +26,11 @@ defmodule Ory.Hydra.Api.Metadata do
   @spec get_version(Tesla.Env.client, keyword()) :: {:ok, Ory.Hydra.Model.GetVersion200Response.t} | {:error, Tesla.Env.t}
   def get_version(connection, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/version")
+      %Tesla.Env{
+        method: :get,
+        url: "/version",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -55,9 +57,11 @@ defmodule Ory.Hydra.Api.Metadata do
   @spec is_alive(Tesla.Env.client, keyword()) :: {:ok, Ory.Hydra.Model.GenericError.t} | {:ok, Ory.Hydra.Model.HealthStatus.t} | {:error, Tesla.Env.t}
   def is_alive(connection, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/health/alive")
+      %Tesla.Env{
+        method: :get,
+        url: "/health/alive",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -85,9 +89,11 @@ defmodule Ory.Hydra.Api.Metadata do
   @spec is_ready(Tesla.Env.client, keyword()) :: {:ok, Ory.Hydra.Model.IsReady503Response.t} | {:ok, Ory.Hydra.Model.IsReady200Response.t} | {:error, Tesla.Env.t}
   def is_ready(connection, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/health/ready")
+      %Tesla.Env{
+        method: :get,
+        url: "/health/ready",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection

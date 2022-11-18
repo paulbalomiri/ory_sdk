@@ -26,9 +26,11 @@ defmodule Ory.Hydra.Api.Wellknown do
   @spec discover_json_web_keys(Tesla.Env.client, keyword()) :: {:ok, Ory.Hydra.Model.JsonWebKeySet.t} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def discover_json_web_keys(connection, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/.well-known/jwks.json")
+      %Tesla.Env{
+        method: :get,
+        url: "/.well-known/jwks.json",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection

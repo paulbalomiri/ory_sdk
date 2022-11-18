@@ -28,10 +28,12 @@ defmodule Ory.Hydra.Api.Jwk do
   @spec create_json_web_key_set(Tesla.Env.client, String.t, Ory.Hydra.Model.CreateJsonWebKeySet.t, keyword()) :: {:ok, Ory.Hydra.Model.JsonWebKeySet.t} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def create_json_web_key_set(connection, set, create_json_web_key_set, _opts \\ []) do
     request =
-      %{}
-      |> method(:post)
-      |> url("/admin/keys/#{set}")
+      %Tesla.Env{
+        method: :post,
+        url: "/admin/keys/#{set}",
+      }
       |> add_param(:body, :body, create_json_web_key_set)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -61,9 +63,11 @@ defmodule Ory.Hydra.Api.Jwk do
   @spec delete_json_web_key(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def delete_json_web_key(connection, set, kid, _opts \\ []) do
     request =
-      %{}
-      |> method(:delete)
-      |> url("/admin/keys/#{set}/#{kid}")
+      %Tesla.Env{
+        method: :delete,
+        url: "/admin/keys/#{set}/#{kid}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -92,9 +96,11 @@ defmodule Ory.Hydra.Api.Jwk do
   @spec delete_json_web_key_set(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def delete_json_web_key_set(connection, set, _opts \\ []) do
     request =
-      %{}
-      |> method(:delete)
-      |> url("/admin/keys/#{set}")
+      %Tesla.Env{
+        method: :delete,
+        url: "/admin/keys/#{set}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -124,9 +130,11 @@ defmodule Ory.Hydra.Api.Jwk do
   @spec get_json_web_key(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, Ory.Hydra.Model.JsonWebKeySet.t} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def get_json_web_key(connection, set, kid, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/keys/#{set}/#{kid}")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/keys/#{set}/#{kid}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -155,9 +163,11 @@ defmodule Ory.Hydra.Api.Jwk do
   @spec get_json_web_key_set(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Hydra.Model.JsonWebKeySet.t} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def get_json_web_key_set(connection, set, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/keys/#{set}")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/keys/#{set}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -192,11 +202,13 @@ defmodule Ory.Hydra.Api.Jwk do
     }
 
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/keys/#{set}/#{kid}")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/keys/#{set}/#{kid}",
+      }
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -230,11 +242,13 @@ defmodule Ory.Hydra.Api.Jwk do
     }
 
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/keys/#{set}")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/keys/#{set}",
+      }
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection

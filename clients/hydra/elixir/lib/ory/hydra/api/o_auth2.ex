@@ -32,12 +32,14 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/oauth2/auth/requests/consent/accept")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/oauth2/auth/requests/consent/accept",
+      }
       |> add_param(:query, :consent_challenge, consent_challenge)
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -71,12 +73,14 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/oauth2/auth/requests/login/accept")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/oauth2/auth/requests/login/accept",
+      }
       |> add_param(:query, :login_challenge, login_challenge)
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -105,11 +109,13 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec accept_o_auth2_logout_request(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Hydra.Model.OAuth2RedirectTo.t} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def accept_o_auth2_logout_request(connection, logout_challenge, _opts \\ []) do
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/oauth2/auth/requests/logout/accept")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/oauth2/auth/requests/logout/accept",
+      }
       |> add_param(:query, :logout_challenge, logout_challenge)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -138,10 +144,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec create_o_auth2_client(Tesla.Env.client, Ory.Hydra.Model.OAuth2Client.t, keyword()) :: {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:ok, Ory.Hydra.Model.OAuth2Client.t} | {:error, Tesla.Env.t}
   def create_o_auth2_client(connection, o_auth2_client, _opts \\ []) do
     request =
-      %{}
-      |> method(:post)
-      |> url("/admin/clients")
+      %Tesla.Env{
+        method: :post,
+        url: "/admin/clients",
+      }
       |> add_param(:body, :body, o_auth2_client)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -171,9 +179,11 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec delete_o_auth2_client(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.GenericError.t} | {:error, Tesla.Env.t}
   def delete_o_auth2_client(connection, id, _opts \\ []) do
     request =
-      %{}
-      |> method(:delete)
-      |> url("/admin/clients/#{id}")
+      %Tesla.Env{
+        method: :delete,
+        url: "/admin/clients/#{id}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -202,10 +212,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec delete_o_auth2_token(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def delete_o_auth2_token(connection, client_id, _opts \\ []) do
     request =
-      %{}
-      |> method(:delete)
-      |> url("/admin/oauth2/tokens")
+      %Tesla.Env{
+        method: :delete,
+        url: "/admin/oauth2/tokens",
+      }
       |> add_param(:query, :client_id, client_id)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -234,9 +246,11 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec delete_trusted_o_auth2_jwt_grant_issuer(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.GenericError.t} | {:error, Tesla.Env.t}
   def delete_trusted_o_auth2_jwt_grant_issuer(connection, id, _opts \\ []) do
     request =
-      %{}
-      |> method(:delete)
-      |> url("/admin/trust/grants/jwt-bearer/issuers/#{id}")
+      %Tesla.Env{
+        method: :delete,
+        url: "/admin/trust/grants/jwt-bearer/issuers/#{id}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -265,9 +279,11 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec get_o_auth2_client(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:ok, Ory.Hydra.Model.OAuth2Client.t} | {:error, Tesla.Env.t}
   def get_o_auth2_client(connection, id, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/clients/#{id}")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/clients/#{id}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -296,10 +312,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec get_o_auth2_consent_request(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Hydra.Model.OAuth2ConsentRequest.t} | {:ok, Ory.Hydra.Model.OAuth2RedirectTo.t} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def get_o_auth2_consent_request(connection, consent_challenge, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/oauth2/auth/requests/consent")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/oauth2/auth/requests/consent",
+      }
       |> add_param(:query, :consent_challenge, consent_challenge)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -329,10 +347,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec get_o_auth2_login_request(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Hydra.Model.OAuth2RedirectTo.t} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:ok, Ory.Hydra.Model.OAuth2LoginRequest.t} | {:error, Tesla.Env.t}
   def get_o_auth2_login_request(connection, login_challenge, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/oauth2/auth/requests/login")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/oauth2/auth/requests/login",
+      }
       |> add_param(:query, :login_challenge, login_challenge)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -362,10 +382,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec get_o_auth2_logout_request(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Hydra.Model.OAuth2LogoutRequest.t} | {:ok, Ory.Hydra.Model.OAuth2RedirectTo.t} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def get_o_auth2_logout_request(connection, logout_challenge, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/oauth2/auth/requests/logout")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/oauth2/auth/requests/logout",
+      }
       |> add_param(:query, :logout_challenge, logout_challenge)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -395,9 +417,11 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec get_trusted_o_auth2_jwt_grant_issuer(Tesla.Env.client, String.t, keyword()) :: {:ok, Ory.Hydra.Model.TrustedOAuth2JwtGrantIssuer.t} | {:ok, Ory.Hydra.Model.GenericError.t} | {:error, Tesla.Env.t}
   def get_trusted_o_auth2_jwt_grant_issuer(connection, id, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/trust/grants/jwt-bearer/issuers/#{id}")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/trust/grants/jwt-bearer/issuers/#{id}",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -431,11 +455,13 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:post)
-      |> url("/admin/oauth2/introspect")
+      %Tesla.Env{
+        method: :post,
+        url: "/admin/oauth2/introspect",
+      }
       |> add_param(:form, :token, token)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -474,10 +500,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/clients")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/clients",
+      }
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -513,11 +541,13 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/oauth2/auth/sessions/consent")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/oauth2/auth/sessions/consent",
+      }
       |> add_param(:query, :subject, subject)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -554,10 +584,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:get)
-      |> url("/admin/trust/grants/jwt-bearer/issuers")
+      %Tesla.Env{
+        method: :get,
+        url: "/admin/trust/grants/jwt-bearer/issuers",
+      }
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -585,9 +617,11 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec o_auth2_authorize(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def o_auth2_authorize(connection, _opts \\ []) do
     request =
-      %{}
-      |> method(:get)
-      |> url("/oauth2/auth")
+      %Tesla.Env{
+        method: :get,
+        url: "/oauth2/auth",
+      }
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -627,11 +661,13 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:post)
-      |> url("/oauth2/token")
+      %Tesla.Env{
+        method: :post,
+        url: "/oauth2/token",
+      }
       |> add_param(:form, :grant_type, grant_type)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -661,10 +697,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec patch_o_auth2_client(Tesla.Env.client, String.t, list(Ory.Hydra.Model.JsonPatch.t), keyword()) :: {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:ok, Ory.Hydra.Model.OAuth2Client.t} | {:error, Tesla.Env.t}
   def patch_o_auth2_client(connection, id, json_patch, _opts \\ []) do
     request =
-      %{}
-      |> method(:patch)
-      |> url("/admin/clients/#{id}")
+      %Tesla.Env{
+        method: :patch,
+        url: "/admin/clients/#{id}",
+      }
       |> add_param(:body, :body, json_patch)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -699,12 +737,14 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/oauth2/auth/requests/consent/reject")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/oauth2/auth/requests/consent/reject",
+      }
       |> add_param(:query, :consent_challenge, consent_challenge)
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -738,12 +778,14 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/oauth2/auth/requests/login/reject")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/oauth2/auth/requests/login/reject",
+      }
       |> add_param(:query, :login_challenge, login_challenge)
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -772,11 +814,13 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec reject_o_auth2_logout_request(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def reject_o_auth2_logout_request(connection, logout_challenge, _opts \\ []) do
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/oauth2/auth/requests/logout/reject")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/oauth2/auth/requests/logout/reject",
+      }
       |> add_param(:query, :logout_challenge, logout_challenge)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -812,11 +856,13 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:delete)
-      |> url("/admin/oauth2/auth/sessions/consent")
+      %Tesla.Env{
+        method: :delete,
+        url: "/admin/oauth2/auth/sessions/consent",
+      }
       |> add_param(:query, :subject, subject)
       |> add_optional_params(optional_params, opts)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -845,10 +891,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec revoke_o_auth2_login_sessions(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def revoke_o_auth2_login_sessions(connection, subject, _opts \\ []) do
     request =
-      %{}
-      |> method(:delete)
-      |> url("/admin/oauth2/auth/sessions/login")
+      %Tesla.Env{
+        method: :delete,
+        url: "/admin/oauth2/auth/sessions/login",
+      }
       |> add_param(:query, :subject, subject)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -877,10 +925,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec revoke_o_auth2_token(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:error, Tesla.Env.t}
   def revoke_o_auth2_token(connection, token, _opts \\ []) do
     request =
-      %{}
-      |> method(:post)
-      |> url("/oauth2/revoke")
+      %Tesla.Env{
+        method: :post,
+        url: "/oauth2/revoke",
+      }
       |> add_param(:form, :token, token)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -910,10 +960,12 @@ defmodule Ory.Hydra.Api.OAuth2 do
   @spec set_o_auth2_client(Tesla.Env.client, String.t, Ory.Hydra.Model.OAuth2Client.t, keyword()) :: {:ok, Ory.Hydra.Model.ErrorOAuth2.t} | {:ok, Ory.Hydra.Model.OAuth2Client.t} | {:error, Tesla.Env.t}
   def set_o_auth2_client(connection, id, o_auth2_client, _opts \\ []) do
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/clients/#{id}")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/clients/#{id}",
+      }
       |> add_param(:body, :body, o_auth2_client)
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -949,11 +1001,13 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:put)
-      |> url("/admin/clients/#{id}/lifespans")
+      %Tesla.Env{
+        method: :put,
+        url: "/admin/clients/#{id}/lifespans",
+      }
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
@@ -986,11 +1040,13 @@ defmodule Ory.Hydra.Api.OAuth2 do
     }
 
     request =
-      %{}
-      |> method(:post)
-      |> url("/admin/trust/grants/jwt-bearer/issuers")
+      %Tesla.Env{
+        method: :post,
+        url: "/admin/trust/grants/jwt-bearer/issuers",
+      }
       |> add_optional_params(optional_params, opts)
       |> ensure_body()
+      |> Map.from_struct()
       |> Enum.into([])
 
     connection
