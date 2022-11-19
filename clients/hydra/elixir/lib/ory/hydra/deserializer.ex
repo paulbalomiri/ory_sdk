@@ -19,10 +19,8 @@ defmodule Ory.Hydra.Deserializer do
     model
     |> Map.update!(field, &(Poison.Decode.decode(&1, Keyword.merge(options, [as: struct(mod)]))))
   end
-  def deserialize(model, field, :any, mod, options) do
-    model
-    |> Map.update!(field, model[field])
-  end
+  # Just keep the value parsed from json for any
+  def deserialize(model, field, :any, mod, options), do: model
   def deserialize(model, field, :map, mod, options) do
     maybe_transform_map = fn
       nil ->
