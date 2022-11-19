@@ -18,7 +18,7 @@ defmodule Ory.Hydra.Model.JsonPatch do
     :from => String.t | nil,
     :op => String.t,
     :path => String.t,
-    :value => AnyType | nil
+    :value => any() | nil
   }
 end
 

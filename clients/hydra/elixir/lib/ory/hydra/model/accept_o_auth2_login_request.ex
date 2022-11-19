@@ -20,7 +20,7 @@ defmodule Ory.Hydra.Model.AcceptOAuth2LoginRequest do
   @type t :: %__MODULE__{
     :acr => String.t | nil,
     :amr => [String.t] | nil,
-    :context => AnyType | nil,
+    :context => any() | nil,
     :force_subject_identifier => String.t | nil,
     :remember => boolean() | nil,
     :remember_for => integer() | nil,

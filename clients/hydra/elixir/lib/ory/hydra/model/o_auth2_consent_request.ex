@@ -28,7 +28,7 @@ defmodule Ory.Hydra.Model.OAuth2ConsentRequest do
     :amr => [String.t] | nil,
     :challenge => String.t,
     :client => Ory.Hydra.Model.OAuth2Client.t | nil,
-    :context => AnyType | nil,
+    :context => any() | nil,
     :login_challenge => String.t | nil,
     :login_session_id => String.t | nil,
     :oidc_context => Ory.Hydra.Model.OAuth2ConsentRequestOpenIdConnectContext.t | nil,

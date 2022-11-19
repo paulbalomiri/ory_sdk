@@ -13,8 +13,8 @@ defmodule Ory.Hydra.Model.AcceptOAuth2ConsentRequestSession do
   ]
 
   @type t :: %__MODULE__{
-    :access_token => AnyType | nil,
-    :id_token => AnyType | nil
+    :access_token => any() | nil,
+    :id_token => any() | nil
   }
 end
 

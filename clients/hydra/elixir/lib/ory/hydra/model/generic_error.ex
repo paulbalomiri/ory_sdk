@@ -21,7 +21,7 @@ defmodule Ory.Hydra.Model.GenericError do
   @type t :: %__MODULE__{
     :code => integer() | nil,
     :debug => String.t | nil,
-    :details => AnyType | nil,
+    :details => any() | nil,
     :id => String.t | nil,
     :message => String.t,
     :reason => String.t | nil,
