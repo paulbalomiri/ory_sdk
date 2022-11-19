@@ -20,8 +20,8 @@ defmodule Ory.Kratos.Model.AdminCreateIdentityBody do
 
   @type t :: %__MODULE__{
     :credentials => Ory.Kratos.Model.AdminIdentityImportCredentials.t | nil,
-    :metadata_admin => AnyType | nil,
-    :metadata_public => AnyType | nil,
+    :metadata_admin => any() | nil,
+    :metadata_public => any() | nil,
     :recovery_addresses => [Ory.Kratos.Model.RecoveryAddress.t] | nil,
     :schema_id => String.t,
     :state => Ory.Kratos.Model.IdentityState.t | nil,
@@ -35,8 +35,8 @@ defimpl Poison.Decoder, for: Ory.Kratos.Model.AdminCreateIdentityBody do
   def decode(value, options) do
     value
     |> deserialize(:credentials, :struct, Ory.Kratos.Model.AdminIdentityImportCredentials, options)
-    |> deserialize(:metadata_admin, :struct, Ory.Kratos.Model.AnyType, options)
-    |> deserialize(:metadata_public, :struct, Ory.Kratos.Model.AnyType, options)
+    |> deserialize(:metadata_admin, :any, :any, options)
+    |> deserialize(:metadata_public, :any, :any, options)
     |> deserialize(:recovery_addresses, :list, Ory.Kratos.Model.RecoveryAddress, options)
     |> deserialize(:state, :struct, Ory.Kratos.Model.IdentityState, options)
     |> deserialize(:verifiable_addresses, :list, Ory.Kratos.Model.VerifiableIdentityAddress, options)

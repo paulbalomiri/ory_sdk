@@ -40,7 +40,7 @@ defmodule Ory.Kratos.Model.UiNodeAttributes do
     :pattern => String.t | nil,
     :required => boolean() | nil,
     :type => String.t,
-    :value => AnyType | nil,
+    :value => any() | nil,
     :id => String.t,
     :text => Ory.Kratos.Model.UiText.t,
     :height => integer(),
@@ -61,7 +61,7 @@ defimpl Poison.Decoder, for: Ory.Kratos.Model.UiNodeAttributes do
   def decode(value, options) do
     value
     |> deserialize(:label, :struct, Ory.Kratos.Model.UiText, options)
-    |> deserialize(:value, :struct, Ory.Kratos.Model.AnyType, options)
+    |> deserialize(:value, :any, :any, options)
     |> deserialize(:text, :struct, Ory.Kratos.Model.UiText, options)
     |> deserialize(:title, :struct, Ory.Kratos.Model.UiText, options)
   end

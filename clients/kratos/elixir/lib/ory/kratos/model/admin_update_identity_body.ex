@@ -16,8 +16,8 @@ defmodule Ory.Kratos.Model.AdminUpdateIdentityBody do
   ]
 
   @type t :: %__MODULE__{
-    :metadata_admin => AnyType | nil,
-    :metadata_public => AnyType | nil,
+    :metadata_admin => any() | nil,
+    :metadata_public => any() | nil,
     :schema_id => String.t,
     :state => Ory.Kratos.Model.IdentityState.t,
     :traits => map()
@@ -28,8 +28,8 @@ defimpl Poison.Decoder, for: Ory.Kratos.Model.AdminUpdateIdentityBody do
   import Ory.Kratos.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:metadata_admin, :struct, Ory.Kratos.Model.AnyType, options)
-    |> deserialize(:metadata_public, :struct, Ory.Kratos.Model.AnyType, options)
+    |> deserialize(:metadata_admin, :any, :any, options)
+    |> deserialize(:metadata_public, :any, :any, options)
     |> deserialize(:state, :struct, Ory.Kratos.Model.IdentityState, options)
   end
 end

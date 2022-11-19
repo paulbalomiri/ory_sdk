@@ -27,14 +27,14 @@ defmodule Ory.Kratos.Model.Identity do
     :created_at => DateTime.t | nil,
     :credentials => %{optional(String.t) => Ory.Kratos.Model.IdentityCredentials.t} | nil,
     :id => String.t,
-    :metadata_admin => AnyType | nil,
-    :metadata_public => AnyType | nil,
+    :metadata_admin => any() | nil,
+    :metadata_public => any() | nil,
     :recovery_addresses => [Ory.Kratos.Model.RecoveryAddress.t] | nil,
     :schema_id => String.t,
     :schema_url => String.t,
     :state => Ory.Kratos.Model.IdentityState.t | nil,
     :state_changed_at => DateTime.t | nil,
-    :traits => AnyType | nil,
+    :traits => any() | nil,
     :updated_at => DateTime.t | nil,
     :verifiable_addresses => [Ory.Kratos.Model.VerifiableIdentityAddress.t] | nil
   }
@@ -45,11 +45,11 @@ defimpl Poison.Decoder, for: Ory.Kratos.Model.Identity do
   def decode(value, options) do
     value
     |> deserialize(:credentials, :map, Ory.Kratos.Model.IdentityCredentials, options)
-    |> deserialize(:metadata_admin, :struct, Ory.Kratos.Model.AnyType, options)
-    |> deserialize(:metadata_public, :struct, Ory.Kratos.Model.AnyType, options)
+    |> deserialize(:metadata_admin, :any, :any, options)
+    |> deserialize(:metadata_public, :any, :any, options)
     |> deserialize(:recovery_addresses, :list, Ory.Kratos.Model.RecoveryAddress, options)
     |> deserialize(:state, :struct, Ory.Kratos.Model.IdentityState, options)
-    |> deserialize(:traits, :struct, Ory.Kratos.Model.AnyType, options)
+    |> deserialize(:traits, :any, :any, options)
     |> deserialize(:verifiable_addresses, :list, Ory.Kratos.Model.VerifiableIdentityAddress, options)
   end
 end
