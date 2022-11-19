@@ -21,7 +21,7 @@ defmodule Ory.Hydra.Deserializer do
   end
   def deserialize(model, field, :any, mod, options) do
     model
-    |> Map.update!(field, model[fiels])
+    |> Map.update!(field, model[field])
   end
   def deserialize(model, field, :map, mod, options) do
     maybe_transform_map = fn
